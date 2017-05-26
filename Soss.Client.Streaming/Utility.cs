@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Soss.Client.Streaming
 {
-    internal static class Utility
+    public static class Utility
     {
         /// <summary>
         /// Perform in-place removal of the first N elements in a list.
@@ -22,7 +22,8 @@ namespace Soss.Client.Streaming
                 source[to] = source[from];
 
             // remove trailing elements (moving backwards to minimize shifting)
-            for (int i = source.Count - 1; i >= (source.Count - count); i--)
+            int newLastElement = source.Count - count;
+            for (int i = source.Count - 1; i >= newLastElement; i--)
                 source.RemoveAt(i);
         }
     }
