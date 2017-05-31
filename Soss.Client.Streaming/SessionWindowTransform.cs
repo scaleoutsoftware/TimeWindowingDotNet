@@ -40,6 +40,9 @@ namespace Soss.Client.Streaming
 
         public void Add(T item)
         {
+            // changing underlying collection, cache of session windows is now invalid.
+            _windows = null;
+
             // Use add/evict algorithm tuned to underlying collection type.
             switch (_collType)
             {
@@ -71,13 +74,8 @@ namespace Soss.Client.Streaming
 
             source.Insert(insertPosition, item);
 
-
             // The new element might cause a new session window to be created.
             PerformEviction(source);
-
-            
-            
-
         }
 
         private void PerformEviction(IList<T> source)
@@ -89,12 +87,8 @@ namespace Soss.Client.Streaming
 
             if (countOfWindowsToRemove > 0)
             {
-                int itemsToRemove = _windows.Take(countOfWindowsToRemove).Sum(window => window.Count);
-
-                for (int i = 0; i < countOfWindowsToRemove; i++)
-                    itemsToRemove += _windows[i].Count;
-
-                source.RemoveFirstItems(itemsToRemove);
+                int removeCount = _windows.Take(countOfWindowsToRemove).Sum(window => window.Count);
+                source.RemoveFirstItems(removeCount);
 
                 // We've changed the underlying collection. Let our cache of windows be regenerated on next access.
                 _windows = null;
@@ -103,7 +97,46 @@ namespace Soss.Client.Streaming
 
         private void AddToLinkedList(T item)
         {
+            DateTime timestamp = _timestampSelector(item);
+            LinkedList<T> source = _source as LinkedList<T>;
 
+            var nodeToInsertAfter = source.Last;
+            while (nodeToInsertAfter != null)
+            {
+                if (timestamp < _timestampSelector(nodeToInsertAfter.Value))
+                    nodeToInsertAfter = nodeToInsertAfter.Previous;
+                else
+                    break;
+            }
+
+            // Found the place, now do the insert
+            if (nodeToInsertAfter != null)
+                source.AddAfter(nodeToInsertAfter, item);
+            else
+            {
+                // adding as first item (or else adding to an empty linked list)
+                source.AddFirst(item);
+            }
+
+            // The new element might cause a new session window to be created.
+            PerformEviction(source);
+        }
+
+        private void PerformEviction(LinkedList<T> source)
+        {
+            if (_windows == null)
+                _windows = source.ToSessionWindows(_timestampSelector, _idleThreshold).ToList();
+
+            int countOfWindowsToRemove = _windows.Count - _boundedSessionCapacity;
+
+            if (countOfWindowsToRemove > 0)
+            {
+                int removeCount = _windows.Take(countOfWindowsToRemove).Sum(window => window.Count);
+                source.RemoveFirstItems(removeCount);
+
+                // We've changed the underlying collection. Let our cache of windows be regenerated on next access.
+                _windows = null;
+            }
         }
 
         IEnumerable<T> Source { get { return _source; } }

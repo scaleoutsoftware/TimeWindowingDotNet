@@ -9,9 +9,9 @@ namespace Soss.Client.Streaming
         /// <summary>
         /// Perform in-place removal of the first N elements in a list.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="source"></param>
-        /// <param name="count"></param>
+        /// <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+        /// <param name="source">List of values.</param>
+        /// <param name="count">Number of elements to remove from the front of the list.</param>
         public static void RemoveFirstItems<T>(this IList<T> source, int count)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
@@ -25,6 +25,22 @@ namespace Soss.Client.Streaming
             int newLastElement = source.Count - count;
             for (int i = source.Count - 1; i >= newLastElement; i--)
                 source.RemoveAt(i);
+        }
+
+
+        /// <summary>
+        /// Remove the first N elements in a linked list.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+        /// <param name="source">List of values.</param>
+        /// <param name="count">Number of elements to remove from the front of the list.</param>
+        public static void RemoveFirstItems<T>(this LinkedList<T> source, int count)
+        {
+            if (source == null) throw new ArgumentNullException(nameof(source));
+            if (count < 0 || count > source.Count) throw new ArgumentOutOfRangeException(nameof(count));
+
+            for (int i = 0; i < count; i++)
+                source.RemoveFirst();
         }
     }
 }
