@@ -8,6 +8,14 @@ namespace Soss.Client.Streaming.Linq
 {
     public static class SessionWindowExtensions
     {
+        /// <summary>
+        /// Transforms a collection into an enumerable collection of session windows. 
+        /// </summary>
+        /// <typeparam name="TSource">The type of objects to transform.</typeparam>
+        /// <param name="source">The sequence of elements to transform.</param>
+        /// <param name="timestampSelector">A function to extract a timestamp from an element.</param>
+        /// <param name="idleThreshold">Maximum allowed time gap between elements before a new session window is started.</param>
+        /// <returns>An enumerable set of <see cref="ITimeWindow{TElement}"/> collections.</returns>
         public static IEnumerable<ITimeWindow<TSource>> ToSessionWindows<TSource>(this IEnumerable<TSource> source, Func<TSource, DateTime> timestampSelector, TimeSpan idleThreshold)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));

@@ -8,6 +8,13 @@ namespace Soss.Client.Streaming
 {
     internal enum CollectionType : byte { List, LinkedList }
 
+    /// <summary>
+    /// Transforms a collection into an enumerable collection of session windows. 
+    /// This wrapper can be used to manage the retention policy of the wrapped
+    /// collection. Objects added through this wrapper are inserted in chronologial
+    /// order and evicted according to the policy provided to the constructor.
+    /// </summary>
+    /// <typeparam name="T">The type of objects to transform.</typeparam>
     public class SessionWindowTransform<T> : IEnumerable<ITimeWindow<T>>
     {
         IEnumerable<T> _source;
@@ -18,12 +25,32 @@ namespace Soss.Client.Streaming
         private TimeSpan _idleThreshold;
         private int _boundedSessionCapacity;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="source">The list of elements to wrap with the transformation.</param>
+        /// <param name="timestampSelector">A function to extract a timestamp from an element.</param>
+        /// <param name="idleThreshold">Maximum allowed time gap between elements before a new session window is started.</param>
+        /// <param name="boundedSessionCapacity">
+        /// Maximum number of sessions to retain. If a new element is added via the <see cref="Add(T)"/>
+        /// method that creates a new session, elements in the oldest session will be evicted from the underlying collection.
+        /// </param>
         public SessionWindowTransform(IList<T> source, Func<T, DateTime> timestampSelector, TimeSpan idleThreshold, int boundedSessionCapacity)
         {
             _collType = CollectionType.List;
             Init(source, timestampSelector, idleThreshold, boundedSessionCapacity);
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="source">The linked list of elements to wrap with the transformation.</param>
+        /// <param name="timestampSelector">A function to extract a timestamp from an element.</param>
+        /// <param name="idleThreshold">Maximum allowed time gap between elements before a new session window is started.</param>
+        /// <param name="boundedSessionCapacity">
+        /// Maximum number of sessions to retain. If a new element is added via the <see cref="Add(T)"/>
+        /// method that creates a new session, elements in the oldest session will be evicted from the underlying collection.
+        /// </param>
         public SessionWindowTransform(LinkedList<T> source, Func<T, DateTime> timestampSelector, TimeSpan idleThreshold, int boundedSessionCapacity)
         {
             _collType = CollectionType.LinkedList;
@@ -38,6 +65,11 @@ namespace Soss.Client.Streaming
             _boundedSessionCapacity = (boundedSessionCapacity > 0) ? boundedSessionCapacity : throw new ArgumentOutOfRangeException(nameof(boundedSessionCapacity));
         }
 
+        /// <summary>
+        /// Adds an element to the underlying collection, maintaining chronological order of events
+        /// and evicting elements from old sessions as needed.
+        /// </summary>
+        /// <param name="item">The element to add to the collection.</param>
         public void Add(T item)
         {
             // changing underlying collection, cache of session windows is now invalid.
@@ -139,8 +171,43 @@ namespace Soss.Client.Streaming
             }
         }
 
-        IEnumerable<T> Source { get { return _source; } }
+        /// <summary>
+        /// Gets a reference to the transformation's underlying collection.
+        /// </summary>
+        public IEnumerable<T> Source { get { return _source; } }
 
+        /// <summary>
+        /// Refreshes the transformation. For use when the underlying collection is modified
+        /// directly instead of through the this <see cref="SessionWindowTransform{T}"/> wrapper.
+        /// </summary>
+        /// <param name="performEviction">Indicates that eviction should be re-run to remove elements from older session windows.</param>
+        public void Refresh(bool performEviction)
+        {
+            // get rid of our cache of windows:
+            _windows = null;
+
+            if (performEviction)
+            {
+                switch (_collType)
+                {
+                    case CollectionType.List:
+                        var asList = _source as IList<T>;
+                        PerformEviction(asList);
+                        break;
+                    case CollectionType.LinkedList:
+                        var asLinkedList = _source as LinkedList<T>;
+                        PerformEviction(asLinkedList);
+                        break;
+                    default:
+                        throw new NotImplementedException("Underlying collection type not supported");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Returns an enumerator that iterates through the collection of time windows.
+        /// </summary>
+        /// <returns>An enumerator that can be used to iterate through the collection of <see cref="ITimeWindow{TElement}"/> elements.</returns>
         public IEnumerator<ITimeWindow<T>> GetEnumerator()
         {
             if (_windows == null)
