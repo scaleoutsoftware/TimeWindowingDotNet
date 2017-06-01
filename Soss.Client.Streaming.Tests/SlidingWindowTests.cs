@@ -14,6 +14,7 @@ namespace Soss.Client.Streaming.Tests
     public class SlidingWindowTests
     {
         private readonly ITestOutputHelper _output;
+        private static readonly TimeSpan OneMinute = TimeSpan.FromMinutes(1);
 
         public static TheoryData<IEnumerable<DateTime>> TestCollectionSet1
         {
@@ -58,7 +59,7 @@ namespace Soss.Client.Streaming.Tests
 
         [Theory]
         [MemberData(nameof(TestCollectionSet1))]
-        public void SimpleSliding(IEnumerable<DateTime> coll)
+        public void SimpleSlidingLinq(IEnumerable<DateTime> coll)
         {
             var start = new DateTime(2017, 1, 1);
             var end = new DateTime(2017, 1, 5);
@@ -81,7 +82,7 @@ namespace Soss.Client.Streaming.Tests
         }
 
         [Fact]
-        public void Empty()
+        public void EmptyLinq()
         {
             var start = new DateTime(2017, 1, 1);
             var end = new DateTime(2017, 1, 5);
@@ -94,6 +95,91 @@ namespace Soss.Client.Streaming.Tests
             {
                 Assert.Empty(window);
             }
+        }
+
+        [Fact]
+        public void AddToTranformOfList()
+        {
+            DateTime onePM = new DateTime(2017, 1, 1, 13, 0, 0); // 1pm
+            var source = new List<DateTime>();
+            var slidingTransform = new SlidingWindowTransform<DateTime>(source, dt => dt,
+                                                              windowDuration: TimeSpan.FromMinutes(10),
+                                                              every: OneMinute,
+                                                              startTime: onePM);
+            Assert.Empty(slidingTransform);
+
+            // Add a element prior to date. Ensure it's immediately evicted.
+            slidingTransform.Add(new DateTime(2017, 1, 1, 12, 59, 59)); //12:59pm
+            Assert.Empty(slidingTransform);
+            Assert.Empty(source);
+
+            slidingTransform.Add(new DateTime(2017, 1, 1, 13, 0, 0)); // 1pm
+            Assert.Equal(1, source.Count);
+            Assert.Equal(1, slidingTransform.Count());
+
+            slidingTransform.Add(new DateTime(2017, 1, 1, 13, 0, 1)); // 1:00:01pm
+            Assert.Equal(2, source.Count);
+            Assert.Equal(1, slidingTransform.Count());
+
+            slidingTransform.Add(new DateTime(2017, 1, 1, 13, 1, 0)); // 1:01:00pm
+            Assert.Equal(3, source.Count);
+            Assert.Equal(2, slidingTransform.Count()); // 2 windows
+            Assert.Equal(3, slidingTransform.First().Count); // first window has all three
+            Assert.Equal(1, slidingTransform.Last().Count);  // second window just has the 1:01:00 element.
+
+
+            // do a second transform with a later start time. Make sure eviction is performed.
+            var transform2 = new SlidingWindowTransform<DateTime>(source, dt => dt,
+                                                                  windowDuration: TimeSpan.FromMinutes(10),
+                                                                  every: OneMinute,
+                                                                  startTime: onePM + OneMinute);
+
+            Assert.Equal(1, source.Count); // first two items in source collection shouldn've been evicted.
+            Assert.Equal(1, transform2.Count()); // 1 window now
+            Assert.Equal(1, transform2.First().Count); // first (and only) window just has the 1:01:00 element
+
+        }
+
+        [Fact]
+        public void AddToTranformOfLinkedList()
+        {
+            DateTime onePM = new DateTime(2017, 1, 1, 13, 0, 0); // 1pm
+            var source = new LinkedList<DateTime>();
+            var slidingTransform = new SlidingWindowTransform<DateTime>(source, dt => dt,
+                                                              windowDuration: TimeSpan.FromMinutes(10),
+                                                              every: OneMinute,
+                                                              startTime: onePM);
+            Assert.Empty(slidingTransform);
+
+            // Add a element prior to date. Ensure it's immediately evicted.
+            slidingTransform.Add(new DateTime(2017, 1, 1, 12, 59, 59)); //12:59pm
+            Assert.Empty(slidingTransform);
+            Assert.Empty(source);
+
+            slidingTransform.Add(new DateTime(2017, 1, 1, 13, 0, 0)); // 1pm
+            Assert.Equal(1, source.Count);
+            Assert.Equal(1, slidingTransform.Count());
+
+            slidingTransform.Add(new DateTime(2017, 1, 1, 13, 0, 1)); // 1:00:01pm
+            Assert.Equal(2, source.Count);
+            Assert.Equal(1, slidingTransform.Count());
+
+            slidingTransform.Add(new DateTime(2017, 1, 1, 13, 1, 0)); // 1:01:00pm
+            Assert.Equal(3, source.Count);
+            Assert.Equal(2, slidingTransform.Count()); // 2 windows
+            Assert.Equal(3, slidingTransform.First().Count); // first window has all three
+            Assert.Equal(1, slidingTransform.Last().Count);  // second window just has the 1:01:00 element.
+
+
+            // do a second transform with a later start time. Make sure eviction is performed.
+            var transform2 = new SlidingWindowTransform<DateTime>(source, dt => dt,
+                                                                  windowDuration: TimeSpan.FromMinutes(10),
+                                                                  every: OneMinute,
+                                                                  startTime: onePM + OneMinute);
+
+            Assert.Equal(1, source.Count); // first two items in source collection shouldn've been evicted.
+            Assert.Equal(1, transform2.Count()); // 1 window now
+            Assert.Equal(1, transform2.First().Count); // first (and only) window just has the 1:01:00 element
         }
 
 

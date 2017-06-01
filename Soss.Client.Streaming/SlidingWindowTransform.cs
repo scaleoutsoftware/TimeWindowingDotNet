@@ -40,6 +40,9 @@ namespace Soss.Client.Streaming
             _every = every;
             _startTime = startTime;
 
+            // We do eviction here because the sliding transform's eviction model is time-based (unlike the
+            // the session window's eviction logic that's count-based). So we expect the start time provided
+            // to the constructor to change each time the SlidingWindowTransform is constructed.
             PerformEviction();
         }
 
@@ -71,7 +74,6 @@ namespace Soss.Client.Streaming
 
             source.AddTimeOrdered(item, _timestampSelector);
 
-            // The new element might cause a new session window to be created.
             PerformEviction(source);
         }
 
@@ -113,7 +115,6 @@ namespace Soss.Client.Streaming
 
             source.AddTimeOrdered(item, _timestampSelector);
 
-            // The new element might cause a new session window to be created.
             PerformEviction(source);
         }
 
@@ -139,7 +140,7 @@ namespace Soss.Client.Streaming
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
     }
 }

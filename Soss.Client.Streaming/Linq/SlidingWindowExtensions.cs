@@ -15,12 +15,33 @@ namespace Soss.Client.Streaming.Linq
             var intervalGen = new SlidingWindowIntervalGenerator<TSource>(startTime, endTime, every, windowDuration);
 
             // location in the source collection where the next window should start looking for elements.
-            int startingIndexHint = 0; 
+            int startingIndexHint = 0;
 
-            foreach (var window in intervalGen)
+            switch (source)
             {
-                startingIndexHint = window.SetItems(source, startingIndexHint, timestampSelector);
-                yield return window;
+                case IList<TSource> list:
+                    foreach (var window in intervalGen)
+                    {
+                        startingIndexHint = window.SetItems(list, startingIndexHint, timestampSelector);
+                        yield return window;
+                    }
+                    break;
+                case LinkedList<TSource> linkedList:
+                    var startHintNode = linkedList.First;
+                    foreach (var window in intervalGen)
+                    {
+                        startHintNode = window.SetItems(startHintNode, timestampSelector);
+                        yield return window;
+                    }
+                    break;
+                default:
+                    // any old IEnumerable.
+                    foreach (var window in intervalGen)
+                    {
+                        startingIndexHint = window.SetItems(source, startingIndexHint, timestampSelector);
+                        yield return window;
+                    }
+                    break;
             }
 
         }
@@ -83,64 +104,90 @@ namespace Soss.Client.Streaming.Linq
 
         public bool IsReadOnly { get { return true; } }
 
-        public int SetItems(IEnumerable<TElement> source, int startingIndexHint, Func<TElement, DateTime> timestampSelector)
+        public int SetItems(IList<TElement> list, int startingIndexHint, Func<TElement, DateTime> timestampSelector)
         {
             bool foundItem = false;
-
-            // TODO: Validate startingIndexHint correctness.
-
-            if (source is IList<TElement> list)
+            for (int i = startingIndexHint; i < list.Count; ++i)
             {
-                for (int i = startingIndexHint; i < list.Count; ++i)
+                var timestamp = timestampSelector(list[i]);
+                if (timestamp < StartTime)
+                    continue; // keep looking
+
+                if (timestamp >= EndTime)
+                    break; // we assume the list is sorted, so we won't find anything else
+
+                if (!foundItem)
                 {
-                    var timestamp = timestampSelector(list[i]);
-                    if (timestamp < StartTime)
-                        continue; // keep looking
-
-                    if (timestamp >= EndTime)
-                        break; // we assume the list is sorted, so we won't find anything else
-
-                    if (!foundItem)
-                    {
-                        // about to add the first item to this window.
-                        foundItem = true;
-                        startingIndexHint = i;
-                        _items = new List<TElement>(1);
-                    }
-
-                    _items.Add(list[i]);
+                    // about to add the first item to this window.
+                    foundItem = true;
+                    startingIndexHint = i;
+                    _items = new List<TElement>(1);
                 }
-            }
-            else
-            {
-                // TODO: skip is expensive for a linked list... we need to improve perf.
-                // it would be nice if we could somehow clone an iterator and return an iterator
-                // in the linked list instead of an index.
-                source = source.Skip(startingIndexHint);
 
-                foreach (var item in source)
-                {
-                    var timestamp = timestampSelector(item);
-                    if (timestamp < StartTime)
-                    {
-                        startingIndexHint++;
-                        continue; // keep looking
-                    }
-
-                    if (timestamp >= EndTime)
-                        break; // we assume the list is sorted, so we won't find anything else
-
-                    if (!foundItem)
-                    {
-                        foundItem = true;
-                        _items = new List<TElement>(1);
-                    }
-                    _items.Add(item);
-                }
+                _items.Add(list[i]);
             }
 
             return startingIndexHint;
         }
+
+        public LinkedListNode<TElement> SetItems(LinkedListNode<TElement> startingNode, Func<TElement, DateTime> timestampSelector)
+        {
+            bool foundItem = false;
+
+            var currentNode = startingNode;
+            while (currentNode != null)
+            {
+                var timestamp = timestampSelector(currentNode.Value);
+                if (timestamp < StartTime)
+                {
+                    startingNode = currentNode.Next;
+                }
+                else if (timestamp >= EndTime)
+                {
+                    break; // we assume the list is sorted, so we won't find anything else
+                }
+                else
+                {
+                    // node falls within the window time
+                    if (!foundItem)
+                    {
+                        foundItem = true;
+                        _items = new List<TElement>(1);
+                    }
+                    _items.Add(currentNode.Value);
+                }
+
+                currentNode = currentNode.Next;
+            }
+            return startingNode;
+        }
+
+        public int SetItems(IEnumerable<TElement> source, int startingIndexHint, Func<TElement, DateTime> timestampSelector)
+        {
+            bool foundItem = false;
+            foreach (var item in source)
+            {
+                var timestamp = timestampSelector(item);
+                if (timestamp < StartTime)
+                {
+                    startingIndexHint++;
+                    continue; // keep looking
+                }
+
+                if (timestamp >= EndTime)
+                    break; // we assume the list is sorted, so we won't find anything else
+
+                if (!foundItem)
+                {
+                    foundItem = true;
+                    _items = new List<TElement>(1);
+                }
+                _items.Add(item);
+            }
+
+            return startingIndexHint;
+        }
+
 
         public IEnumerator<TElement> GetEnumerator()
         {

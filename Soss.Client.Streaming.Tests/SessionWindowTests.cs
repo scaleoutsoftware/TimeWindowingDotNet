@@ -58,10 +58,10 @@ namespace Soss.Client.Streaming.Tests
         [MemberData(nameof(TestCollectionSet1))]
         public void SimpleSessionLinq(IEnumerable<DateTime> coll)
         {
-            var slidingWindows = coll.ToSessionWindows(elem => elem, TimeSpan.FromMinutes(10));
-            Assert.Equal(2, slidingWindows.Count());
+            var sessionWindows = coll.ToSessionWindows(elem => elem, TimeSpan.FromMinutes(10));
+            Assert.Equal(2, sessionWindows.Count());
 
-            foreach (var window in slidingWindows)
+            foreach (var window in sessionWindows)
             {
                 _output.WriteLine($"{window.StartTime:T} - {window.EndTime:T}");
                 foreach (var item in window)
@@ -70,17 +70,17 @@ namespace Soss.Client.Streaming.Tests
                 }
             }
 
-            var list = slidingWindows.ToList();
-            Assert.Equal(7, slidingWindows.First().Count());
-            Assert.Equal(11, slidingWindows.Last().Count());
+            var list = sessionWindows.ToList();
+            Assert.Equal(7, sessionWindows.First().Count());
+            Assert.Equal(11, sessionWindows.Last().Count());
         }
 
         [Theory]
         [MemberData(nameof(TestCollectionSetEmpty))]
         public void EmptySessionLinq(IEnumerable<DateTime> coll)
         {
-            var slidingWindows = coll.ToSessionWindows(elem => elem, TimeSpan.FromSeconds(1));
-            Assert.Equal(0, slidingWindows.Count());
+            var sessionWindows = coll.ToSessionWindows(elem => elem, TimeSpan.FromSeconds(1));
+            Assert.Equal(0, sessionWindows.Count());
         }
 
         [Fact]
