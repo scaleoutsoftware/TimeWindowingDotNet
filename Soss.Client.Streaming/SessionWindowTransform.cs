@@ -6,7 +6,7 @@ using Soss.Client.Streaming.Linq;
 
 namespace Soss.Client.Streaming
 {
-    internal enum CollectionType : byte { List, LinkedList }
+    
 
     /// <summary>
     /// Transforms a collection into an enumerable collection of session windows. 
@@ -63,6 +63,9 @@ namespace Soss.Client.Streaming
             _timestampSelector = timestampSelector ?? throw new ArgumentNullException(nameof(timestampSelector));
             _idleThreshold = (idleThreshold > TimeSpan.Zero) ? idleThreshold : throw new ArgumentOutOfRangeException(nameof(idleThreshold));
             _boundedSessionCapacity = (boundedSessionCapacity > 0) ? boundedSessionCapacity : throw new ArgumentOutOfRangeException(nameof(boundedSessionCapacity));
+
+            // TODO: Perform eviction like we do with the SlidingTransform? I guess the caller could just use Refresh() if the 
+            //       collection is changing underneath him somehow.
         }
 
         /// <summary>
@@ -92,19 +95,9 @@ namespace Soss.Client.Streaming
 
         private void AddToList(T item)
         {
-            DateTime timestamp = _timestampSelector(item);
             IList<T> source = _source as IList<T>;
 
-            int insertPosition = source.Count;
-            while (insertPosition > 0)
-            {
-                if (timestamp < _timestampSelector(source[insertPosition - 1]))
-                    insertPosition--;
-                else
-                    break;
-            }
-
-            source.Insert(insertPosition, item);
+            source.AddTimeOrdered(item, _timestampSelector);
 
             // The new element might cause a new session window to be created.
             PerformEviction(source);
@@ -129,26 +122,9 @@ namespace Soss.Client.Streaming
 
         private void AddToLinkedList(T item)
         {
-            DateTime timestamp = _timestampSelector(item);
             LinkedList<T> source = _source as LinkedList<T>;
 
-            var nodeToInsertAfter = source.Last;
-            while (nodeToInsertAfter != null)
-            {
-                if (timestamp < _timestampSelector(nodeToInsertAfter.Value))
-                    nodeToInsertAfter = nodeToInsertAfter.Previous;
-                else
-                    break;
-            }
-
-            // Found the place, now do the insert
-            if (nodeToInsertAfter != null)
-                source.AddAfter(nodeToInsertAfter, item);
-            else
-            {
-                // adding as first item (or else adding to an empty linked list)
-                source.AddFirst(item);
-            }
+            source.AddTimeOrdered(item, _timestampSelector);
 
             // The new element might cause a new session window to be created.
             PerformEviction(source);

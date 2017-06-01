@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SessionWindowTests.cs" />
+    <Compile Include="SlidingWindowTests.cs" />
     <Compile Include="UtilityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

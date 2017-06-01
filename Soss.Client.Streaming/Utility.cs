@@ -4,6 +4,8 @@ using System.Text;
 
 namespace Soss.Client.Streaming
 {
+    internal enum CollectionType : byte { List, LinkedList }
+
     public static class Utility
     {
         /// <summary>
@@ -41,6 +43,44 @@ namespace Soss.Client.Streaming
 
             for (int i = 0; i < count; i++)
                 source.RemoveFirst();
+        }
+
+        internal static void AddTimeOrdered<T>(this IList<T> source, T item, Func<T, DateTime> timestampSelector)
+        {
+            DateTime timestamp = timestampSelector(item);
+            int insertPosition = source.Count;
+            while (insertPosition > 0)
+            {
+                if (timestamp < timestampSelector(source[insertPosition - 1]))
+                    insertPosition--;
+                else
+                    break;
+            }
+
+            source.Insert(insertPosition, item);
+        }
+
+        internal static void AddTimeOrdered<T>(this LinkedList<T> source, T item, Func<T, DateTime> timestampSelector)
+        {
+            DateTime timestamp = timestampSelector(item);
+            var nodeToInsertAfter = source.Last;
+
+            while (nodeToInsertAfter != null)
+            {
+                if (timestamp < timestampSelector(nodeToInsertAfter.Value))
+                    nodeToInsertAfter = nodeToInsertAfter.Previous;
+                else
+                    break;
+            }
+
+            // Found the place, now do the insert
+            if (nodeToInsertAfter != null)
+                source.AddAfter(nodeToInsertAfter, item);
+            else
+            {
+                // adding as first item (or else adding to an empty linked list)
+                source.AddFirst(item);
+            }
         }
     }
 }
