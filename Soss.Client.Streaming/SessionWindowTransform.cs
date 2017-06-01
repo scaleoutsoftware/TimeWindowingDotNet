@@ -6,15 +6,16 @@ using Soss.Client.Streaming.Linq;
 
 namespace Soss.Client.Streaming
 {
-    
+
 
     /// <summary>
-    /// Transforms a collection into an enumerable collection of session windows. 
-    /// This wrapper can be used to manage the retention policy of the wrapped
+    /// Transforms a collection into an enumerable collection of session windows and manages 
+    /// eviction of old items from the source collection. 
+    /// This wrapper can be used to manage the retention policy of the underlying
     /// collection. Objects added through this wrapper are inserted in chronologial
     /// order and evicted according to the policy provided to the constructor.
     /// </summary>
-    /// <typeparam name="T">The type of objects to transform.</typeparam>
+    /// <typeparam name="T">The type of objects in the source collection.</typeparam>
     public class SessionWindowTransform<T> : IEnumerable<ITimeWindow<T>>
     {
         IEnumerable<T> _source;
@@ -69,8 +70,8 @@ namespace Soss.Client.Streaming
         }
 
         /// <summary>
-        /// Adds an element to the underlying collection, maintaining chronological order of events
-        /// and evicting elements from old sessions as needed.
+        /// Adds an element to the underlying collection, inserting it in chronological order
+        /// and evicting old sessions if needed.
         /// </summary>
         /// <param name="item">The element to add to the collection.</param>
         public void Add(T item)

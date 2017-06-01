@@ -7,6 +7,34 @@ namespace Soss.Client.Streaming.Linq
 {
     public static class SlidingWindowExtensions
     {
+        /// <summary>
+        /// Transforms a collection into an enumerable collection of sliding windows. The source collection
+        /// must be sorted chronologically.
+        /// </summary>
+        /// <typeparam name="TSource">The type of objects in the source collection.</typeparam>
+        /// <param name="source">The sequence of elements to transform.</param>
+        /// <param name="timestampSelector">A function to extract a timestamp from an element.</param>
+        /// <param name="startTime">Start time (inclusive) of the first sliding window.</param>
+        /// <param name="endTime">End time (exclusive) for the last collection(s) of sliding windows.</param>
+        /// <param name="windowDuration">
+        /// Duration of each time window. This is a maximum value that will be shortened for the last window(s) 
+        /// in the returned sequence (see remarks).
+        /// </param>
+        /// <param name="every">The period of time between the start of each sliding window.</param>
+        /// <returns>An enumerable set of <see cref="ITimeWindow{TElement}"/> collections.</returns>
+        /// <remarks>
+        /// <para>
+        /// The method returns a sequence of overlapping <see cref="ITimeWindow{TElement}"/> elements, where each window is 
+        /// an enumerable collection of elements from the source collection whose timestamp falls within its specified range. 
+        /// The <see cref="ITimeWindow{TElement}.StartTime"/> is inclusive and the <see cref="ITimeWindow{TElement}.EndTime"/> is exclusive.
+        /// </para>
+        /// <para>
+        /// The last sliding windows returned by this method may have a shorter duration than what is specified
+        /// by the <paramref name="windowDuration"/> argument. This happens when the duration would cause 
+        /// the window to extend beyond the specified <paramref name="endTime"/>. These trailing windows can be skipped
+        /// by using a Linq Where() operation on the returned sequence to filters out windows with short durations.
+        /// </para>
+        /// </remarks>
         public static IEnumerable<ITimeWindow<TSource>> ToSlidingWindows<TSource>(this IEnumerable<TSource> source, Func<TSource, DateTime> timestampSelector, DateTime startTime, DateTime endTime, TimeSpan windowDuration, TimeSpan every)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));

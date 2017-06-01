@@ -9,9 +9,10 @@ namespace Soss.Client.Streaming.Linq
     public static class SessionWindowExtensions
     {
         /// <summary>
-        /// Transforms a collection into an enumerable collection of session windows. 
+        /// Transforms a collection into an enumerable collection of session windows. The source collection
+        /// must be sorted chronologically.
         /// </summary>
-        /// <typeparam name="TSource">The type of objects to transform.</typeparam>
+        /// <typeparam name="TSource">The type of objects in the source collection.</typeparam>
         /// <param name="source">The sequence of elements to transform.</param>
         /// <param name="timestampSelector">A function to extract a timestamp from an element.</param>
         /// <param name="idleThreshold">Maximum allowed time gap between elements before a new session window is started.</param>

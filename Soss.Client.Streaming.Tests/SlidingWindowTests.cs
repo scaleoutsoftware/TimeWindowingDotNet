@@ -100,12 +100,12 @@ namespace Soss.Client.Streaming.Tests
         [Fact]
         public void AddToTranformOfList()
         {
-            DateTime onePM = new DateTime(2017, 1, 1, 13, 0, 0); // 1pm
+            DateTime startTime = new DateTime(2017, 1, 1, 13, 0, 0); // 1pm
             var source = new List<DateTime>();
             var slidingTransform = new SlidingWindowTransform<DateTime>(source, dt => dt,
                                                               windowDuration: TimeSpan.FromMinutes(10),
                                                               every: OneMinute,
-                                                              startTime: onePM);
+                                                              startTime: startTime);
             Assert.Empty(slidingTransform);
 
             // Add a element prior to date. Ensure it's immediately evicted.
@@ -132,7 +132,7 @@ namespace Soss.Client.Streaming.Tests
             var transform2 = new SlidingWindowTransform<DateTime>(source, dt => dt,
                                                                   windowDuration: TimeSpan.FromMinutes(10),
                                                                   every: OneMinute,
-                                                                  startTime: onePM + OneMinute);
+                                                                  startTime: startTime + OneMinute);
 
             Assert.Equal(1, source.Count); // first two items in source collection shouldn've been evicted.
             Assert.Equal(1, transform2.Count()); // 1 window now
@@ -143,12 +143,12 @@ namespace Soss.Client.Streaming.Tests
         [Fact]
         public void AddToTranformOfLinkedList()
         {
-            DateTime onePM = new DateTime(2017, 1, 1, 13, 0, 0); // 1pm
+            DateTime startTime = new DateTime(2017, 1, 1, 13, 0, 0); // 1pm
             var source = new LinkedList<DateTime>();
             var slidingTransform = new SlidingWindowTransform<DateTime>(source, dt => dt,
                                                               windowDuration: TimeSpan.FromMinutes(10),
                                                               every: OneMinute,
-                                                              startTime: onePM);
+                                                              startTime: startTime);
             Assert.Empty(slidingTransform);
 
             // Add a element prior to date. Ensure it's immediately evicted.
@@ -175,7 +175,7 @@ namespace Soss.Client.Streaming.Tests
             var transform2 = new SlidingWindowTransform<DateTime>(source, dt => dt,
                                                                   windowDuration: TimeSpan.FromMinutes(10),
                                                                   every: OneMinute,
-                                                                  startTime: onePM + OneMinute);
+                                                                  startTime: startTime + OneMinute);
 
             Assert.Equal(1, source.Count); // first two items in source collection shouldn've been evicted.
             Assert.Equal(1, transform2.Count()); // 1 window now
