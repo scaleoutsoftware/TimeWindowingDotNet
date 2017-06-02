@@ -15,7 +15,7 @@ namespace Soss.Client.Streaming.Linq
         /// <param name="source">The sequence of elements to transform.</param>
         /// <param name="timestampSelector">A function to extract a timestamp from an element.</param>
         /// <param name="startTime">Start time (inclusive) of the first sliding window.</param>
-        /// <param name="endTime">End time (exclusive) for the last collection(s) of sliding windows.</param>
+        /// <param name="endTime">End time (exclusive) for the last of sliding window(s).</param>
         /// <param name="windowDuration">
         /// Duration of each time window. This is a maximum value that will be shortened for the last window(s) 
         /// in the returned sequence (see remarks).
@@ -75,7 +75,7 @@ namespace Soss.Client.Streaming.Linq
         }
     }
 
-    internal class SlidingWindowIntervalGenerator<TElement> : IEnumerable<SlidingTimeWindow<TElement>>
+    internal class SlidingWindowIntervalGenerator<TElement> : IEnumerable<TimeWindow<TElement>>
     {
         private DateTime _startTime;
         private DateTime _endTime;
@@ -92,7 +92,7 @@ namespace Soss.Client.Streaming.Linq
             _duration = duration;
         }
 
-        public IEnumerator<SlidingTimeWindow<TElement>> GetEnumerator()
+        public IEnumerator<TimeWindow<TElement>> GetEnumerator()
         {
             var start = _startTime;
             var end = _endTime;
@@ -102,7 +102,7 @@ namespace Soss.Client.Streaming.Linq
                 if ((start + dur) > end)
                     dur = end - start;
 
-                yield return new SlidingTimeWindow<TElement>(start, start + dur);
+                yield return new TimeWindow<TElement>(start, start + dur);
                 start = start + _period;
             }
         }
@@ -114,11 +114,11 @@ namespace Soss.Client.Streaming.Linq
     }
 
 
-    internal class SlidingTimeWindow<TElement> : ITimeWindow<TElement>
+    internal class TimeWindow<TElement> : ITimeWindow<TElement>
     {
         private List<TElement> _items;
 
-        public SlidingTimeWindow(DateTime startTime, DateTime endTime)
+        public TimeWindow(DateTime startTime, DateTime endTime)
         {
             EndTime = endTime;
             StartTime = startTime;
