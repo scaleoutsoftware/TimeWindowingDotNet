@@ -7,6 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soss.Client.Streaming", "So
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soss.Client.Streaming.Tests", "Soss.Client.Streaming.Tests\Soss.Client.Streaming.Tests.csproj", "{7748387B-AE55-4F1C-A508-84750EDE0700}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples", "Samples\Samples.csproj", "{ADEBD54F-E2C1-4FBB-B13E-A31AFF0B7E63}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{3ED4F5C4-1D15-4E15-96E8-76A7A6B3F32E}"
+	ProjectSection(SolutionItems) = preProject
+		docs\UserGuide.md = docs\UserGuide.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +28,10 @@ Global
 		{7748387B-AE55-4F1C-A508-84750EDE0700}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7748387B-AE55-4F1C-A508-84750EDE0700}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7748387B-AE55-4F1C-A508-84750EDE0700}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADEBD54F-E2C1-4FBB-B13E-A31AFF0B7E63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADEBD54F-E2C1-4FBB-B13E-A31AFF0B7E63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADEBD54F-E2C1-4FBB-B13E-A31AFF0B7E63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADEBD54F-E2C1-4FBB-B13E-A31AFF0B7E63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
