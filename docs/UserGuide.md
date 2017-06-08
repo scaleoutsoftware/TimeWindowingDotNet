@@ -33,7 +33,7 @@ operate on any `IEnumerable<T>` collection.
     foreach (var win in slidingWindows)
         Console.WriteLine($"{win.StartTime:t} - {win.EndTime:t}: {win.Average(hb => hb.BeatsPerMinute)}");
 	
-The library also provides convenience classes for managment of
+The library also provides convenience classes for management of
 collections of time-ordered elements. These classes offer automatic
 eviction and ordering of elements, and they are suited for
 scenarios where elements are only accessed and analyzed as a windowed
@@ -147,7 +147,7 @@ never empty.
 
 ![session windows](session.jpg)
 
-Like the other windowinf fuctions, the `ToSessionWindows` method
+Like the other windowing fuctions, the `ToSessionWindows` method
 requires the source collection to be sorted chronologically. (See
 the *Wrapper Classes* section below for details on convenient wrapper
 classes that keep your source collection sorted.)
@@ -202,10 +202,10 @@ The `SlidingWindowTransform<T>` class provides the following constructor:
         TimeSpan every
         DateTime startTime)
 
-The parameters to this constructor are similar to the paramaters to
+The parameters to this constructor are similar to the parameters to
 the `ToSlidingWindows` extension method, except that the `startTime`
 parameter defines the eviction policy for the collection as well as
-the starting point for the windowing transfrom--elements with
+the starting point for the windowing transform--elements with
 timestamps prior to `startTime` will be removed from the source
 collection.
 
@@ -228,7 +228,7 @@ The `TumblingWindowTransform<T>` class provides the following constructor:
         TimeSpan windowDuration,
         DateTime startTime)
 
-The parameters to this constructor are similar to the paramaters to
+The parameters to this constructor are similar to the parameters to
 the `ToTumblingWindows` extension method, except that the `startTime`
 parameter defines the eviction policy for the collection as well as
 the starting point for the windowing transform. Elements with
