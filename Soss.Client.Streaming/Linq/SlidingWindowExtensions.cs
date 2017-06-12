@@ -128,7 +128,15 @@ namespace Soss.Client.Streaming.Linq
 
         public DateTime StartTime { get; }
 
-        public int Count { get { return _items.Count; } }
+        public int Count
+        {
+            get {
+                if (_items != null)
+                    return _items.Count;
+                else
+                    return 0;
+            }
+        }
 
         public bool IsReadOnly { get { return true; } }
 
