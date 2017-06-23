@@ -35,9 +35,10 @@ operate on any `IEnumerable<T>` collection.
 	
 The library also provides convenience classes for management of
 collections of time-ordered elements. These classes offer automatic
-eviction and ordering of elements, and they are suited for
-scenarios where elements are only accessed and analyzed as a windowed
-transformation. See the **Wrapper Classes** section for details.
+eviction and ordering of elements, and they are suited for scenarios
+where elements are only accessed and analyzed as a windowed
+transformation. See the [Wrapper Classes](#WrapperClasses) section for
+details.
 
 ## Windowing Extension Methods
 
@@ -75,9 +76,9 @@ If no elements fall in a sliding time window, that window will be
 empty.
 
 To use the library's `ToSlidingWindows` method, the source collection
-*must* be sorted chronologically. (See the *Wrapper Classes* section
-below for details on convenient wrapper classes that keep your source
-collection sorted.)
+*must* be sorted chronologically. (See
+the [Wrapper Classes](#WrapperClasses) section below for details on
+convenient wrapper classes that keep your source collection sorted.)
 
     public static IEnumerable<ITimeWindow<TSource>> ToSlidingWindows<TSource>(
         this IEnumerable<TSource> source, 
@@ -110,9 +111,9 @@ If no elements fall in a tumbling time window, that window will be
 empty.
 
 To use the library's `ToTumblingWindows` method, the source collection
-*must* be sorted chronologically. (See the *Wrapper Classes* section
-below for details on convenient wrapper classes that keep your source
-collection sorted.)
+*must* be sorted chronologically. (See
+the [Wrapper Classes](#WrapperClasses) section below for details on
+convenient wrapper classes that keep your source collection sorted.)
 
     public static IEnumerable<ITimeWindow<TSource>> ToTumblingWindows<TSource>(
         this IEnumerable<TSource> source, 
@@ -164,6 +165,7 @@ classes that keep your source collection sorted.)
 <dt>idleThreshold</dt><dd>Maximum allowed time gap between elements before a new session window is started.</dd>
 </dl>
 
+<a name="WrapperClasses"></a>
 ## Wrapper Classes
 
 In addition to the three extension methods detailed above, the library
@@ -177,8 +179,8 @@ These wrapper classes are intended to be used as alternatives to the
 library's extension methods when the underlying elements are accessed
 primarily as a windowed collection. It is therefore expected that the
 elements in the underlying source collection will only be accessed and
-modified through a chosen wrapper. These wrappers perform the following work on
-your behalf:
+modified through the chosen wrapper. These wrappers perform the
+following work on your behalf:
 
 * **Eviction:** Eviction of elements is automatically handled, as
   specified by the policy passed into the wrapper's
