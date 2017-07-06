@@ -16,8 +16,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetStandard", "NetStandard\
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Scaleout.Client.Streaming", "Scaleout.Client.Streaming\Scaleout.Client.Streaming.shproj", "{B799536B-9101-43AE-856E-13DBCFAFA3E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework47", "Framework47\Framework47.csproj", "{9188CE95-1106-4518-A392-B56B144D0D4F}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Scaleout.Client.Streaming\Scaleout.Client.Streaming.projitems*{9188ce95-1106-4518-a392-b56b144d0d4f}*SharedItemsImports = 4
 		Scaleout.Client.Streaming\Scaleout.Client.Streaming.projitems*{b799536b-9101-43ae-856e-13dbcfafa3e2}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +40,10 @@ Global
 		{812CB21C-D914-4703-B0BA-1BD7D5F0DBDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{812CB21C-D914-4703-B0BA-1BD7D5F0DBDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{812CB21C-D914-4703-B0BA-1BD7D5F0DBDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9188CE95-1106-4518-A392-B56B144D0D4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9188CE95-1106-4518-A392-B56B144D0D4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9188CE95-1106-4518-A392-B56B144D0D4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9188CE95-1106-4518-A392-B56B144D0D4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
