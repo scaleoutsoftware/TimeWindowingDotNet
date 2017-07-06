@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soss.Client.Streaming.Tests", "Soss.Client.Streaming.Tests\Soss.Client.Streaming.Tests.csproj", "{7748387B-AE55-4F1C-A508-84750EDE0700}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scaleout.Client.Streaming.Tests", "Soss.Client.Streaming.Tests\Scaleout.Client.Streaming.Tests.csproj", "{7748387B-AE55-4F1C-A508-84750EDE0700}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples", "Samples\Samples.csproj", "{ADEBD54F-E2C1-4FBB-B13E-A31AFF0B7E63}"
 EndProject
