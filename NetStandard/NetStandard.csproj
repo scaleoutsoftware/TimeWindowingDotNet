@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.4</TargetFramework>
-    <SignAssembly>False</SignAssembly>
+    <SignAssembly>True</SignAssembly>
     <Company>ScaleOut Software, Inc.</Company>
     <Authors />
     <Description>The ScaleOut Time Windowing Library for .NET provides a set of windowing functions for time-ordered collections of events.</Description>
@@ -10,6 +10,7 @@
     <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
     <AssemblyName>Scaleout.Client.Streaming</AssemblyName>
     <RootNamespace>Scaleout.Client.Streaming</RootNamespace>
+    <AssemblyOriginatorKeyFile>Scaleout.Client.Streaming.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <Import Project="..\Scaleout.Client.Streaming\Scaleout.Client.Streaming.projitems" Label="Shared" />

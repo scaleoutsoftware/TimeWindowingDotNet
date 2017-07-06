@@ -6,7 +6,7 @@ namespace Scaleout.Client.Streaming
 {
     internal enum CollectionType : byte { List, LinkedList }
 
-    public static class Utility
+    internal static class Utility
     {
         /// <summary>
         /// Perform in-place removal of the first N elements in a list.
