@@ -51,8 +51,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Soss.Client.Streaming\NetStandard.csproj">
-      <Project>{a232158e-34eb-4fca-9c23-5b12ffdd01d5}</Project>
+    <ProjectReference Include="..\NetStandard\NetStandard.csproj">
+      <Project>{812cb21c-d914-4703-b0ba-1bd7d5f0dbdb}</Project>
       <Name>NetStandard</Name>
     </ProjectReference>
   </ItemGroup>
