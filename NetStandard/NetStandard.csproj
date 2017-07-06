@@ -12,4 +12,6 @@
     <RootNamespace>Scaleout.Client.Streaming</RootNamespace>
   </PropertyGroup>
 
+  <Import Project="..\Scaleout.Client.Streaming\Scaleout.Client.Streaming.projitems" Label="Shared" />
+
 </Project>

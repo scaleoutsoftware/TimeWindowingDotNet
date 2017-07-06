@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>b799536b-9101-43ae-856e-13dbcfafa3e2</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Scaleout.Client.Streaming</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ITimeWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Linq\SessionWindowExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Linq\SlidingWindowExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Linq\TumblingWindowExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SessionWindowTransform.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SlidingWindowTransform.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TumblingWindowTransform.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utility.cs" />
+  </ItemGroup>
+</Project>
