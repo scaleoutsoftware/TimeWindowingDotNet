@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Soss.Client.Streaming
+namespace Scaleout.Client.Streaming
 {
     internal enum CollectionType : byte { List, LinkedList }
 

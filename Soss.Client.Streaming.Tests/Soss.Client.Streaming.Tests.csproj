@@ -8,8 +8,8 @@
     <ProjectGuid>{7748387B-AE55-4F1C-A508-84750EDE0700}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Soss.Client.Streaming.Tests</RootNamespace>
-    <AssemblyName>Soss.Client.Streaming.Tests</AssemblyName>
+    <RootNamespace>Scaleout.Client.Streaming.Tests</RootNamespace>
+    <AssemblyName>Scaleout.Client.Streaming.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Soss.Client.Streaming.Linq
+namespace Scaleout.Client.Streaming.Linq
 {
     public static class SlidingWindowExtensions
     {

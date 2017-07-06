@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Soss.Client.Streaming
+namespace Scaleout.Client.Streaming
 {
     /// <summary>
     /// Transforms a collection into an enumerable collection of fixed-time windows and manages 

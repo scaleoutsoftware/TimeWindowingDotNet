@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Soss.Client.Streaming.Linq;
+using Scaleout.Client.Streaming.Linq;
 
-namespace Soss.Client.Streaming
+namespace Scaleout.Client.Streaming
 {
 
 

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Soss.Client.Streaming;
+using Scaleout.Client.Streaming;
 using Xunit;
 
-namespace Soss.Client.Streaming.Tests
+namespace Scaleout.Client.Streaming.Tests
 {
     
     public class UtilityTests

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Soss.Client.Streaming.Linq
+namespace Scaleout.Client.Streaming.Linq
 {
     public static class SessionWindowExtensions
     {

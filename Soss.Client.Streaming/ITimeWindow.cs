@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Soss.Client.Streaming
+namespace Scaleout.Client.Streaming
 {
     /// <summary>
     /// Supports iteration over a collection of elements that fall within a time window.

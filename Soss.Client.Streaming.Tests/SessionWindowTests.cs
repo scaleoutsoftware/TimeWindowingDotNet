@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-using Soss.Client.Streaming.Linq;
+using Scaleout.Client.Streaming.Linq;
 
-namespace Soss.Client.Streaming.Tests
+namespace Scaleout.Client.Streaming.Tests
 {
     public class SessionWindowTests
     {
