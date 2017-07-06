@@ -47,7 +47,7 @@ namespace Scaleout.Client.Streaming
         /// </param>
         /// <param name="startTime">Start time (inclusive) of the first window.
         /// Items in the underlying collection that fall before this start time will be evicted.</param>
-        public TumblingWindowTransform(LinkedList<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, TimeSpan every, DateTime startTime)
+        public TumblingWindowTransform(LinkedList<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, DateTime startTime)
         {
             _transform = new SlidingWindowTransform<T>(source, timestampSelector, windowDuration, windowDuration, startTime);
         }
