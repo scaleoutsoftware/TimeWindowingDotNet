@@ -9,7 +9,7 @@ operate on any `IEnumerable<T>` collection.
 
 ### Example
 
-    using Soss.Client.Streaming.Linq;
+    using Scaleout.Client.Streaming.Linq;
 	
     class HeartRate {
 		public DateTime Timestamp { get; set; } // assumes UTC
@@ -44,7 +44,7 @@ details.
 
 Three methods are provided to break up an enumerable collection into
 different kinds of time windows. These are available as extension
-methods in the `Soss.Client.Streaming.Linq` namespace:
+methods in the `Scaleout.Client.Streaming.Linq` namespace:
 
 1. **ToSlidingWindows**: Transforms a collection into an enumerable
    collection of overlapped (sliding) windows.
