@@ -5,11 +5,6 @@ VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples", "Samples\Samples.csproj", "{ADEBD54F-E2C1-4FBB-B13E-A31AFF0B7E63}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{3ED4F5C4-1D15-4E15-96E8-76A7A6B3F32E}"
-	ProjectSection(SolutionItems) = preProject
-		docs\UserGuide.md = docs\UserGuide.md
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetStandard", "NetStandard\NetStandard.csproj", "{812CB21C-D914-4703-B0BA-1BD7D5F0DBDB}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Scaleout.Client.Streaming", "Scaleout.Client.Streaming\Scaleout.Client.Streaming.shproj", "{B799536B-9101-43AE-856E-13DBCFAFA3E2}"

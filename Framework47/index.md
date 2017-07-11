@@ -40,7 +40,7 @@ where elements are only accessed and analyzed as a windowed
 transformation. See the [Wrapper Classes](#WrapperClasses) section for
 details.
 
-## Windowing Extension Methods
+## Windowing Methods
 
 Three methods are provided to break up an enumerable collection into
 different kinds of time windows. These are available as extension
@@ -70,7 +70,7 @@ average of time series data. The duration of sliding windows is larger
 than the period between the windows, so the period of time covered by
 each window overlaps with its neighbors:
 
-![sliding windows](sliding.jpg)
+![sliding windows](images/sliding.jpg)
 
 If no elements fall in a sliding time window, that window will be
 empty.
@@ -105,7 +105,7 @@ periodic, non-overlapping windows. Unlike sliding time windows, an
 element in a collection of tumbling windows may only appear in a
 single window.
 
-![tumbling windows](tumbling.jpg)
+![tumbling windows](images/tumbling.jpg)
 
 If no elements fall in a tumbling time window, that window will be
 empty.
@@ -146,7 +146,7 @@ activity resumes.
 Unlike sliding and tumbling window functions, a session window is
 never empty.
 
-![session windows](session.jpg)
+![session windows](images/session.jpg)
 
 Like the other windowing fuctions, the `ToSessionWindows` method
 requires the source collection to be sorted chronologically. (See

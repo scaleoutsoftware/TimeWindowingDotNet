@@ -1,0 +1,406 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: Scaleout.Client.Streaming
+  name: Scaleout.Client.Streaming
+  href: api/Scaleout.Client.Streaming.html
+  commentId: N:Scaleout.Client.Streaming
+  fullName: Scaleout.Client.Streaming
+  nameWithType: Scaleout.Client.Streaming
+- uid: Scaleout.Client.Streaming.ITimeWindow`1
+  name: ITimeWindow<TElement>
+  href: api/Scaleout.Client.Streaming.ITimeWindow-1.html
+  commentId: T:Scaleout.Client.Streaming.ITimeWindow`1
+  name.vb: ITimeWindow(Of TElement)
+  fullName: Scaleout.Client.Streaming.ITimeWindow<TElement>
+  fullName.vb: Scaleout.Client.Streaming.ITimeWindow(Of TElement)
+  nameWithType: ITimeWindow<TElement>
+  nameWithType.vb: ITimeWindow(Of TElement)
+- uid: Scaleout.Client.Streaming.ITimeWindow`1.EndTime
+  name: EndTime
+  href: api/Scaleout.Client.Streaming.ITimeWindow-1.html#Scaleout_Client_Streaming_ITimeWindow_1_EndTime
+  commentId: P:Scaleout.Client.Streaming.ITimeWindow`1.EndTime
+  fullName: Scaleout.Client.Streaming.ITimeWindow<TElement>.EndTime
+  fullName.vb: Scaleout.Client.Streaming.ITimeWindow(Of TElement).EndTime
+  nameWithType: ITimeWindow<TElement>.EndTime
+  nameWithType.vb: ITimeWindow(Of TElement).EndTime
+- uid: Scaleout.Client.Streaming.ITimeWindow`1.EndTime*
+  name: EndTime
+  href: api/Scaleout.Client.Streaming.ITimeWindow-1.html#Scaleout_Client_Streaming_ITimeWindow_1_EndTime_
+  commentId: Overload:Scaleout.Client.Streaming.ITimeWindow`1.EndTime
+  fullName: Scaleout.Client.Streaming.ITimeWindow<TElement>.EndTime
+  fullName.vb: Scaleout.Client.Streaming.ITimeWindow(Of TElement).EndTime
+  nameWithType: ITimeWindow<TElement>.EndTime
+  nameWithType.vb: ITimeWindow(Of TElement).EndTime
+- uid: Scaleout.Client.Streaming.ITimeWindow`1.StartTime
+  name: StartTime
+  href: api/Scaleout.Client.Streaming.ITimeWindow-1.html#Scaleout_Client_Streaming_ITimeWindow_1_StartTime
+  commentId: P:Scaleout.Client.Streaming.ITimeWindow`1.StartTime
+  fullName: Scaleout.Client.Streaming.ITimeWindow<TElement>.StartTime
+  fullName.vb: Scaleout.Client.Streaming.ITimeWindow(Of TElement).StartTime
+  nameWithType: ITimeWindow<TElement>.StartTime
+  nameWithType.vb: ITimeWindow(Of TElement).StartTime
+- uid: Scaleout.Client.Streaming.ITimeWindow`1.StartTime*
+  name: StartTime
+  href: api/Scaleout.Client.Streaming.ITimeWindow-1.html#Scaleout_Client_Streaming_ITimeWindow_1_StartTime_
+  commentId: Overload:Scaleout.Client.Streaming.ITimeWindow`1.StartTime
+  fullName: Scaleout.Client.Streaming.ITimeWindow<TElement>.StartTime
+  fullName.vb: Scaleout.Client.Streaming.ITimeWindow(Of TElement).StartTime
+  nameWithType: ITimeWindow<TElement>.StartTime
+  nameWithType.vb: ITimeWindow(Of TElement).StartTime
+- uid: Scaleout.Client.Streaming.Linq
+  name: Scaleout.Client.Streaming.Linq
+  href: api/Scaleout.Client.Streaming.Linq.html
+  commentId: N:Scaleout.Client.Streaming.Linq
+  fullName: Scaleout.Client.Streaming.Linq
+  nameWithType: Scaleout.Client.Streaming.Linq
+- uid: Scaleout.Client.Streaming.Linq.SessionWindowExtensions
+  name: SessionWindowExtensions
+  href: api/Scaleout.Client.Streaming.Linq.SessionWindowExtensions.html
+  commentId: T:Scaleout.Client.Streaming.Linq.SessionWindowExtensions
+  fullName: Scaleout.Client.Streaming.Linq.SessionWindowExtensions
+  nameWithType: SessionWindowExtensions
+- uid: Scaleout.Client.Streaming.Linq.SessionWindowExtensions.ToSessionWindows*
+  name: ToSessionWindows
+  href: api/Scaleout.Client.Streaming.Linq.SessionWindowExtensions.html#Scaleout_Client_Streaming_Linq_SessionWindowExtensions_ToSessionWindows_
+  commentId: Overload:Scaleout.Client.Streaming.Linq.SessionWindowExtensions.ToSessionWindows
+  fullName: Scaleout.Client.Streaming.Linq.SessionWindowExtensions.ToSessionWindows
+  nameWithType: SessionWindowExtensions.ToSessionWindows
+- uid: Scaleout.Client.Streaming.Linq.SessionWindowExtensions.ToSessionWindows``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.DateTime},System.TimeSpan)
+  name: ToSessionWindows<TSource>(IEnumerable<TSource>, Func<TSource, DateTime>, TimeSpan)
+  href: api/Scaleout.Client.Streaming.Linq.SessionWindowExtensions.html#Scaleout_Client_Streaming_Linq_SessionWindowExtensions_ToSessionWindows__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_DateTime__System_TimeSpan_
+  commentId: M:Scaleout.Client.Streaming.Linq.SessionWindowExtensions.ToSessionWindows``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.DateTime},System.TimeSpan)
+  name.vb: ToSessionWindows(Of TSource)(IEnumerable(Of TSource), Func(Of TSource, DateTime), TimeSpan)
+  fullName: Scaleout.Client.Streaming.Linq.SessionWindowExtensions.ToSessionWindows<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, System.DateTime>, System.TimeSpan)
+  fullName.vb: Scaleout.Client.Streaming.Linq.SessionWindowExtensions.ToSessionWindows(Of TSource)(System.Collections.Generic.IEnumerable(Of TSource), System.Func(Of TSource, System.DateTime), System.TimeSpan)
+  nameWithType: SessionWindowExtensions.ToSessionWindows<TSource>(IEnumerable<TSource>, Func<TSource, DateTime>, TimeSpan)
+  nameWithType.vb: SessionWindowExtensions.ToSessionWindows(Of TSource)(IEnumerable(Of TSource), Func(Of TSource, DateTime), TimeSpan)
+- uid: Scaleout.Client.Streaming.Linq.SlidingWindowExtensions
+  name: SlidingWindowExtensions
+  href: api/Scaleout.Client.Streaming.Linq.SlidingWindowExtensions.html
+  commentId: T:Scaleout.Client.Streaming.Linq.SlidingWindowExtensions
+  fullName: Scaleout.Client.Streaming.Linq.SlidingWindowExtensions
+  nameWithType: SlidingWindowExtensions
+- uid: Scaleout.Client.Streaming.Linq.SlidingWindowExtensions.ToSlidingWindows*
+  name: ToSlidingWindows
+  href: api/Scaleout.Client.Streaming.Linq.SlidingWindowExtensions.html#Scaleout_Client_Streaming_Linq_SlidingWindowExtensions_ToSlidingWindows_
+  commentId: Overload:Scaleout.Client.Streaming.Linq.SlidingWindowExtensions.ToSlidingWindows
+  fullName: Scaleout.Client.Streaming.Linq.SlidingWindowExtensions.ToSlidingWindows
+  nameWithType: SlidingWindowExtensions.ToSlidingWindows
+- uid: Scaleout.Client.Streaming.Linq.SlidingWindowExtensions.ToSlidingWindows``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.DateTime},System.DateTime,System.DateTime,System.TimeSpan,System.TimeSpan)
+  name: ToSlidingWindows<TSource>(IEnumerable<TSource>, Func<TSource, DateTime>, DateTime, DateTime, TimeSpan, TimeSpan)
+  href: api/Scaleout.Client.Streaming.Linq.SlidingWindowExtensions.html#Scaleout_Client_Streaming_Linq_SlidingWindowExtensions_ToSlidingWindows__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_DateTime__System_DateTime_System_DateTime_System_TimeSpan_System_TimeSpan_
+  commentId: M:Scaleout.Client.Streaming.Linq.SlidingWindowExtensions.ToSlidingWindows``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.DateTime},System.DateTime,System.DateTime,System.TimeSpan,System.TimeSpan)
+  name.vb: ToSlidingWindows(Of TSource)(IEnumerable(Of TSource), Func(Of TSource, DateTime), DateTime, DateTime, TimeSpan, TimeSpan)
+  fullName: Scaleout.Client.Streaming.Linq.SlidingWindowExtensions.ToSlidingWindows<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, System.DateTime>, System.DateTime, System.DateTime, System.TimeSpan, System.TimeSpan)
+  fullName.vb: Scaleout.Client.Streaming.Linq.SlidingWindowExtensions.ToSlidingWindows(Of TSource)(System.Collections.Generic.IEnumerable(Of TSource), System.Func(Of TSource, System.DateTime), System.DateTime, System.DateTime, System.TimeSpan, System.TimeSpan)
+  nameWithType: SlidingWindowExtensions.ToSlidingWindows<TSource>(IEnumerable<TSource>, Func<TSource, DateTime>, DateTime, DateTime, TimeSpan, TimeSpan)
+  nameWithType.vb: SlidingWindowExtensions.ToSlidingWindows(Of TSource)(IEnumerable(Of TSource), Func(Of TSource, DateTime), DateTime, DateTime, TimeSpan, TimeSpan)
+- uid: Scaleout.Client.Streaming.Linq.TumblingWindowExtensions
+  name: TumblingWindowExtensions
+  href: api/Scaleout.Client.Streaming.Linq.TumblingWindowExtensions.html
+  commentId: T:Scaleout.Client.Streaming.Linq.TumblingWindowExtensions
+  fullName: Scaleout.Client.Streaming.Linq.TumblingWindowExtensions
+  nameWithType: TumblingWindowExtensions
+- uid: Scaleout.Client.Streaming.Linq.TumblingWindowExtensions.ToTumblingWindows*
+  name: ToTumblingWindows
+  href: api/Scaleout.Client.Streaming.Linq.TumblingWindowExtensions.html#Scaleout_Client_Streaming_Linq_TumblingWindowExtensions_ToTumblingWindows_
+  commentId: Overload:Scaleout.Client.Streaming.Linq.TumblingWindowExtensions.ToTumblingWindows
+  fullName: Scaleout.Client.Streaming.Linq.TumblingWindowExtensions.ToTumblingWindows
+  nameWithType: TumblingWindowExtensions.ToTumblingWindows
+- uid: Scaleout.Client.Streaming.Linq.TumblingWindowExtensions.ToTumblingWindows``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.DateTime},System.DateTime,System.DateTime,System.TimeSpan)
+  name: ToTumblingWindows<TSource>(IEnumerable<TSource>, Func<TSource, DateTime>, DateTime, DateTime, TimeSpan)
+  href: api/Scaleout.Client.Streaming.Linq.TumblingWindowExtensions.html#Scaleout_Client_Streaming_Linq_TumblingWindowExtensions_ToTumblingWindows__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_DateTime__System_DateTime_System_DateTime_System_TimeSpan_
+  commentId: M:Scaleout.Client.Streaming.Linq.TumblingWindowExtensions.ToTumblingWindows``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.DateTime},System.DateTime,System.DateTime,System.TimeSpan)
+  name.vb: ToTumblingWindows(Of TSource)(IEnumerable(Of TSource), Func(Of TSource, DateTime), DateTime, DateTime, TimeSpan)
+  fullName: Scaleout.Client.Streaming.Linq.TumblingWindowExtensions.ToTumblingWindows<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, System.DateTime>, System.DateTime, System.DateTime, System.TimeSpan)
+  fullName.vb: Scaleout.Client.Streaming.Linq.TumblingWindowExtensions.ToTumblingWindows(Of TSource)(System.Collections.Generic.IEnumerable(Of TSource), System.Func(Of TSource, System.DateTime), System.DateTime, System.DateTime, System.TimeSpan)
+  nameWithType: TumblingWindowExtensions.ToTumblingWindows<TSource>(IEnumerable<TSource>, Func<TSource, DateTime>, DateTime, DateTime, TimeSpan)
+  nameWithType.vb: TumblingWindowExtensions.ToTumblingWindows(Of TSource)(IEnumerable(Of TSource), Func(Of TSource, DateTime), DateTime, DateTime, TimeSpan)
+- uid: Scaleout.Client.Streaming.SessionWindowTransform`1
+  name: SessionWindowTransform<T>
+  href: api/Scaleout.Client.Streaming.SessionWindowTransform-1.html
+  commentId: T:Scaleout.Client.Streaming.SessionWindowTransform`1
+  name.vb: SessionWindowTransform(Of T)
+  fullName: Scaleout.Client.Streaming.SessionWindowTransform<T>
+  fullName.vb: Scaleout.Client.Streaming.SessionWindowTransform(Of T)
+  nameWithType: SessionWindowTransform<T>
+  nameWithType.vb: SessionWindowTransform(Of T)
+- uid: Scaleout.Client.Streaming.SessionWindowTransform`1.#ctor(System.Collections.Generic.IList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.Int32)
+  name: SessionWindowTransform(IList<T>, Func<T, DateTime>, TimeSpan, Int32)
+  href: api/Scaleout.Client.Streaming.SessionWindowTransform-1.html#Scaleout_Client_Streaming_SessionWindowTransform_1__ctor_System_Collections_Generic_IList__0__System_Func__0_System_DateTime__System_TimeSpan_System_Int32_
+  commentId: M:Scaleout.Client.Streaming.SessionWindowTransform`1.#ctor(System.Collections.Generic.IList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.Int32)
+  name.vb: SessionWindowTransform(IList(Of T), Func(Of T, DateTime), TimeSpan, Int32)
+  fullName: Scaleout.Client.Streaming.SessionWindowTransform<T>.SessionWindowTransform(System.Collections.Generic.IList<T>, System.Func<T, System.DateTime>, System.TimeSpan, System.Int32)
+  fullName.vb: Scaleout.Client.Streaming.SessionWindowTransform(Of T).SessionWindowTransform(System.Collections.Generic.IList(Of T), System.Func(Of T, System.DateTime), System.TimeSpan, System.Int32)
+  nameWithType: SessionWindowTransform<T>.SessionWindowTransform(IList<T>, Func<T, DateTime>, TimeSpan, Int32)
+  nameWithType.vb: SessionWindowTransform(Of T).SessionWindowTransform(IList(Of T), Func(Of T, DateTime), TimeSpan, Int32)
+- uid: Scaleout.Client.Streaming.SessionWindowTransform`1.#ctor(System.Collections.Generic.LinkedList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.Int32)
+  name: SessionWindowTransform(LinkedList<T>, Func<T, DateTime>, TimeSpan, Int32)
+  href: api/Scaleout.Client.Streaming.SessionWindowTransform-1.html#Scaleout_Client_Streaming_SessionWindowTransform_1__ctor_System_Collections_Generic_LinkedList__0__System_Func__0_System_DateTime__System_TimeSpan_System_Int32_
+  commentId: M:Scaleout.Client.Streaming.SessionWindowTransform`1.#ctor(System.Collections.Generic.LinkedList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.Int32)
+  name.vb: SessionWindowTransform(LinkedList(Of T), Func(Of T, DateTime), TimeSpan, Int32)
+  fullName: Scaleout.Client.Streaming.SessionWindowTransform<T>.SessionWindowTransform(System.Collections.Generic.LinkedList<T>, System.Func<T, System.DateTime>, System.TimeSpan, System.Int32)
+  fullName.vb: Scaleout.Client.Streaming.SessionWindowTransform(Of T).SessionWindowTransform(System.Collections.Generic.LinkedList(Of T), System.Func(Of T, System.DateTime), System.TimeSpan, System.Int32)
+  nameWithType: SessionWindowTransform<T>.SessionWindowTransform(LinkedList<T>, Func<T, DateTime>, TimeSpan, Int32)
+  nameWithType.vb: SessionWindowTransform(Of T).SessionWindowTransform(LinkedList(Of T), Func(Of T, DateTime), TimeSpan, Int32)
+- uid: Scaleout.Client.Streaming.SessionWindowTransform`1.#ctor*
+  name: SessionWindowTransform
+  href: api/Scaleout.Client.Streaming.SessionWindowTransform-1.html#Scaleout_Client_Streaming_SessionWindowTransform_1__ctor_
+  commentId: Overload:Scaleout.Client.Streaming.SessionWindowTransform`1.#ctor
+  fullName: Scaleout.Client.Streaming.SessionWindowTransform<T>.SessionWindowTransform
+  fullName.vb: Scaleout.Client.Streaming.SessionWindowTransform(Of T).SessionWindowTransform
+  nameWithType: SessionWindowTransform<T>.SessionWindowTransform
+  nameWithType.vb: SessionWindowTransform(Of T).SessionWindowTransform
+- uid: Scaleout.Client.Streaming.SessionWindowTransform`1.Add(`0)
+  name: Add(T)
+  href: api/Scaleout.Client.Streaming.SessionWindowTransform-1.html#Scaleout_Client_Streaming_SessionWindowTransform_1_Add__0_
+  commentId: M:Scaleout.Client.Streaming.SessionWindowTransform`1.Add(`0)
+  fullName: Scaleout.Client.Streaming.SessionWindowTransform<T>.Add(T)
+  fullName.vb: Scaleout.Client.Streaming.SessionWindowTransform(Of T).Add(T)
+  nameWithType: SessionWindowTransform<T>.Add(T)
+  nameWithType.vb: SessionWindowTransform(Of T).Add(T)
+- uid: Scaleout.Client.Streaming.SessionWindowTransform`1.Add*
+  name: Add
+  href: api/Scaleout.Client.Streaming.SessionWindowTransform-1.html#Scaleout_Client_Streaming_SessionWindowTransform_1_Add_
+  commentId: Overload:Scaleout.Client.Streaming.SessionWindowTransform`1.Add
+  fullName: Scaleout.Client.Streaming.SessionWindowTransform<T>.Add
+  fullName.vb: Scaleout.Client.Streaming.SessionWindowTransform(Of T).Add
+  nameWithType: SessionWindowTransform<T>.Add
+  nameWithType.vb: SessionWindowTransform(Of T).Add
+- uid: Scaleout.Client.Streaming.SessionWindowTransform`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Scaleout.Client.Streaming.SessionWindowTransform-1.html#Scaleout_Client_Streaming_SessionWindowTransform_1_GetEnumerator
+  commentId: M:Scaleout.Client.Streaming.SessionWindowTransform`1.GetEnumerator
+  fullName: Scaleout.Client.Streaming.SessionWindowTransform<T>.GetEnumerator()
+  fullName.vb: Scaleout.Client.Streaming.SessionWindowTransform(Of T).GetEnumerator()
+  nameWithType: SessionWindowTransform<T>.GetEnumerator()
+  nameWithType.vb: SessionWindowTransform(Of T).GetEnumerator()
+- uid: Scaleout.Client.Streaming.SessionWindowTransform`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Scaleout.Client.Streaming.SessionWindowTransform-1.html#Scaleout_Client_Streaming_SessionWindowTransform_1_GetEnumerator_
+  commentId: Overload:Scaleout.Client.Streaming.SessionWindowTransform`1.GetEnumerator
+  fullName: Scaleout.Client.Streaming.SessionWindowTransform<T>.GetEnumerator
+  fullName.vb: Scaleout.Client.Streaming.SessionWindowTransform(Of T).GetEnumerator
+  nameWithType: SessionWindowTransform<T>.GetEnumerator
+  nameWithType.vb: SessionWindowTransform(Of T).GetEnumerator
+- uid: Scaleout.Client.Streaming.SessionWindowTransform`1.Refresh(System.Boolean)
+  name: Refresh(Boolean)
+  href: api/Scaleout.Client.Streaming.SessionWindowTransform-1.html#Scaleout_Client_Streaming_SessionWindowTransform_1_Refresh_System_Boolean_
+  commentId: M:Scaleout.Client.Streaming.SessionWindowTransform`1.Refresh(System.Boolean)
+  fullName: Scaleout.Client.Streaming.SessionWindowTransform<T>.Refresh(System.Boolean)
+  fullName.vb: Scaleout.Client.Streaming.SessionWindowTransform(Of T).Refresh(System.Boolean)
+  nameWithType: SessionWindowTransform<T>.Refresh(Boolean)
+  nameWithType.vb: SessionWindowTransform(Of T).Refresh(Boolean)
+- uid: Scaleout.Client.Streaming.SessionWindowTransform`1.Refresh*
+  name: Refresh
+  href: api/Scaleout.Client.Streaming.SessionWindowTransform-1.html#Scaleout_Client_Streaming_SessionWindowTransform_1_Refresh_
+  commentId: Overload:Scaleout.Client.Streaming.SessionWindowTransform`1.Refresh
+  fullName: Scaleout.Client.Streaming.SessionWindowTransform<T>.Refresh
+  fullName.vb: Scaleout.Client.Streaming.SessionWindowTransform(Of T).Refresh
+  nameWithType: SessionWindowTransform<T>.Refresh
+  nameWithType.vb: SessionWindowTransform(Of T).Refresh
+- uid: Scaleout.Client.Streaming.SessionWindowTransform`1.Source
+  name: Source
+  href: api/Scaleout.Client.Streaming.SessionWindowTransform-1.html#Scaleout_Client_Streaming_SessionWindowTransform_1_Source
+  commentId: P:Scaleout.Client.Streaming.SessionWindowTransform`1.Source
+  fullName: Scaleout.Client.Streaming.SessionWindowTransform<T>.Source
+  fullName.vb: Scaleout.Client.Streaming.SessionWindowTransform(Of T).Source
+  nameWithType: SessionWindowTransform<T>.Source
+  nameWithType.vb: SessionWindowTransform(Of T).Source
+- uid: Scaleout.Client.Streaming.SessionWindowTransform`1.Source*
+  name: Source
+  href: api/Scaleout.Client.Streaming.SessionWindowTransform-1.html#Scaleout_Client_Streaming_SessionWindowTransform_1_Source_
+  commentId: Overload:Scaleout.Client.Streaming.SessionWindowTransform`1.Source
+  fullName: Scaleout.Client.Streaming.SessionWindowTransform<T>.Source
+  fullName.vb: Scaleout.Client.Streaming.SessionWindowTransform(Of T).Source
+  nameWithType: SessionWindowTransform<T>.Source
+  nameWithType.vb: SessionWindowTransform(Of T).Source
+- uid: Scaleout.Client.Streaming.SessionWindowTransform`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Scaleout.Client.Streaming.SessionWindowTransform-1.html#Scaleout_Client_Streaming_SessionWindowTransform_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Scaleout.Client.Streaming.SessionWindowTransform`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Scaleout.Client.Streaming.SessionWindowTransform<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Scaleout.Client.Streaming.SessionWindowTransform(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: SessionWindowTransform<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: SessionWindowTransform(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Scaleout.Client.Streaming.SessionWindowTransform`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Scaleout.Client.Streaming.SessionWindowTransform-1.html#Scaleout_Client_Streaming_SessionWindowTransform_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Scaleout.Client.Streaming.SessionWindowTransform`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Scaleout.Client.Streaming.SessionWindowTransform<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Scaleout.Client.Streaming.SessionWindowTransform(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: SessionWindowTransform<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: SessionWindowTransform(Of T).System.Collections.IEnumerable.GetEnumerator
+- uid: Scaleout.Client.Streaming.SlidingWindowTransform`1
+  name: SlidingWindowTransform<T>
+  href: api/Scaleout.Client.Streaming.SlidingWindowTransform-1.html
+  commentId: T:Scaleout.Client.Streaming.SlidingWindowTransform`1
+  name.vb: SlidingWindowTransform(Of T)
+  fullName: Scaleout.Client.Streaming.SlidingWindowTransform<T>
+  fullName.vb: Scaleout.Client.Streaming.SlidingWindowTransform(Of T)
+  nameWithType: SlidingWindowTransform<T>
+  nameWithType.vb: SlidingWindowTransform(Of T)
+- uid: Scaleout.Client.Streaming.SlidingWindowTransform`1.#ctor(System.Collections.Generic.IList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.TimeSpan,System.DateTime)
+  name: SlidingWindowTransform(IList<T>, Func<T, DateTime>, TimeSpan, TimeSpan, DateTime)
+  href: api/Scaleout.Client.Streaming.SlidingWindowTransform-1.html#Scaleout_Client_Streaming_SlidingWindowTransform_1__ctor_System_Collections_Generic_IList__0__System_Func__0_System_DateTime__System_TimeSpan_System_TimeSpan_System_DateTime_
+  commentId: M:Scaleout.Client.Streaming.SlidingWindowTransform`1.#ctor(System.Collections.Generic.IList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.TimeSpan,System.DateTime)
+  name.vb: SlidingWindowTransform(IList(Of T), Func(Of T, DateTime), TimeSpan, TimeSpan, DateTime)
+  fullName: Scaleout.Client.Streaming.SlidingWindowTransform<T>.SlidingWindowTransform(System.Collections.Generic.IList<T>, System.Func<T, System.DateTime>, System.TimeSpan, System.TimeSpan, System.DateTime)
+  fullName.vb: Scaleout.Client.Streaming.SlidingWindowTransform(Of T).SlidingWindowTransform(System.Collections.Generic.IList(Of T), System.Func(Of T, System.DateTime), System.TimeSpan, System.TimeSpan, System.DateTime)
+  nameWithType: SlidingWindowTransform<T>.SlidingWindowTransform(IList<T>, Func<T, DateTime>, TimeSpan, TimeSpan, DateTime)
+  nameWithType.vb: SlidingWindowTransform(Of T).SlidingWindowTransform(IList(Of T), Func(Of T, DateTime), TimeSpan, TimeSpan, DateTime)
+- uid: Scaleout.Client.Streaming.SlidingWindowTransform`1.#ctor(System.Collections.Generic.LinkedList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.TimeSpan,System.DateTime)
+  name: SlidingWindowTransform(LinkedList<T>, Func<T, DateTime>, TimeSpan, TimeSpan, DateTime)
+  href: api/Scaleout.Client.Streaming.SlidingWindowTransform-1.html#Scaleout_Client_Streaming_SlidingWindowTransform_1__ctor_System_Collections_Generic_LinkedList__0__System_Func__0_System_DateTime__System_TimeSpan_System_TimeSpan_System_DateTime_
+  commentId: M:Scaleout.Client.Streaming.SlidingWindowTransform`1.#ctor(System.Collections.Generic.LinkedList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.TimeSpan,System.DateTime)
+  name.vb: SlidingWindowTransform(LinkedList(Of T), Func(Of T, DateTime), TimeSpan, TimeSpan, DateTime)
+  fullName: Scaleout.Client.Streaming.SlidingWindowTransform<T>.SlidingWindowTransform(System.Collections.Generic.LinkedList<T>, System.Func<T, System.DateTime>, System.TimeSpan, System.TimeSpan, System.DateTime)
+  fullName.vb: Scaleout.Client.Streaming.SlidingWindowTransform(Of T).SlidingWindowTransform(System.Collections.Generic.LinkedList(Of T), System.Func(Of T, System.DateTime), System.TimeSpan, System.TimeSpan, System.DateTime)
+  nameWithType: SlidingWindowTransform<T>.SlidingWindowTransform(LinkedList<T>, Func<T, DateTime>, TimeSpan, TimeSpan, DateTime)
+  nameWithType.vb: SlidingWindowTransform(Of T).SlidingWindowTransform(LinkedList(Of T), Func(Of T, DateTime), TimeSpan, TimeSpan, DateTime)
+- uid: Scaleout.Client.Streaming.SlidingWindowTransform`1.#ctor*
+  name: SlidingWindowTransform
+  href: api/Scaleout.Client.Streaming.SlidingWindowTransform-1.html#Scaleout_Client_Streaming_SlidingWindowTransform_1__ctor_
+  commentId: Overload:Scaleout.Client.Streaming.SlidingWindowTransform`1.#ctor
+  fullName: Scaleout.Client.Streaming.SlidingWindowTransform<T>.SlidingWindowTransform
+  fullName.vb: Scaleout.Client.Streaming.SlidingWindowTransform(Of T).SlidingWindowTransform
+  nameWithType: SlidingWindowTransform<T>.SlidingWindowTransform
+  nameWithType.vb: SlidingWindowTransform(Of T).SlidingWindowTransform
+- uid: Scaleout.Client.Streaming.SlidingWindowTransform`1.Add(`0)
+  name: Add(T)
+  href: api/Scaleout.Client.Streaming.SlidingWindowTransform-1.html#Scaleout_Client_Streaming_SlidingWindowTransform_1_Add__0_
+  commentId: M:Scaleout.Client.Streaming.SlidingWindowTransform`1.Add(`0)
+  fullName: Scaleout.Client.Streaming.SlidingWindowTransform<T>.Add(T)
+  fullName.vb: Scaleout.Client.Streaming.SlidingWindowTransform(Of T).Add(T)
+  nameWithType: SlidingWindowTransform<T>.Add(T)
+  nameWithType.vb: SlidingWindowTransform(Of T).Add(T)
+- uid: Scaleout.Client.Streaming.SlidingWindowTransform`1.Add*
+  name: Add
+  href: api/Scaleout.Client.Streaming.SlidingWindowTransform-1.html#Scaleout_Client_Streaming_SlidingWindowTransform_1_Add_
+  commentId: Overload:Scaleout.Client.Streaming.SlidingWindowTransform`1.Add
+  fullName: Scaleout.Client.Streaming.SlidingWindowTransform<T>.Add
+  fullName.vb: Scaleout.Client.Streaming.SlidingWindowTransform(Of T).Add
+  nameWithType: SlidingWindowTransform<T>.Add
+  nameWithType.vb: SlidingWindowTransform(Of T).Add
+- uid: Scaleout.Client.Streaming.SlidingWindowTransform`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Scaleout.Client.Streaming.SlidingWindowTransform-1.html#Scaleout_Client_Streaming_SlidingWindowTransform_1_GetEnumerator
+  commentId: M:Scaleout.Client.Streaming.SlidingWindowTransform`1.GetEnumerator
+  fullName: Scaleout.Client.Streaming.SlidingWindowTransform<T>.GetEnumerator()
+  fullName.vb: Scaleout.Client.Streaming.SlidingWindowTransform(Of T).GetEnumerator()
+  nameWithType: SlidingWindowTransform<T>.GetEnumerator()
+  nameWithType.vb: SlidingWindowTransform(Of T).GetEnumerator()
+- uid: Scaleout.Client.Streaming.SlidingWindowTransform`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Scaleout.Client.Streaming.SlidingWindowTransform-1.html#Scaleout_Client_Streaming_SlidingWindowTransform_1_GetEnumerator_
+  commentId: Overload:Scaleout.Client.Streaming.SlidingWindowTransform`1.GetEnumerator
+  fullName: Scaleout.Client.Streaming.SlidingWindowTransform<T>.GetEnumerator
+  fullName.vb: Scaleout.Client.Streaming.SlidingWindowTransform(Of T).GetEnumerator
+  nameWithType: SlidingWindowTransform<T>.GetEnumerator
+  nameWithType.vb: SlidingWindowTransform(Of T).GetEnumerator
+- uid: Scaleout.Client.Streaming.SlidingWindowTransform`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Scaleout.Client.Streaming.SlidingWindowTransform-1.html#Scaleout_Client_Streaming_SlidingWindowTransform_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Scaleout.Client.Streaming.SlidingWindowTransform`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Scaleout.Client.Streaming.SlidingWindowTransform<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Scaleout.Client.Streaming.SlidingWindowTransform(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: SlidingWindowTransform<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: SlidingWindowTransform(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Scaleout.Client.Streaming.SlidingWindowTransform`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Scaleout.Client.Streaming.SlidingWindowTransform-1.html#Scaleout_Client_Streaming_SlidingWindowTransform_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Scaleout.Client.Streaming.SlidingWindowTransform`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Scaleout.Client.Streaming.SlidingWindowTransform<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Scaleout.Client.Streaming.SlidingWindowTransform(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: SlidingWindowTransform<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: SlidingWindowTransform(Of T).System.Collections.IEnumerable.GetEnumerator
+- uid: Scaleout.Client.Streaming.TumblingWindowTransform`1
+  name: TumblingWindowTransform<T>
+  href: api/Scaleout.Client.Streaming.TumblingWindowTransform-1.html
+  commentId: T:Scaleout.Client.Streaming.TumblingWindowTransform`1
+  name.vb: TumblingWindowTransform(Of T)
+  fullName: Scaleout.Client.Streaming.TumblingWindowTransform<T>
+  fullName.vb: Scaleout.Client.Streaming.TumblingWindowTransform(Of T)
+  nameWithType: TumblingWindowTransform<T>
+  nameWithType.vb: TumblingWindowTransform(Of T)
+- uid: Scaleout.Client.Streaming.TumblingWindowTransform`1.#ctor(System.Collections.Generic.IList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.DateTime)
+  name: TumblingWindowTransform(IList<T>, Func<T, DateTime>, TimeSpan, DateTime)
+  href: api/Scaleout.Client.Streaming.TumblingWindowTransform-1.html#Scaleout_Client_Streaming_TumblingWindowTransform_1__ctor_System_Collections_Generic_IList__0__System_Func__0_System_DateTime__System_TimeSpan_System_DateTime_
+  commentId: M:Scaleout.Client.Streaming.TumblingWindowTransform`1.#ctor(System.Collections.Generic.IList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.DateTime)
+  name.vb: TumblingWindowTransform(IList(Of T), Func(Of T, DateTime), TimeSpan, DateTime)
+  fullName: Scaleout.Client.Streaming.TumblingWindowTransform<T>.TumblingWindowTransform(System.Collections.Generic.IList<T>, System.Func<T, System.DateTime>, System.TimeSpan, System.DateTime)
+  fullName.vb: Scaleout.Client.Streaming.TumblingWindowTransform(Of T).TumblingWindowTransform(System.Collections.Generic.IList(Of T), System.Func(Of T, System.DateTime), System.TimeSpan, System.DateTime)
+  nameWithType: TumblingWindowTransform<T>.TumblingWindowTransform(IList<T>, Func<T, DateTime>, TimeSpan, DateTime)
+  nameWithType.vb: TumblingWindowTransform(Of T).TumblingWindowTransform(IList(Of T), Func(Of T, DateTime), TimeSpan, DateTime)
+- uid: Scaleout.Client.Streaming.TumblingWindowTransform`1.#ctor(System.Collections.Generic.LinkedList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.DateTime)
+  name: TumblingWindowTransform(LinkedList<T>, Func<T, DateTime>, TimeSpan, DateTime)
+  href: api/Scaleout.Client.Streaming.TumblingWindowTransform-1.html#Scaleout_Client_Streaming_TumblingWindowTransform_1__ctor_System_Collections_Generic_LinkedList__0__System_Func__0_System_DateTime__System_TimeSpan_System_DateTime_
+  commentId: M:Scaleout.Client.Streaming.TumblingWindowTransform`1.#ctor(System.Collections.Generic.LinkedList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.DateTime)
+  name.vb: TumblingWindowTransform(LinkedList(Of T), Func(Of T, DateTime), TimeSpan, DateTime)
+  fullName: Scaleout.Client.Streaming.TumblingWindowTransform<T>.TumblingWindowTransform(System.Collections.Generic.LinkedList<T>, System.Func<T, System.DateTime>, System.TimeSpan, System.DateTime)
+  fullName.vb: Scaleout.Client.Streaming.TumblingWindowTransform(Of T).TumblingWindowTransform(System.Collections.Generic.LinkedList(Of T), System.Func(Of T, System.DateTime), System.TimeSpan, System.DateTime)
+  nameWithType: TumblingWindowTransform<T>.TumblingWindowTransform(LinkedList<T>, Func<T, DateTime>, TimeSpan, DateTime)
+  nameWithType.vb: TumblingWindowTransform(Of T).TumblingWindowTransform(LinkedList(Of T), Func(Of T, DateTime), TimeSpan, DateTime)
+- uid: Scaleout.Client.Streaming.TumblingWindowTransform`1.#ctor*
+  name: TumblingWindowTransform
+  href: api/Scaleout.Client.Streaming.TumblingWindowTransform-1.html#Scaleout_Client_Streaming_TumblingWindowTransform_1__ctor_
+  commentId: Overload:Scaleout.Client.Streaming.TumblingWindowTransform`1.#ctor
+  fullName: Scaleout.Client.Streaming.TumblingWindowTransform<T>.TumblingWindowTransform
+  fullName.vb: Scaleout.Client.Streaming.TumblingWindowTransform(Of T).TumblingWindowTransform
+  nameWithType: TumblingWindowTransform<T>.TumblingWindowTransform
+  nameWithType.vb: TumblingWindowTransform(Of T).TumblingWindowTransform
+- uid: Scaleout.Client.Streaming.TumblingWindowTransform`1.Add(`0)
+  name: Add(T)
+  href: api/Scaleout.Client.Streaming.TumblingWindowTransform-1.html#Scaleout_Client_Streaming_TumblingWindowTransform_1_Add__0_
+  commentId: M:Scaleout.Client.Streaming.TumblingWindowTransform`1.Add(`0)
+  fullName: Scaleout.Client.Streaming.TumblingWindowTransform<T>.Add(T)
+  fullName.vb: Scaleout.Client.Streaming.TumblingWindowTransform(Of T).Add(T)
+  nameWithType: TumblingWindowTransform<T>.Add(T)
+  nameWithType.vb: TumblingWindowTransform(Of T).Add(T)
+- uid: Scaleout.Client.Streaming.TumblingWindowTransform`1.Add*
+  name: Add
+  href: api/Scaleout.Client.Streaming.TumblingWindowTransform-1.html#Scaleout_Client_Streaming_TumblingWindowTransform_1_Add_
+  commentId: Overload:Scaleout.Client.Streaming.TumblingWindowTransform`1.Add
+  fullName: Scaleout.Client.Streaming.TumblingWindowTransform<T>.Add
+  fullName.vb: Scaleout.Client.Streaming.TumblingWindowTransform(Of T).Add
+  nameWithType: TumblingWindowTransform<T>.Add
+  nameWithType.vb: TumblingWindowTransform(Of T).Add
+- uid: Scaleout.Client.Streaming.TumblingWindowTransform`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Scaleout.Client.Streaming.TumblingWindowTransform-1.html#Scaleout_Client_Streaming_TumblingWindowTransform_1_GetEnumerator
+  commentId: M:Scaleout.Client.Streaming.TumblingWindowTransform`1.GetEnumerator
+  fullName: Scaleout.Client.Streaming.TumblingWindowTransform<T>.GetEnumerator()
+  fullName.vb: Scaleout.Client.Streaming.TumblingWindowTransform(Of T).GetEnumerator()
+  nameWithType: TumblingWindowTransform<T>.GetEnumerator()
+  nameWithType.vb: TumblingWindowTransform(Of T).GetEnumerator()
+- uid: Scaleout.Client.Streaming.TumblingWindowTransform`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Scaleout.Client.Streaming.TumblingWindowTransform-1.html#Scaleout_Client_Streaming_TumblingWindowTransform_1_GetEnumerator_
+  commentId: Overload:Scaleout.Client.Streaming.TumblingWindowTransform`1.GetEnumerator
+  fullName: Scaleout.Client.Streaming.TumblingWindowTransform<T>.GetEnumerator
+  fullName.vb: Scaleout.Client.Streaming.TumblingWindowTransform(Of T).GetEnumerator
+  nameWithType: TumblingWindowTransform<T>.GetEnumerator
+  nameWithType.vb: TumblingWindowTransform(Of T).GetEnumerator
+- uid: Scaleout.Client.Streaming.TumblingWindowTransform`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Scaleout.Client.Streaming.TumblingWindowTransform-1.html#Scaleout_Client_Streaming_TumblingWindowTransform_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Scaleout.Client.Streaming.TumblingWindowTransform`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Scaleout.Client.Streaming.TumblingWindowTransform<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Scaleout.Client.Streaming.TumblingWindowTransform(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: TumblingWindowTransform<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: TumblingWindowTransform(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Scaleout.Client.Streaming.TumblingWindowTransform`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Scaleout.Client.Streaming.TumblingWindowTransform-1.html#Scaleout_Client_Streaming_TumblingWindowTransform_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Scaleout.Client.Streaming.TumblingWindowTransform`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Scaleout.Client.Streaming.TumblingWindowTransform<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Scaleout.Client.Streaming.TumblingWindowTransform(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: TumblingWindowTransform<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: TumblingWindowTransform(Of T).System.Collections.IEnumerable.GetEnumerator

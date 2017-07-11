@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ScaleOut Time Windowing Library for .NET | ScaleOut Time Windowing Library for .NET </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="ScaleOut Time Windowing Library for .NET | ScaleOut Time Windowing Library for .NET ">
+    <meta name="generator" content="docfx 2.20.0.0">
+    
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="images/scaleout_logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="scaleout-time-windowing-library-for-net">ScaleOut Time Windowing Library for .NET</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p>The ScaleOut Time Windowing Library for .NET provides a set of
+windowing functions for time-ordered collections of events. These
+windowing functions are provided as extensions methods that can
+operate on any <code>IEnumerable&lt;T&gt;</code> collection.</p>
+<h3 id="example">Example</h3>
+<pre><code>using Scaleout.Client.Streaming.Linq;
+
+class HeartRate {
+    public DateTime Timestamp { get; set; } // assumes UTC
+    public short BeatsPerMinute { get; set; }
+}
+
+// Given heart-rate readings every minute, calculate the 5-minute
+// moving average of a person&#39;s heart rate for the past 24 hours.
+
+var readings = new List&lt;HeartRate&gt;();
+// [...time-ordered readings populated here, one per minute]
+
+var slidingWindows = readings.ToSlidingWindows(
+        timestampSelector: hb =&gt; hb.Timestamp,
+        startTime: DateTime.UtcNow - TimeSpan.FromHours(24),
+        endTime: DateTime.UtcNow,
+        windowDuration: TimeSpan.FromMinutes(5),
+        every: TimeSpan.FromMinutes(1));
+
+// print each window&#39;s boundaries and its heartbeat average:
+foreach (var win in slidingWindows)
+    Console.WriteLine($&quot;{win.StartTime:t} - {win.EndTime:t}: {win.Average(hb =&gt; hb.BeatsPerMinute)}&quot;);
+</code></pre><p>The library also provides convenience classes for management of
+collections of time-ordered elements. These classes offer automatic
+eviction and ordering of elements, and they are suited for scenarios
+where elements are only accessed and analyzed as a windowed
+transformation. See the <a href="#WrapperClasses">Wrapper Classes</a> section for
+details.</p>
+<h2 id="windowing-methods">Windowing Methods</h2>
+<p>Three methods are provided to break up an enumerable collection into
+different kinds of time windows. These are available as extension
+methods in the <code>Scaleout.Client.Streaming.Linq</code> namespace:</p>
+<ol>
+<li><strong>ToSlidingWindows</strong>: Transforms a collection into an enumerable
+collection of overlapped (sliding) windows.</li>
+<li><strong>ToTumblingWindows</strong>: Transforms a collection into an enumerable
+collection of fixed-duration windows.</li>
+<li><strong>ToSessionWindows</strong>: Transforms a collection into an enumerable
+collection of session windows.</li>
+</ol>
+<p>The windowing methods accept a user-defined <code>Func&lt;T, DateTime&gt;</code> delegate that
+returns the time associated with each element in the collection. This
+timestamp is used to determine which window (or windows, in the case
+of the sliding windows) an element belongs to.</p>
+<p>Each method returns a collection of <code>ITimeWindow</code> objects. An
+<code>ITimeWindow</code> instance is itself an enumerable collection of the elements in
+the source collection whose timestamps fall within the window&#39;s time
+span.</p>
+<h3 id="sliding-windows">Sliding Windows</h3>
+<p>Sliding window functions are often used to calculate the moving
+average of time series data. The duration of sliding windows is larger
+than the period between the windows, so the period of time covered by
+each window overlaps with its neighbors:</p>
+<p><img src="images/sliding.jpg" alt="sliding windows"></p>
+<p>If no elements fall in a sliding time window, that window will be
+empty.</p>
+<p>To use the library&#39;s <code>ToSlidingWindows</code> method, the source collection
+<em>must</em> be sorted chronologically. (See
+the <a href="#WrapperClasses">Wrapper Classes</a> section below for details on
+convenient wrapper classes that keep your source collection sorted.)</p>
+<pre><code>public static IEnumerable&lt;ITimeWindow&lt;TSource&gt;&gt; ToSlidingWindows&lt;TSource&gt;(
+    this IEnumerable&lt;TSource&gt; source, 
+    Func&lt;TSource, DateTime&gt; timestampSelector,
+    DateTime startTime, 
+    DateTime endTime, 
+    TimeSpan windowDuration, 
+    TimeSpan every)
+</code></pre><p><strong>Parameters</strong>
+<dl>
+<dt>source</dt><dd>The sequence of elements to transform.</dd>
+<dt>timestampSelector</dt><dd>A function to extract a timestamp from an element.</dd>
+<dt>startTime</dt><dd>Start time (inclusive) of the first sliding window.</dd>
+<dt>endTime</dt><dd>End time (exclusive) for the last sliding window(s).</dd>
+<dt>windowDuration</dt><dd>Duration of each time window. This is a maximum value that will be shortened for the last window(s) in the returned sequence.</dd>
+<dt>every</dt><dd>The period of time between the start of each sliding window.</dd>
+</dl></p>
+<h3 id="tumbling-windows">Tumbling Windows</h3>
+<p>Tumbling windows, (or &quot;fixed&quot; windows), divide time series data into
+periodic, non-overlapping windows. Unlike sliding time windows, an
+element in a collection of tumbling windows may only appear in a
+single window.</p>
+<p><img src="images/tumbling.jpg" alt="tumbling windows"></p>
+<p>If no elements fall in a tumbling time window, that window will be
+empty.</p>
+<p>To use the library&#39;s <code>ToTumblingWindows</code> method, the source collection
+<em>must</em> be sorted chronologically. (See
+the <a href="#WrapperClasses">Wrapper Classes</a> section below for details on
+convenient wrapper classes that keep your source collection sorted.)</p>
+<pre><code>public static IEnumerable&lt;ITimeWindow&lt;TSource&gt;&gt; ToTumblingWindows&lt;TSource&gt;(
+    this IEnumerable&lt;TSource&gt; source, 
+    Func&lt;TSource, DateTime&gt; timestampSelector,
+    DateTime startTime, 
+    DateTime endTime, 
+    TimeSpan windowDuration)
+</code></pre><p><strong>Parameters</strong>
+<dl>
+<dt>source</dt><dd>The sequence of elements to transform.</dd>
+<dt>timestampSelector</dt><dd>A function to extract a timestamp from an element.</dd>
+<dt>startTime</dt><dd>Start time (inclusive) of the first tumbling window.</dd>
+<dt>endTime</dt><dd>End time (exclusive) for the last tumbling window.</dd>
+<dt>windowDuration</dt><dd>Duration of each time window. This is a maximum value that will be shortened for the last window in the returned sequence.</dd>
+</dl></p>
+<h3 id="session-windows">Session Windows</h3>
+<p>The duration of a session window is not fixed; rather, it is
+determined by the time interval between elements: if a period of idle
+time elapses between elements then a new session window is
+created.</p>
+<p>Session windowing is often used when processing click data or
+other types of user activity--if a user is inactive for too long then
+the session window closed. A new session window is created once user
+activity resumes.</p>
+<p>Unlike sliding and tumbling window functions, a session window is
+never empty.</p>
+<p><img src="images/session.jpg" alt="session windows"></p>
+<p>Like the other windowing fuctions, the <code>ToSessionWindows</code> method
+requires the source collection to be sorted chronologically. (See
+the <em>Wrapper Classes</em> section below for details on convenient wrapper
+classes that keep your source collection sorted.)</p>
+<pre><code>public static IEnumerable&lt;ITimeWindow&lt;TSource&gt;&gt; ToSessionWindows&lt;TSource&gt;(
+    this IEnumerable&lt;TSource&gt; source, 
+    Func&lt;TSource, DateTime&gt; timestampSelector,
+    TimeSpan idleThreshold)
+</code></pre><p><strong>Parameters</strong>
+<dl>
+<dt>source</dt><dd>The sequence of elements to transform.</dd>
+<dt>timestampSelector</dt><dd>A function to extract a timestamp from an element.</dd>
+<dt>idleThreshold</dt><dd>Maximum allowed time gap between elements before a new session window is started.</dd>
+</dl></p>
+<p><a name="WrapperClasses"></a></p>
+<h2 id="wrapper-classes">Wrapper Classes</h2>
+<p>In addition to the three extension methods detailed above, the library
+provides three wrapper classes to aid in the management and processing
+of time-ordered events. The <code>SessionWindowTransform&lt;T&gt;</code>,
+<code>SlidingWindowTransform&lt;T&gt;</code>, and <code>TumblingWindowTransform&lt;T&gt;</code> classes
+wrap a source collection (typically a <code>List&lt;T&gt;</code> or <code>LinkedList&lt;T&gt;</code>)
+and manage its elements.</p>
+<p>These wrapper classes are intended to be used as alternatives to the
+library&#39;s extension methods when the underlying elements are accessed
+primarily as a windowed collection. It is therefore expected that the
+elements in the underlying source collection will only be accessed and
+modified through the chosen wrapper. These wrappers perform the
+following work on your behalf:</p>
+<ul>
+<li><strong>Eviction:</strong> Eviction of elements is automatically handled, as
+specified by the policy passed into the wrapper&#39;s
+constructor. Eviction is performed when the wrapper collection is
+constructed and when new items are added through the</li>
+<li><strong>Ordering:</strong> When elements are added through a wrapper&#39;s <code>Add()</code>
+method, it is inserted into the underlying collection in the correct
+chronological position.</li>
+</ul>
+<p>Once constructed, the wrapper can be enumerated to access its
+associated time windows.</p>
+<h3 id="sliding-window-wrapper">Sliding Window Wrapper</h3>
+<p>The <code>SlidingWindowTransform&lt;T&gt;</code> class provides the following constructor:</p>
+<pre><code>public SessionWindowTransform(
+    IList&lt;T&gt; source,
+    Func&lt;T, System.DateTime&gt; timestampSelector,
+    TimeSpan windowDuration,
+    TimeSpan every
+    DateTime startTime)
+</code></pre><p>The parameters to this constructor are similar to the parameters to
+the <code>ToSlidingWindows</code> extension method, except that the <code>startTime</code>
+parameter defines the eviction policy for the collection as well as
+the starting point for the windowing transform--elements with
+timestamps prior to <code>startTime</code> will be removed from the source
+collection.</p>
+<p>Also, there is no <code>endTime</code> parameter in the wrapper&#39;s constructor
+like there is in the <code>ToSlidingWindows</code> method. When enumerating
+through sliding windows exposed by the wrapper, the end time is
+implicitly set to the last (most recent) element in the source
+collection.</p>
+<p>Once constructed, the wrapper&#39;s <code>Add()</code> method should be used to add
+elements to the array.</p>
+<h3 id="tumbling-window-wrapper">Tumbling Window Wrapper</h3>
+<p>The <code>TumblingWindowTransform&lt;T&gt;</code> class provides the following constructor:</p>
+<pre><code>public TumblingWindowTransform(
+    IList&lt;T&gt; source,
+    Func&lt;T, System.DateTime&gt; timestampSelector,
+    TimeSpan windowDuration,
+    DateTime startTime)
+</code></pre><p>The parameters to this constructor are similar to the parameters to
+the <code>ToTumblingWindows</code> extension method, except that the <code>startTime</code>
+parameter defines the eviction policy for the collection as well as
+the starting point for the windowing transform. Elements with
+timestamps prior to <code>startTime</code> will be removed from the source
+collection.</p>
+<p>Also, there is no <code>endTime</code> parameter in the wrapper&#39;s constructor
+like there is in the <code>ToTumblingWindows</code> method. When enumerating
+through windows exposed by the wrapper, the end time is implicitly set
+to the last (most recent) element in the source collection.</p>
+<p>Once constructed, the wrapper&#39;s <code>Add()</code> method should be used to add
+elements to the array.</p>
+<h3 id="session-window-wrapper">Session Window Wrapper</h3>
+<p>The <code>SessionWindowTransform&lt;T&gt;</code> class provides the following constructor:</p>
+<pre><code>public SessionWindowTransform(
+    IList&lt;T&gt; source,
+    Func&lt;T, System.DateTime&gt; timestampSelector,
+    System.TimeSpan idleThreshold,
+    int boundedSessionCapacity)
+</code></pre><p>The parameters to this constructor are largely identical to the
+paramaters to the <code>ToSessionWindows</code> extension method, with the
+exception of the additional <code>boundedSessionCapacity</code>, which defines
+how many sessions worth of elements to keep in the underlying
+collection. If the <code>boundedSessionCapacity</code> is exceeded then the
+elements associated with the oldest session(s) at the front of the
+source collection will be removed.</p>
+<p>Once constructed, the wrapper&#39;s <code>Add()</code> method should be used to add
+elements to the source collection instead of adding elements directly
+to the source collection. If the wrapper&#39;s <code>Add()</code> operation results
+in the creation of a new session window then it may evict elements in
+accordance to the wrapper&#39;s <code>boundedSessionCapacity</code> policy.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright &copy; 2017 ScaleOut Software, Inc.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>
