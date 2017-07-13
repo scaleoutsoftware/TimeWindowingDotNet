@@ -49,14 +49,16 @@ methods in the `Scaleout.Client.Streaming.Linq` namespace:
 1. **ToSlidingWindows**: Transforms a collection into an enumerable
    collection of overlapped (sliding) windows.
 2. **ToTumblingWindows**: Transforms a collection into an enumerable
-   collection of fixed-duration windows.
+   collection of fixed-duration, non-overlapping windows.
 3. **ToSessionWindows**: Transforms a collection into an enumerable
    collection of session windows.
    
-The windowing methods accept a user-defined `Func<T, DateTime>` delegate that
-returns the time associated with each element in the collection. This
-timestamp is used to determine which window (or windows, in the case
-of the sliding windows) an element belongs to.
+The windowing methods accept a user-defined `Func<T, DateTime>`
+delegate that returns the time associated with each element in the
+collection. This timestamp is used to determine which window (or
+windows, in the case of the sliding windows) an element belongs
+to. The collection _must_ be sorted chronologically with respect to
+the returned timestamp.
 
 Each method returns a collection of `ITimeWindow` objects. An
 `ITimeWindow` instance is itself an enumerable collection of the elements in
@@ -185,7 +187,8 @@ following work on your behalf:
 * **Eviction:** Eviction of elements is automatically handled, as
   specified by the policy passed into the wrapper's
   constructor. Eviction is performed when the wrapper collection is
-  constructed and when new items are added through the
+  constructed and when new items are added through the a wrapper's
+  `Add()` method.
 * **Ordering:** When elements are added through a wrapper's `Add()`
   method, it is inserted into the underlying collection in the correct
   chronological position.
@@ -199,7 +202,7 @@ The `SlidingWindowCollection<T>` class provides the following constructor:
 
     public SessionWindowCollection(
         IList<T> source,
-        Func<T, System.DateTime> timestampSelector,
+        Func<T, DateTime> timestampSelector,
         TimeSpan windowDuration,
         TimeSpan every
         DateTime startTime)
@@ -226,7 +229,7 @@ The `TumblingWindowCollection<T>` class provides the following constructor:
 
     public TumblingWindowCollection(
         IList<T> source,
-        Func<T, System.DateTime> timestampSelector,
+        Func<T, DateTime> timestampSelector,
         TimeSpan windowDuration,
         DateTime startTime)
 
@@ -251,8 +254,8 @@ The `SessionWindowCollection<T>` class provides the following constructor:
 
     public SessionWindowCollection(
         IList<T> source,
-        Func<T, System.DateTime> timestampSelector,
-        System.TimeSpan idleThreshold,
+        Func<T, DateTime> timestampSelector,
+        TimeSpan idleThreshold,
         int boundedSessionCapacity)
 
 The parameters to this constructor are largely identical to the
