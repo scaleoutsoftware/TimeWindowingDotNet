@@ -13,9 +13,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Linq\SessionWindowExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Linq\SlidingWindowExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Linq\TumblingWindowExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SessionWindowTransform.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SlidingWindowTransform.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TumblingWindowTransform.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SessionWindowCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SlidingWindowCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TumblingWindowCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utility.cs" />
   </ItemGroup>
 </Project>

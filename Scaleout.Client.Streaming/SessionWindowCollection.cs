@@ -31,7 +31,7 @@ namespace Scaleout.Client.Streaming
     /// order and evicted according to the policy provided to the constructor.
     /// </summary>
     /// <typeparam name="T">The type of objects in the source collection.</typeparam>
-    public class SessionWindowTransform<T> : IEnumerable<ITimeWindow<T>>
+    public class SessionWindowCollection<T> : IEnumerable<ITimeWindow<T>>
     {
         IEnumerable<T> _source;
         List<ITimeWindow<T>> _windows;
@@ -51,7 +51,7 @@ namespace Scaleout.Client.Streaming
         /// Maximum number of sessions to retain. If a new element is added via the <see cref="Add(T)"/>
         /// method that creates a new session, elements in the oldest session will be evicted from the underlying collection.
         /// </param>
-        public SessionWindowTransform(IList<T> source, Func<T, DateTime> timestampSelector, TimeSpan idleThreshold, int boundedSessionCapacity)
+        public SessionWindowCollection(IList<T> source, Func<T, DateTime> timestampSelector, TimeSpan idleThreshold, int boundedSessionCapacity)
         {
             _collType = CollectionType.List;
             Init(source, timestampSelector, idleThreshold, boundedSessionCapacity);
@@ -67,7 +67,7 @@ namespace Scaleout.Client.Streaming
         /// Maximum number of sessions to retain. If a new element is added via the <see cref="Add(T)"/>
         /// method that creates a new session, elements in the oldest session will be evicted from the underlying collection.
         /// </param>
-        public SessionWindowTransform(LinkedList<T> source, Func<T, DateTime> timestampSelector, TimeSpan idleThreshold, int boundedSessionCapacity)
+        public SessionWindowCollection(LinkedList<T> source, Func<T, DateTime> timestampSelector, TimeSpan idleThreshold, int boundedSessionCapacity)
         {
             _collType = CollectionType.LinkedList;
             Init(source, timestampSelector, idleThreshold, boundedSessionCapacity);
@@ -170,7 +170,7 @@ namespace Scaleout.Client.Streaming
 
         /// <summary>
         /// Refreshes the transformation. For use when the underlying collection is modified
-        /// directly instead of through the this <see cref="SessionWindowTransform{T}"/> wrapper.
+        /// directly instead of through this <see cref="SessionWindowCollection{T}"/> wrapper.
         /// </summary>
         /// <param name="performEviction">Indicates that eviction should be re-run to remove elements from older session windows.</param>
         public void Refresh(bool performEviction)

@@ -103,7 +103,7 @@ namespace Scaleout.Client.Streaming.Tests
         {
             var source = new List<DateTime>();
 
-            var sessTransform = new SessionWindowTransform<DateTime>(source, elem => elem, TimeSpan.FromMinutes(10), int.MaxValue);
+            var sessTransform = new SessionWindowCollection<DateTime>(source, elem => elem, TimeSpan.FromMinutes(10), int.MaxValue);
             Assert.Equal(0, sessTransform.Count());
 
             sessTransform.Add(new DateTime(2017, 1, 1, 14, 30, 42)); // 2:30:42pm
@@ -140,7 +140,7 @@ namespace Scaleout.Client.Streaming.Tests
         {
             var source = new LinkedList<DateTime>();
 
-            var sessTransform = new SessionWindowTransform<DateTime>(source, elem => elem, TimeSpan.FromMinutes(10), int.MaxValue);
+            var sessTransform = new SessionWindowCollection<DateTime>(source, elem => elem, TimeSpan.FromMinutes(10), int.MaxValue);
             Assert.Equal(0, sessTransform.Count());
 
             sessTransform.Add(new DateTime(2017, 1, 1, 14, 30, 42)); // 2:30:42pm
@@ -176,7 +176,7 @@ namespace Scaleout.Client.Streaming.Tests
         public void ListEviction()
         {
             var source = new List<DateTime>();
-            var sessTransform = new SessionWindowTransform<DateTime>(source, elem => elem, TimeSpan.FromMinutes(10), 2);
+            var sessTransform = new SessionWindowCollection<DateTime>(source, elem => elem, TimeSpan.FromMinutes(10), 2);
 
             // Add two sessions worth of data:
             DateTime session1 = new DateTime(2017, 1, 1, 13, 45, 13); // 1:45:13pm
@@ -202,7 +202,7 @@ namespace Scaleout.Client.Streaming.Tests
         public void LinkedListEviction()
         {
             var source = new LinkedList<DateTime>();
-            var sessTransform = new SessionWindowTransform<DateTime>(source, elem => elem, TimeSpan.FromMinutes(10), 2);
+            var sessTransform = new SessionWindowCollection<DateTime>(source, elem => elem, TimeSpan.FromMinutes(10), 2);
 
             // Add two sessions worth of data:
             DateTime session1 = new DateTime(2017, 1, 1, 13, 45, 13); // 1:45:13pm

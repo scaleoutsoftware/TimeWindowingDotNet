@@ -28,12 +28,12 @@ namespace Scaleout.Client.Streaming
     /// order and evicted according to the <c>startTime</c> policy provided to the constructor.
     /// </summary>
     /// <typeparam name="T">The type of objects in the source collection.</typeparam>
-    public class TumblingWindowTransform<T> : IEnumerable<ITimeWindow<T>>
+    public class TumblingWindowCollection<T> : IEnumerable<ITimeWindow<T>>
     {
         // Tumbling windows are just a special case of sliding windows where the duration of each
         // window is the same as the period between the start of each window. So this class is really 
-        // just a nice alias--it just wraps a SlidingWindowTransform and lets it do the hard work. 
-        SlidingWindowTransform<T> _transform;
+        // just a nice alias--it just wraps a SlidingWindowCollection and lets it do the hard work. 
+        SlidingWindowCollection<T> _transform;
 
         /// <summary>
         /// Constructor.
@@ -46,9 +46,9 @@ namespace Scaleout.Client.Streaming
         /// </param>
         /// <param name="startTime">Start time (inclusive) of the first window.
         /// Items in the underlying collection that fall before this start time will be evicted.</param>
-        public TumblingWindowTransform(IList<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, DateTime startTime)
+        public TumblingWindowCollection(IList<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, DateTime startTime)
         {
-            _transform = new SlidingWindowTransform<T>(source, timestampSelector, windowDuration, windowDuration, startTime);
+            _transform = new SlidingWindowCollection<T>(source, timestampSelector, windowDuration, windowDuration, startTime);
         }
 
         /// <summary>
@@ -62,9 +62,9 @@ namespace Scaleout.Client.Streaming
         /// </param>
         /// <param name="startTime">Start time (inclusive) of the first window.
         /// Items in the underlying collection that fall before this start time will be evicted.</param>
-        public TumblingWindowTransform(LinkedList<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, DateTime startTime)
+        public TumblingWindowCollection(LinkedList<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, DateTime startTime)
         {
-            _transform = new SlidingWindowTransform<T>(source, timestampSelector, windowDuration, windowDuration, startTime);
+            _transform = new SlidingWindowCollection<T>(source, timestampSelector, windowDuration, windowDuration, startTime);
         }
 
         /// <summary>

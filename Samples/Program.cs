@@ -63,7 +63,7 @@ namespace Samples
             var person = _people[userID];
 
             // Transform raw HeartRates list to 3-minute sliding windows that advances every 1 minute:
-            var slidingHeartrates = new SlidingWindowTransform<HeartRate>(person.HeartRates, 
+            var slidingHeartrates = new SlidingWindowCollection<HeartRate>(person.HeartRates, 
                                                                          timestampSelector: h => h.Timestamp,
                                                                          windowDuration:    TimeSpan.FromMinutes(3),
                                                                          every:             TimeSpan.FromMinutes(1),

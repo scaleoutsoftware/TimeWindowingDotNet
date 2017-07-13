@@ -170,8 +170,8 @@ classes that keep your source collection sorted.)
 
 In addition to the three extension methods detailed above, the library
 provides three wrapper classes to aid in the management and processing
-of time-ordered events. The `SessionWindowTransform<T>`,
-`SlidingWindowTransform<T>`, and `TumblingWindowTransform<T>` classes
+of time-ordered events. The `SessionWindowCollection<T>`,
+`SlidingWindowCollection<T>`, and `TumblingWindowCollection<T>` classes
 wrap a source collection (typically a `List<T>` or `LinkedList<T>`)
 and manage its elements.
 
@@ -195,9 +195,9 @@ associated time windows.
 
 ### Sliding Window Wrapper
 
-The `SlidingWindowTransform<T>` class provides the following constructor:
+The `SlidingWindowCollection<T>` class provides the following constructor:
 
-    public SessionWindowTransform(
+    public SessionWindowCollection(
         IList<T> source,
         Func<T, System.DateTime> timestampSelector,
         TimeSpan windowDuration,
@@ -222,9 +222,9 @@ elements to the array.
 
 ### Tumbling Window Wrapper
 
-The `TumblingWindowTransform<T>` class provides the following constructor:
+The `TumblingWindowCollection<T>` class provides the following constructor:
 
-    public TumblingWindowTransform(
+    public TumblingWindowCollection(
         IList<T> source,
         Func<T, System.DateTime> timestampSelector,
         TimeSpan windowDuration,
@@ -247,9 +247,9 @@ elements to the array.
 
 ### Session Window Wrapper
 
-The `SessionWindowTransform<T>` class provides the following constructor:
+The `SessionWindowCollection<T>` class provides the following constructor:
 
-    public SessionWindowTransform(
+    public SessionWindowCollection(
         IList<T> source,
         Func<T, System.DateTime> timestampSelector,
         System.TimeSpan idleThreshold,

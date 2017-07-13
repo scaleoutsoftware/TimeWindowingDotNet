@@ -29,7 +29,7 @@ namespace Scaleout.Client.Streaming
     /// order and evicted according to the <c>startTime</c> policy provided to the constructor.
     /// </summary>
     /// <typeparam name="T">The type of objects in the source collection.</typeparam>
-    public class SlidingWindowTransform<T> : IEnumerable<ITimeWindow<T>>
+    public class SlidingWindowCollection<T> : IEnumerable<ITimeWindow<T>>
     {
         IEnumerable<T> _source;
 
@@ -52,7 +52,7 @@ namespace Scaleout.Client.Streaming
         /// <param name="every">The period of time between the start of each sliding window.</param>
         /// <param name="startTime">Start time (inclusive) of the first sliding window.
         /// Items in the underlying collection that fall before this start time will be evicted.</param>
-        public SlidingWindowTransform(IList<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, TimeSpan every, DateTime startTime)
+        public SlidingWindowCollection(IList<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, TimeSpan every, DateTime startTime)
         {
             _collType = CollectionType.List;
             Init(source, timestampSelector, windowDuration, every, startTime);
@@ -70,7 +70,7 @@ namespace Scaleout.Client.Streaming
         /// <param name="every">The period of time between the start of each sliding window.</param>
         /// <param name="startTime">Start time (inclusive) of the first sliding window.
         /// Items in the underlying collection that fall before this start time will be evicted.</param>
-        public SlidingWindowTransform(LinkedList<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, TimeSpan every, DateTime startTime)
+        public SlidingWindowCollection(LinkedList<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, TimeSpan every, DateTime startTime)
         {
             _collType = CollectionType.LinkedList;
             Init(source, timestampSelector, windowDuration, every, startTime);
@@ -89,7 +89,7 @@ namespace Scaleout.Client.Streaming
 
             // We do eviction here because the sliding transform's eviction model is time-based (unlike the
             // the session window's eviction logic that's count-based). So we expect the start time provided
-            // to the constructor to change each time the SlidingWindowTransform is constructed.
+            // to the constructor to change each time the SlidingWindowCollection is constructed.
             PerformEviction();
         }
 

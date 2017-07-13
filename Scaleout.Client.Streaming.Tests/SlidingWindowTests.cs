@@ -117,7 +117,7 @@ namespace Scaleout.Client.Streaming.Tests
         {
             DateTime startTime = new DateTime(2017, 1, 1, 13, 0, 0); // 1pm
             var source = new List<DateTime>();
-            var slidingTransform = new SlidingWindowTransform<DateTime>(source, dt => dt,
+            var slidingTransform = new SlidingWindowCollection<DateTime>(source, dt => dt,
                                                               windowDuration: TimeSpan.FromMinutes(10),
                                                               every: OneMinute,
                                                               startTime: startTime);
@@ -144,7 +144,7 @@ namespace Scaleout.Client.Streaming.Tests
 
 
             // do a second transform with a later start time. Make sure eviction is performed.
-            var transform2 = new SlidingWindowTransform<DateTime>(source, dt => dt,
+            var transform2 = new SlidingWindowCollection<DateTime>(source, dt => dt,
                                                                   windowDuration: TimeSpan.FromMinutes(10),
                                                                   every: OneMinute,
                                                                   startTime: startTime + OneMinute);
@@ -160,7 +160,7 @@ namespace Scaleout.Client.Streaming.Tests
         {
             DateTime startTime = new DateTime(2017, 1, 1, 13, 0, 0); // 1pm
             var source = new LinkedList<DateTime>();
-            var slidingTransform = new SlidingWindowTransform<DateTime>(source, dt => dt,
+            var slidingTransform = new SlidingWindowCollection<DateTime>(source, dt => dt,
                                                               windowDuration: TimeSpan.FromMinutes(10),
                                                               every: OneMinute,
                                                               startTime: startTime);
@@ -187,7 +187,7 @@ namespace Scaleout.Client.Streaming.Tests
 
 
             // do a second transform with a later start time. Make sure eviction is performed.
-            var transform2 = new SlidingWindowTransform<DateTime>(source, dt => dt,
+            var transform2 = new SlidingWindowCollection<DateTime>(source, dt => dt,
                                                                   windowDuration: TimeSpan.FromMinutes(10),
                                                                   every: OneMinute,
                                                                   startTime: startTime + OneMinute);
