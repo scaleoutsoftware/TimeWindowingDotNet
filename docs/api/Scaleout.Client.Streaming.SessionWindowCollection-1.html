@@ -5,12 +5,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class SlidingWindowCollection&lt;T&gt;
+    <title>Class SessionWindowCollection&lt;T&gt;
    | ScaleOut Time Windowing Library for .NET </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class SlidingWindowCollection&lt;T&gt;
+    <meta name="title" content="Class SessionWindowCollection&lt;T&gt;
    | ScaleOut Time Windowing Library for .NET ">
-    <meta name="generator" content="docfx 2.19.2.0">
+    <meta name="generator" content="docfx 2.20.0.0">
     
     <link rel="shortcut icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -67,22 +67,22 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Scaleout.Client.Streaming.SlidingWindowCollection`1">
+            <article class="content wrap" id="_content" data-uid="Scaleout.Client.Streaming.SessionWindowCollection`1">
   
   
-  <h1 id="Scaleout_Client_Streaming_SlidingWindowCollection_1" data-uid="Scaleout.Client.Streaming.SlidingWindowCollection`1" class="text-break">Class SlidingWindowCollection&lt;T&gt;
+  <h1 id="Scaleout_Client_Streaming_SessionWindowCollection_1" data-uid="Scaleout.Client.Streaming.SessionWindowCollection`1" class="text-break">Class SessionWindowCollection&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"><p>Transforms a collection into an enumerable collection of overlapping time windows and manages 
+  <div class="markdown level0 summary"><p>Transforms a collection into an enumerable collection of session windows and manages 
 eviction of old items from the source collection. 
-This wrapper can be used to manage the retention policy of the underlying collection.
-Objects added through this wrapper are inserted in chronologial
-order and evicted according to the <code>startTime</code> policy provided to the constructor.</p>
+This wrapper can be used to manage the retention policy of the underlying
+collection. Objects added through this wrapper are inserted in chronologial
+order and evicted according to the policy provided to the constructor.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">SlidingWindowCollection&lt;T&gt;</span></div>
+    <div class="level1"><span class="xref">SessionWindowCollection&lt;T&gt;</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -110,9 +110,9 @@ order and evicted according to the <code>startTime</code> policy provided to the
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Scaleout.Client.Streaming.html">Scaleout.Client.Streaming</a></h6>
   <h6><strong>Assembly</strong>: Scaleout.Client.Streaming.dll</h6>
-  <h5 id="Scaleout_Client_Streaming_SlidingWindowCollection_1_syntax">Syntax</h5>
+  <h5 id="Scaleout_Client_Streaming_SessionWindowCollection_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SlidingWindowCollection&lt;T&gt; : IEnumerable&lt;ITimeWindow&lt;T&gt;&gt;, IEnumerable</code></pre>
+    <pre><code class="lang-csharp hljs">public class SessionWindowCollection&lt;T&gt; : IEnumerable&lt;ITimeWindow&lt;T&gt;&gt;, IEnumerable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -134,14 +134,14 @@ order and evicted according to the <code>startTime</code> policy provided to the
   </h3>
   
   
-  <a id="Scaleout_Client_Streaming_SlidingWindowCollection_1__ctor_" data-uid="Scaleout.Client.Streaming.SlidingWindowCollection`1.#ctor*"></a>
-  <h4 id="Scaleout_Client_Streaming_SlidingWindowCollection_1__ctor_System_Collections_Generic_IList__0__System_Func__0_System_DateTime__System_TimeSpan_System_TimeSpan_System_DateTime_" data-uid="Scaleout.Client.Streaming.SlidingWindowCollection`1.#ctor(System.Collections.Generic.IList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.TimeSpan,System.DateTime)">SlidingWindowCollection(IList&lt;T&gt;, Func&lt;T, DateTime&gt;, TimeSpan, TimeSpan, DateTime)</h4>
-  <div class="markdown level1 summary"><p>Constructor.</p>
+  <a id="Scaleout_Client_Streaming_SessionWindowCollection_1__ctor_" data-uid="Scaleout.Client.Streaming.SessionWindowCollection`1.#ctor*"></a>
+  <h4 id="Scaleout_Client_Streaming_SessionWindowCollection_1__ctor_System_Collections_Generic_IList__0__System_Func__0_System_DateTime__System_TimeSpan_System_Int32_" data-uid="Scaleout.Client.Streaming.SessionWindowCollection`1.#ctor(System.Collections.Generic.IList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.Int32)">SessionWindowCollection(IList&lt;T&gt;, Func&lt;T, DateTime&gt;, TimeSpan, Int32)</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SlidingWindowCollection(IList&lt;T&gt; source, Func&lt;T, DateTime&gt; timestampSelector, TimeSpan windowDuration, TimeSpan every, DateTime startTime)</code></pre>
+    <pre><code class="lang-csharp hljs">public SessionWindowCollection(IList&lt;T&gt; source, Func&lt;T, DateTime&gt; timestampSelector, TimeSpan idleThreshold, int boundedSessionCapacity)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -167,36 +167,29 @@ order and evicted according to the <code>startTime</code> policy provided to the
       </tr>
       <tr>
         <td><span class="xref">System.TimeSpan</span></td>
-        <td><span class="parametername">windowDuration</span></td>
-        <td><p>Duration of each time window. This is a maximum value that will be shortened for the last window(s) 
-in the returned sequence (see remarks).</p>
+        <td><span class="parametername">idleThreshold</span></td>
+        <td><p>Maximum allowed time gap between elements before a new session window is started.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.TimeSpan</span></td>
-        <td><span class="parametername">every</span></td>
-        <td><p>The period of time between the start of each sliding window.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.DateTime</span></td>
-        <td><span class="parametername">startTime</span></td>
-        <td><p>Start time (inclusive) of the first sliding window.
-Items in the underlying collection that fall before this start time will be evicted.</p>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">boundedSessionCapacity</span></td>
+        <td><p>Maximum number of sessions to retain. If a new element is added via the <a class="xref" href="Scaleout.Client.Streaming.SessionWindowCollection-1.html#Scaleout_Client_Streaming_SessionWindowCollection_1_Add__0_">Add(T)</a>
+method that creates a new session, elements in the oldest session will be evicted from the underlying collection.</p>
 </td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Scaleout_Client_Streaming_SlidingWindowCollection_1__ctor_" data-uid="Scaleout.Client.Streaming.SlidingWindowCollection`1.#ctor*"></a>
-  <h4 id="Scaleout_Client_Streaming_SlidingWindowCollection_1__ctor_System_Collections_Generic_LinkedList__0__System_Func__0_System_DateTime__System_TimeSpan_System_TimeSpan_System_DateTime_" data-uid="Scaleout.Client.Streaming.SlidingWindowCollection`1.#ctor(System.Collections.Generic.LinkedList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.TimeSpan,System.DateTime)">SlidingWindowCollection(LinkedList&lt;T&gt;, Func&lt;T, DateTime&gt;, TimeSpan, TimeSpan, DateTime)</h4>
-  <div class="markdown level1 summary"><p>Constructor.</p>
+  <a id="Scaleout_Client_Streaming_SessionWindowCollection_1__ctor_" data-uid="Scaleout.Client.Streaming.SessionWindowCollection`1.#ctor*"></a>
+  <h4 id="Scaleout_Client_Streaming_SessionWindowCollection_1__ctor_System_Collections_Generic_LinkedList__0__System_Func__0_System_DateTime__System_TimeSpan_System_Int32_" data-uid="Scaleout.Client.Streaming.SessionWindowCollection`1.#ctor(System.Collections.Generic.LinkedList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.Int32)">SessionWindowCollection(LinkedList&lt;T&gt;, Func&lt;T, DateTime&gt;, TimeSpan, Int32)</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SlidingWindowCollection(LinkedList&lt;T&gt; source, Func&lt;T, DateTime&gt; timestampSelector, TimeSpan windowDuration, TimeSpan every, DateTime startTime)</code></pre>
+    <pre><code class="lang-csharp hljs">public SessionWindowCollection(LinkedList&lt;T&gt; source, Func&lt;T, DateTime&gt; timestampSelector, TimeSpan idleThreshold, int boundedSessionCapacity)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -222,23 +215,44 @@ Items in the underlying collection that fall before this start time will be evic
       </tr>
       <tr>
         <td><span class="xref">System.TimeSpan</span></td>
-        <td><span class="parametername">windowDuration</span></td>
-        <td><p>Duration of each time window. This is a maximum value that will be shortened for the last window(s) 
-in the returned sequence (see remarks).</p>
+        <td><span class="parametername">idleThreshold</span></td>
+        <td><p>Maximum allowed time gap between elements before a new session window is started.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.TimeSpan</span></td>
-        <td><span class="parametername">every</span></td>
-        <td><p>The period of time between the start of each sliding window.</p>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">boundedSessionCapacity</span></td>
+        <td><p>Maximum number of sessions to retain. If a new element is added via the <a class="xref" href="Scaleout.Client.Streaming.SessionWindowCollection-1.html#Scaleout_Client_Streaming_SessionWindowCollection_1_Add__0_">Add(T)</a>
+method that creates a new session, elements in the oldest session will be evicted from the underlying collection.</p>
 </td>
       </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Scaleout_Client_Streaming_SessionWindowCollection_1_Source_" data-uid="Scaleout.Client.Streaming.SessionWindowCollection`1.Source*"></a>
+  <h4 id="Scaleout_Client_Streaming_SessionWindowCollection_1_Source" data-uid="Scaleout.Client.Streaming.SessionWindowCollection`1.Source">Source</h4>
+  <div class="markdown level1 summary"><p>Gets a reference to the transformation&apos;s underlying collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;T&gt; Source { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
       <tr>
-        <td><span class="xref">System.DateTime</span></td>
-        <td><span class="parametername">startTime</span></td>
-        <td><p>Start time (inclusive) of the first sliding window.
-Items in the underlying collection that fall before this start time will be evicted.</p>
-</td>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -246,12 +260,10 @@ Items in the underlying collection that fall before this start time will be evic
   </h3>
   
   
-  <a id="Scaleout_Client_Streaming_SlidingWindowCollection_1_Add_" data-uid="Scaleout.Client.Streaming.SlidingWindowCollection`1.Add*"></a>
-  <h4 id="Scaleout_Client_Streaming_SlidingWindowCollection_1_Add__0_" data-uid="Scaleout.Client.Streaming.SlidingWindowCollection`1.Add(`0)">Add(T)</h4>
-  <div class="markdown level1 summary"><p>Adds an element to the underlying collection, inserting it into the underlying source collection
-in chronological order. If the timestamp associated with the new element falls before the
-<code>startTime</code> provided to this transformation&apos;s constructor then the new element will be
-evicted immediately.</p>
+  <a id="Scaleout_Client_Streaming_SessionWindowCollection_1_Add_" data-uid="Scaleout.Client.Streaming.SessionWindowCollection`1.Add*"></a>
+  <h4 id="Scaleout_Client_Streaming_SessionWindowCollection_1_Add__0_" data-uid="Scaleout.Client.Streaming.SessionWindowCollection`1.Add(`0)">Add(T)</h4>
+  <div class="markdown level1 summary"><p>Adds an element to the underlying collection, inserting it in chronological order
+and evicting old sessions if needed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -278,9 +290,10 @@ evicted immediately.</p>
   </table>
   
   
-  <a id="Scaleout_Client_Streaming_SlidingWindowCollection_1_GetEnumerator_" data-uid="Scaleout.Client.Streaming.SlidingWindowCollection`1.GetEnumerator*"></a>
-  <h4 id="Scaleout_Client_Streaming_SlidingWindowCollection_1_GetEnumerator" data-uid="Scaleout.Client.Streaming.SlidingWindowCollection`1.GetEnumerator">GetEnumerator()</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Scaleout_Client_Streaming_SessionWindowCollection_1_GetEnumerator_" data-uid="Scaleout.Client.Streaming.SessionWindowCollection`1.GetEnumerator*"></a>
+  <h4 id="Scaleout_Client_Streaming_SessionWindowCollection_1_GetEnumerator" data-uid="Scaleout.Client.Streaming.SessionWindowCollection`1.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"><p>Returns an enumerator that iterates through the collection of time windows.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -297,18 +310,49 @@ evicted immediately.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerator</span>&lt;<a class="xref" href="Scaleout.Client.Streaming.ITimeWindow-1.html">ITimeWindow</a>&lt;T&gt;&gt;</td>
-        <td></td>
+        <td><p>An enumerator that can be used to iterate through the collection of <a class="xref" href="Scaleout.Client.Streaming.ITimeWindow-1.html">ITimeWindow&lt;TElement&gt;</a> elements.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="implements">Implements</h5>
       <div><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;.GetEnumerator()</span></div>
+  
+  
+  <a id="Scaleout_Client_Streaming_SessionWindowCollection_1_Refresh_" data-uid="Scaleout.Client.Streaming.SessionWindowCollection`1.Refresh*"></a>
+  <h4 id="Scaleout_Client_Streaming_SessionWindowCollection_1_Refresh_System_Boolean_" data-uid="Scaleout.Client.Streaming.SessionWindowCollection`1.Refresh(System.Boolean)">Refresh(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Refreshes the transformation. For use when the underlying collection is modified
+directly instead of through this <a class="xref" href="Scaleout.Client.Streaming.SessionWindowCollection-1.html">SessionWindowCollection&lt;T&gt;</a> wrapper.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Refresh(bool performEviction)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">performEviction</span></td>
+        <td><p>Indicates that eviction should be re-run to remove elements from older session windows.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="eii">Explicit Interface Implementations
   </h3>
   
   
-  <a id="Scaleout_Client_Streaming_SlidingWindowCollection_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="Scaleout.Client.Streaming.SlidingWindowCollection`1.System#Collections#IEnumerable#GetEnumerator*"></a>
-  <h4 id="Scaleout_Client_Streaming_SlidingWindowCollection_1_System_Collections_IEnumerable_GetEnumerator" data-uid="Scaleout.Client.Streaming.SlidingWindowCollection`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <a id="Scaleout_Client_Streaming_SessionWindowCollection_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="Scaleout.Client.Streaming.SessionWindowCollection`1.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Scaleout_Client_Streaming_SessionWindowCollection_1_System_Collections_IEnumerable_GetEnumerator" data-uid="Scaleout.Client.Streaming.SessionWindowCollection`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

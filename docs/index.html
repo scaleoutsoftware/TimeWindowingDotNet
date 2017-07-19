@@ -8,7 +8,7 @@
     <title>ScaleOut Time Windowing Library for .NET | ScaleOut Time Windowing Library for .NET </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="ScaleOut Time Windowing Library for .NET | ScaleOut Time Windowing Library for .NET ">
-    <meta name="generator" content="docfx 2.19.2.0">
+    <meta name="generator" content="docfx 2.20.0.0">
     
     <link rel="shortcut icon" href="images/favicon.ico">
     <link rel="stylesheet" href="styles/docfx.vendor.css">
@@ -101,21 +101,27 @@ details.</p>
 different kinds of time windows. These are available as extension
 methods in the <code>Scaleout.Client.Streaming.Linq</code> namespace:</p>
 <ol>
-<li><strong>ToSlidingWindows</strong>: Transforms a collection into an enumerable
-collection of overlapped (sliding) windows.</li>
-<li><strong>ToTumblingWindows</strong>: Transforms a collection into an enumerable
-collection of fixed-duration windows.</li>
-<li><strong>ToSessionWindows</strong>: Transforms a collection into an enumerable
-collection of session windows.</li>
+<li><strong><a class="xref" href="api/Scaleout.Client.Streaming.Linq.SlidingWindowExtensions.html#Scaleout_Client_Streaming_Linq_SlidingWindowExtensions_ToSlidingWindows_">ToSlidingWindows</a></strong>:
+Transforms a collection into an enumerable collection of overlapped
+(sliding) windows.</li>
+<li><strong><a class="xref" href="api/Scaleout.Client.Streaming.Linq.TumblingWindowExtensions.html#Scaleout_Client_Streaming_Linq_TumblingWindowExtensions_ToTumblingWindows_">ToTumblingWindows</a></strong>:
+Transforms a collection into an enumerable collection of
+fixed-duration, non-overlapping windows.</li>
+<li><strong><a class="xref" href="api/Scaleout.Client.Streaming.Linq.SessionWindowExtensions.html#Scaleout_Client_Streaming_Linq_SessionWindowExtensions_ToSessionWindows_">ToSessionWindows</a></strong>:
+Transforms a collection into an enumerable collection of session
+windows.</li>
 </ol>
-<p>The windowing methods accept a user-defined <code>Func&lt;T, DateTime&gt;</code> delegate that
-returns the time associated with each element in the collection. This
-timestamp is used to determine which window (or windows, in the case
-of the sliding windows) an element belongs to.</p>
-<p>Each method returns a collection of <code>ITimeWindow</code> objects. An
-<code>ITimeWindow</code> instance is itself an enumerable collection of the elements in
-the source collection whose timestamps fall within the window&#39;s time
-span.</p>
+<p>The windowing methods accept a user-defined <code>Func&lt;T, DateTime&gt;</code>
+delegate that returns the time associated with each element in the
+collection. This timestamp is used to determine which window (or
+windows, in the case of the sliding windows) an element belongs
+to. The collection <em>must</em> be sorted chronologically with respect to
+the returned timestamp.</p>
+<p>Each method returns a collection of
+<strong><a class="xref" href="api/Scaleout.Client.Streaming.ITimeWindow-1.html">ITimeWindow</a></strong>
+objects. An <code>ITimeWindow</code> instance is itself an enumerable collection
+of the elements in the source collection whose timestamps fall within
+the window&#39;s time span.</p>
 <h3 id="sliding-windows">Sliding Windows</h3>
 <p>Sliding window functions are often used to calculate the moving
 average of time series data. The duration of sliding windows is larger
@@ -124,8 +130,9 @@ each window overlaps with its neighbors:</p>
 <p><img src="images/sliding.jpg" alt="sliding windows"></p>
 <p>If no elements fall in a sliding time window, that window will be
 empty.</p>
-<p>To use the library&#39;s <code>ToSlidingWindows</code> method, the source collection
-<em>must</em> be sorted chronologically. (See
+<p>To use the library&#39;s
+<strong><a class="xref" href="api/Scaleout.Client.Streaming.Linq.SlidingWindowExtensions.html#Scaleout_Client_Streaming_Linq_SlidingWindowExtensions_ToSlidingWindows_">ToSlidingWindows</a></strong>
+method, the source collection <em>must</em> be sorted chronologically. (See
 the <a href="#WrapperClasses">Wrapper Classes</a> section below for details on
 convenient wrapper classes that keep your source collection sorted.)</p>
 <pre><code>public static IEnumerable&lt;ITimeWindow&lt;TSource&gt;&gt; ToSlidingWindows&lt;TSource&gt;(
@@ -152,8 +159,9 @@ single window.</p>
 <p><img src="images/tumbling.jpg" alt="tumbling windows"></p>
 <p>If no elements fall in a tumbling time window, that window will be
 empty.</p>
-<p>To use the library&#39;s <code>ToTumblingWindows</code> method, the source collection
-<em>must</em> be sorted chronologically. (See
+<p>To use the library&#39;s
+<strong><a class="xref" href="api/Scaleout.Client.Streaming.Linq.TumblingWindowExtensions.html#Scaleout_Client_Streaming_Linq_TumblingWindowExtensions_ToTumblingWindows_">ToTumblingWindows</a></strong>
+method, the source collection <em>must</em> be sorted chronologically. (See
 the <a href="#WrapperClasses">Wrapper Classes</a> section below for details on
 convenient wrapper classes that keep your source collection sorted.)</p>
 <pre><code>public static IEnumerable&lt;ITimeWindow&lt;TSource&gt;&gt; ToTumblingWindows&lt;TSource&gt;(
@@ -182,10 +190,12 @@ activity resumes.</p>
 <p>Unlike sliding and tumbling window functions, a session window is
 never empty.</p>
 <p><img src="images/session.jpg" alt="session windows"></p>
-<p>Like the other windowing fuctions, the <code>ToSessionWindows</code> method
-requires the source collection to be sorted chronologically. (See
-the <em>Wrapper Classes</em> section below for details on convenient wrapper
-classes that keep your source collection sorted.)</p>
+<p>Like the other windowing fuctions, the
+<strong><a class="xref" href="api/Scaleout.Client.Streaming.Linq.SessionWindowExtensions.html#Scaleout_Client_Streaming_Linq_SessionWindowExtensions_ToSessionWindows_">ToSessionWindows</a></strong>
+method requires the source collection to be sorted
+chronologically. (See the <em>Wrapper Classes</em> section below for details
+on convenient wrapper classes that keep your source collection
+sorted.)</p>
 <pre><code>public static IEnumerable&lt;ITimeWindow&lt;TSource&gt;&gt; ToSessionWindows&lt;TSource&gt;(
     this IEnumerable&lt;TSource&gt; source, 
     Func&lt;TSource, DateTime&gt; timestampSelector,
@@ -200,10 +210,13 @@ classes that keep your source collection sorted.)</p>
 <h2 id="wrapper-classes">Wrapper Classes</h2>
 <p>In addition to the three extension methods detailed above, the library
 provides three wrapper classes to aid in the management and processing
-of time-ordered events. The <code>SessionWindowCollection&lt;T&gt;</code>,
-<code>SlidingWindowCollection&lt;T&gt;</code>, and <code>TumblingWindowCollection&lt;T&gt;</code> classes
-wrap a source collection (typically a <code>List&lt;T&gt;</code> or <code>LinkedList&lt;T&gt;</code>)
-and manage its elements.</p>
+of time-ordered events. The
+<strong><a class="xref" href="api/Scaleout.Client.Streaming.SessionWindowCollection-1.html">SessionWindowCollection</a></strong>,
+<strong><a class="xref" href="api/Scaleout.Client.Streaming.SlidingWindowCollection-1.html">SlidingWindowCollection</a></strong>,
+and
+<strong><a class="xref" href="api/Scaleout.Client.Streaming.TumblingWindowCollection-1.html">TumblingWindowCollection</a></strong>
+classes wrap a source collection (typically a <code>List&lt;T&gt;</code> or
+<code>LinkedList&lt;T&gt;</code>) and manage its elements.</p>
 <p>These wrapper classes are intended to be used as alternatives to the
 library&#39;s extension methods when the underlying elements are accessed
 primarily as a windowed collection. It is therefore expected that the
@@ -214,7 +227,8 @@ following work on your behalf:</p>
 <li><strong>Eviction:</strong> Eviction of elements is automatically handled, as
 specified by the policy passed into the wrapper&#39;s
 constructor. Eviction is performed when the wrapper collection is
-constructed and when new items are added through the</li>
+constructed and when new items are added through the a wrapper&#39;s
+<code>Add()</code> method.</li>
 <li><strong>Ordering:</strong> When elements are added through a wrapper&#39;s <code>Add()</code>
 method, it is inserted into the underlying collection in the correct
 chronological position.</li>
@@ -225,7 +239,7 @@ associated time windows.</p>
 <p>The <code>SlidingWindowCollection&lt;T&gt;</code> class provides the following constructor:</p>
 <pre><code>public SessionWindowCollection(
     IList&lt;T&gt; source,
-    Func&lt;T, System.DateTime&gt; timestampSelector,
+    Func&lt;T, DateTime&gt; timestampSelector,
     TimeSpan windowDuration,
     TimeSpan every
     DateTime startTime)
@@ -246,7 +260,7 @@ elements to the array.</p>
 <p>The <code>TumblingWindowCollection&lt;T&gt;</code> class provides the following constructor:</p>
 <pre><code>public TumblingWindowCollection(
     IList&lt;T&gt; source,
-    Func&lt;T, System.DateTime&gt; timestampSelector,
+    Func&lt;T, DateTime&gt; timestampSelector,
     TimeSpan windowDuration,
     DateTime startTime)
 </code></pre><p>The parameters to this constructor are similar to the parameters to
@@ -265,8 +279,8 @@ elements to the array.</p>
 <p>The <code>SessionWindowCollection&lt;T&gt;</code> class provides the following constructor:</p>
 <pre><code>public SessionWindowCollection(
     IList&lt;T&gt; source,
-    Func&lt;T, System.DateTime&gt; timestampSelector,
-    System.TimeSpan idleThreshold,
+    Func&lt;T, DateTime&gt; timestampSelector,
+    TimeSpan idleThreshold,
     int boundedSessionCapacity)
 </code></pre><p>The parameters to this constructor are largely identical to the
 paramaters to the <code>ToSessionWindows</code> extension method, with the
