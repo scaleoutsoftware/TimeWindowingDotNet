@@ -35,7 +35,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Scaleout.Client.Streaming.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Scaleout.Streaming.TimeWindowing.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -52,7 +52,7 @@
     <None Include="docfx.json" />
     <None Include="index.md" />
     <None Include="packages.config" />
-    <None Include="Scaleout.Client.Streaming.snk" />
+    <None Include="Scaleout.Streaming.TimeWindowing.snk" />
     <None Include="toc.yml" />
   </ItemGroup>
   <Import Project="..\Scaleout.Streaming.TimeWindowing\Scaleout.Streaming.TimeWindowing.projitems" Label="Shared" />

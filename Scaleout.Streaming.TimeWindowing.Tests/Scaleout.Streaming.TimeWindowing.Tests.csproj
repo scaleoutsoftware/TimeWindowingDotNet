@@ -37,7 +37,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Scaleout.Client.Streaming.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Scaleout.Streaming.TimeWindowing.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -70,7 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Scaleout.Client.Streaming.snk" />
+    <None Include="Scaleout.Streaming.TimeWindowing.snk" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

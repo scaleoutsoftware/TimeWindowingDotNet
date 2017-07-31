@@ -10,7 +10,7 @@
     <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
     <AssemblyName>Scaleout.Streaming.TimeWindowing</AssemblyName>
     <RootNamespace>Scaleout.Streaming.TimeWindowing</RootNamespace>
-    <AssemblyOriginatorKeyFile>Scaleout.Client.Streaming.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Scaleout.Streaming.TimeWindowing.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <Import Project="..\Scaleout.Streaming.TimeWindowing\Scaleout.Streaming.TimeWindowing.projitems" Label="Shared" />
