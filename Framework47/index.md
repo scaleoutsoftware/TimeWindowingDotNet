@@ -211,7 +211,7 @@ associated time windows.
 
 The `SlidingWindowCollection<T>` class provides the following constructor:
 
-    public SessionWindowCollection(
+    public SlidingWindowCollection(
         IList<T> source,
         Func<T, DateTime> timestampSelector,
         TimeSpan windowDuration,
