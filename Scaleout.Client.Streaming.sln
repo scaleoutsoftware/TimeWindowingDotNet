@@ -7,16 +7,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples", "Samples\Samples.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetStandard", "NetStandard\NetStandard.csproj", "{812CB21C-D914-4703-B0BA-1BD7D5F0DBDB}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Scaleout.Streaming.TimeWindowing", "Scaleout.Client.Streaming\Scaleout.Streaming.TimeWindowing.shproj", "{B799536B-9101-43AE-856E-13DBCFAFA3E2}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Scaleout.Streaming.TimeWindowing", "Scaleout.Streaming.TimeWindowing\Scaleout.Streaming.TimeWindowing.shproj", "{B799536B-9101-43AE-856E-13DBCFAFA3E2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework47", "Framework47\Framework47.csproj", "{9188CE95-1106-4518-A392-B56B144D0D4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scaleout.Streaming.TimeWindowing.Tests", "Scaleout.Client.Streaming.Tests\Scaleout.Streaming.TimeWindowing.Tests.csproj", "{7748387B-AE55-4F1C-A508-84750EDE0700}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scaleout.Streaming.TimeWindowing.Tests", "Scaleout.Streaming.TimeWindowing.Tests\Scaleout.Streaming.TimeWindowing.Tests.csproj", "{7748387B-AE55-4F1C-A508-84750EDE0700}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Scaleout.Client.Streaming\Scaleout.Client.Streaming.projitems*{9188ce95-1106-4518-a392-b56b144d0d4f}*SharedItemsImports = 4
-		Scaleout.Client.Streaming\Scaleout.Client.Streaming.projitems*{b799536b-9101-43ae-856e-13dbcfafa3e2}*SharedItemsImports = 13
+		Scaleout.Streaming.TimeWindowing\Scaleout.Client.Streaming.projitems*{9188ce95-1106-4518-a392-b56b144d0d4f}*SharedItemsImports = 4
+		Scaleout.Streaming.TimeWindowing\Scaleout.Client.Streaming.projitems*{b799536b-9101-43ae-856e-13dbcfafa3e2}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
