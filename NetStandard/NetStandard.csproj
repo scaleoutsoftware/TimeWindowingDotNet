@@ -11,6 +11,8 @@
     <AssemblyName>Scaleout.Streaming.TimeWindowing</AssemblyName>
     <RootNamespace>Scaleout.Streaming.TimeWindowing</RootNamespace>
     <AssemblyOriginatorKeyFile>Scaleout.Streaming.TimeWindowing.snk</AssemblyOriginatorKeyFile>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Version>1.0.0-beta</Version>
   </PropertyGroup>
 
   <Import Project="..\Scaleout.Streaming.TimeWindowing\Scaleout.Streaming.TimeWindowing.projitems" Label="Shared" />
