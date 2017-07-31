@@ -7,8 +7,8 @@
     <ProjectGuid>{9188CE95-1106-4518-A392-B56B144D0D4F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Scaleout.Client.Streaming</RootNamespace>
-    <AssemblyName>Scaleout.Client.Streaming</AssemblyName>
+    <RootNamespace>Scaleout.Streaming.TimeWindowing</RootNamespace>
+    <AssemblyName>Scaleout.Streaming.TimeWindowing</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>

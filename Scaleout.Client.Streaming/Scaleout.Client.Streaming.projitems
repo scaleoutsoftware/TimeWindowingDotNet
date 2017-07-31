@@ -6,7 +6,7 @@
     <SharedGUID>b799536b-9101-43ae-856e-13dbcfafa3e2</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Scaleout.Client.Streaming</Import_RootNamespace>
+    <Import_RootNamespace>Scaleout.Streaming.TimeWindowing</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)ITimeWindow.cs" />

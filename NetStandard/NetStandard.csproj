@@ -8,8 +8,8 @@
     <Description>The ScaleOut Time Windowing Library for .NET provides a set of windowing functions for time-ordered collections of events.</Description>
     <Copyright>Copyright (C), 2017 by ScaleOut Software, Inc.</Copyright>
     <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
-    <AssemblyName>Scaleout.Client.Streaming</AssemblyName>
-    <RootNamespace>Scaleout.Client.Streaming</RootNamespace>
+    <AssemblyName>Scaleout.Streaming.TimeWindowing</AssemblyName>
+    <RootNamespace>Scaleout.Streaming.TimeWindowing</RootNamespace>
     <AssemblyOriginatorKeyFile>Scaleout.Client.Streaming.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
