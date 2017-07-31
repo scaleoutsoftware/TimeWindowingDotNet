@@ -17,7 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Scaleout.Client.Streaming
+namespace Scaleout.Streaming.TimeWindowing
 {
     internal enum CollectionType : byte { List, LinkedList }
 

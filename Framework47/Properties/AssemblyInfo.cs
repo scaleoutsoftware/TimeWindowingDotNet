@@ -20,11 +20,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Scaleout.Client.Streaming")]
+[assembly: AssemblyTitle("Scaleout.Streaming.TimeWindowing")]
 [assembly: AssemblyDescription("Provides a set of windowing functions for time-ordered collections of events.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ScaleOut Software, Inc.")]
-[assembly: AssemblyProduct("Scaleout.Client.Streaming")]
+[assembly: AssemblyProduct("Scaleout.Streaming.TimeWindowing")]
 [assembly: AssemblyCopyright("Copyright (C), 2017 by ScaleOut Software, Inc.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -50,4 +50,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: InternalsVisibleTo("Scaleout.Client.Streaming.Tests, PublicKey=0024000004800000940000000602000000240000525341310004000001000100fb905dd4e8120494b34e9675989d2745f6156423067e7371f2c93df317bb40eb17eea6ceb5a1859f8f5cf83544f2b77a95f65d84aba924c8bc2bd98fd6e30831b6764e011ed04205dc124db46efe99fc2c544d14cd444cea075933b77d2ee00163205eceda42f602f162d571421c6e1323930b992d8c640633f753f84705e79e")]
+[assembly: InternalsVisibleTo("Scaleout.Streaming.TimeWindowing.Tests, PublicKey=0024000004800000940000000602000000240000525341310004000001000100fb905dd4e8120494b34e9675989d2745f6156423067e7371f2c93df317bb40eb17eea6ceb5a1859f8f5cf83544f2b77a95f65d84aba924c8bc2bd98fd6e30831b6764e011ed04205dc124db46efe99fc2c544d14cd444cea075933b77d2ee00163205eceda42f602f162d571421c6e1323930b992d8c640633f753f84705e79e")]

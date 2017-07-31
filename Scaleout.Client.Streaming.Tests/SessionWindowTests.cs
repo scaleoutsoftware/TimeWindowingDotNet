@@ -21,9 +21,9 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-using Scaleout.Client.Streaming.Linq;
+using Scaleout.Streaming.TimeWindowing.Linq;
 
-namespace Scaleout.Client.Streaming.Tests
+namespace Scaleout.Streaming.TimeWindowing.Tests
 {
     public class SessionWindowTests
     {

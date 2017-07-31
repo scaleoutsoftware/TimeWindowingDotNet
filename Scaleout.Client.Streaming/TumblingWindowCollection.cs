@@ -18,7 +18,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Scaleout.Client.Streaming
+namespace Scaleout.Streaming.TimeWindowing
 {
     /// <summary>
     /// Transforms a collection into an enumerable collection of fixed-time windows and manages 

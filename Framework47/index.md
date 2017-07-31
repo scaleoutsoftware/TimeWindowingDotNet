@@ -9,7 +9,7 @@ operate on any `IEnumerable<T>` collection.
 
 ### Example
 
-    using Scaleout.Client.Streaming.Linq;
+    using Scaleout.Streaming.TimeWindowing.Linq;
 	
     class HeartRate {
 		public DateTime Timestamp { get; set; } // assumes UTC
@@ -44,15 +44,15 @@ details.
 
 Three methods are provided to break up an enumerable collection into
 different kinds of time windows. These are available as extension
-methods in the `Scaleout.Client.Streaming.Linq` namespace:
+methods in the `Scaleout.Streaming.TimeWindowing.Linq` namespace:
 
-1. **[ToSlidingWindows](xref:Scaleout.Client.Streaming.Linq.SlidingWindowExtensions.ToSlidingWindows*)**:
+1. **[ToSlidingWindows](xref:Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions.ToSlidingWindows*)**:
    Transforms a collection into an enumerable collection of overlapped
    (sliding) windows.
-2. **[ToTumblingWindows](xref:Scaleout.Client.Streaming.Linq.TumblingWindowExtensions.ToTumblingWindows*)**:
+2. **[ToTumblingWindows](xref:Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions.ToTumblingWindows*)**:
    Transforms a collection into an enumerable collection of
    fixed-duration, non-overlapping windows.
-3. **[ToSessionWindows](xref:Scaleout.Client.Streaming.Linq.SessionWindowExtensions.ToSessionWindows*)**:
+3. **[ToSessionWindows](xref:Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions.ToSessionWindows*)**:
    Transforms a collection into an enumerable collection of session
    windows.
    
@@ -64,7 +64,7 @@ to. The collection _must_ be sorted chronologically with respect to
 the returned timestamp.
 
 Each method returns a collection of
-**[ITimeWindow](xref:Scaleout.Client.Streaming.ITimeWindow`1)**
+**[ITimeWindow](xref:Scaleout.Streaming.TimeWindowing.ITimeWindow`1)**
 objects. An `ITimeWindow` instance is itself an enumerable collection
 of the elements in the source collection whose timestamps fall within
 the window's time span.
@@ -82,7 +82,7 @@ If no elements fall in a sliding time window, that window will be
 empty.
 
 To use the library's
-**[ToSlidingWindows](xref:Scaleout.Client.Streaming.Linq.SlidingWindowExtensions.ToSlidingWindows*)**
+**[ToSlidingWindows](xref:Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions.ToSlidingWindows*)**
 method, the source collection *must* be sorted chronologically. (See
 the [Wrapper Classes](#WrapperClasses) section below for details on
 convenient wrapper classes that keep your source collection sorted.)
@@ -118,7 +118,7 @@ If no elements fall in a tumbling time window, that window will be
 empty.
 
 To use the library's
-**[ToTumblingWindows](xref:Scaleout.Client.Streaming.Linq.TumblingWindowExtensions.ToTumblingWindows*)**
+**[ToTumblingWindows](xref:Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions.ToTumblingWindows*)**
 method, the source collection *must* be sorted chronologically. (See
 the [Wrapper Classes](#WrapperClasses) section below for details on
 convenient wrapper classes that keep your source collection sorted.)
@@ -157,7 +157,7 @@ never empty.
 ![session windows](images/session.jpg)
 
 Like the other windowing fuctions, the
-**[ToSessionWindows](xref:Scaleout.Client.Streaming.Linq.SessionWindowExtensions.ToSessionWindows*)**
+**[ToSessionWindows](xref:Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions.ToSessionWindows*)**
 method requires the source collection to be sorted
 chronologically. (See the *Wrapper Classes* section below for details
 on convenient wrapper classes that keep your source collection
@@ -181,10 +181,10 @@ sorted.)
 In addition to the three extension methods detailed above, the library
 provides three wrapper classes to aid in the management and processing
 of time-ordered events. The
-**[SessionWindowCollection](xref:Scaleout.Client.Streaming.SessionWindowCollection`1)**,
-**[SlidingWindowCollection](xref:Scaleout.Client.Streaming.SlidingWindowCollection`1)**,
+**[SessionWindowCollection](xref:Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1)**,
+**[SlidingWindowCollection](xref:Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1)**,
 and
-**[TumblingWindowCollection](xref:Scaleout.Client.Streaming.TumblingWindowCollection`1)**
+**[TumblingWindowCollection](xref:Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1)**
 classes wrap a source collection (typically a `List<T>` or
 `LinkedList<T>`) and manage its elements.
 

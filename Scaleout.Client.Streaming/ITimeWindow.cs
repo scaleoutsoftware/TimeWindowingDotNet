@@ -17,7 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Scaleout.Client.Streaming
+namespace Scaleout.Streaming.TimeWindowing
 {
     /// <summary>
     /// Supports iteration over a collection of elements that fall within a time window.

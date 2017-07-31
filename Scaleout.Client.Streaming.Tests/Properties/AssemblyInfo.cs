@@ -21,11 +21,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Scaleout.Client.Streaming.Tests")]
+[assembly: AssemblyTitle("Scaleout.Streaming.TimeWindowing.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Scaleout.Client.Streaming.Tests")]
+[assembly: AssemblyProduct("Scaleout.Streaming.TimeWindowing.Tests")]
 [assembly: AssemblyCopyright("Copyright (C), 2017 by ScaleOut Software, Inc.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

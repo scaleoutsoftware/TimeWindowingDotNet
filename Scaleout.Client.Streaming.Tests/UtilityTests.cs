@@ -18,10 +18,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Scaleout.Client.Streaming;
+using Scaleout.Streaming.TimeWindowing;
 using Xunit;
 
-namespace Scaleout.Client.Streaming.Tests
+namespace Scaleout.Streaming.TimeWindowing.Tests
 {
     
     public class UtilityTests

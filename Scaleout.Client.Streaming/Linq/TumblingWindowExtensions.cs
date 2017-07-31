@@ -17,7 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Scaleout.Client.Streaming.Linq
+namespace Scaleout.Streaming.TimeWindowing.Linq
 {
     public static class TumblingWindowExtensions
     {

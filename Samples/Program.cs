@@ -29,8 +29,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Scaleout.Client.Streaming;
-using Scaleout.Client.Streaming.Linq;
+using Scaleout.Streaming.TimeWindowing;
+using Scaleout.Streaming.TimeWindowing.Linq;
 
 namespace Samples
 {

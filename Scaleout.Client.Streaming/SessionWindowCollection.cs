@@ -17,9 +17,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Scaleout.Client.Streaming.Linq;
+using Scaleout.Streaming.TimeWindowing.Linq;
 
-namespace Scaleout.Client.Streaming
+namespace Scaleout.Streaming.TimeWindowing
 {
 
 

@@ -19,7 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Scaleout.Client.Streaming.Linq
+namespace Scaleout.Streaming.TimeWindowing.Linq
 {
     public static class SessionWindowExtensions
     {
