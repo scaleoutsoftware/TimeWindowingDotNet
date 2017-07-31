@@ -55,7 +55,7 @@
     <None Include="Scaleout.Client.Streaming.snk" />
     <None Include="toc.yml" />
   </ItemGroup>
-  <Import Project="..\Scaleout.Streaming.TimeWindowing\Scaleout.Client.Streaming.projitems" Label="Shared" />
+  <Import Project="..\Scaleout.Streaming.TimeWindowing\Scaleout.Streaming.TimeWindowing.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\docfx.console.2.19.2\build\docfx.console.targets" Condition="Exists('..\packages\docfx.console.2.19.2\build\docfx.console.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

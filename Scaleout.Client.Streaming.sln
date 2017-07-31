@@ -15,8 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scaleout.Streaming.TimeWind
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Scaleout.Streaming.TimeWindowing\Scaleout.Client.Streaming.projitems*{9188ce95-1106-4518-a392-b56b144d0d4f}*SharedItemsImports = 4
-		Scaleout.Streaming.TimeWindowing\Scaleout.Client.Streaming.projitems*{b799536b-9101-43ae-856e-13dbcfafa3e2}*SharedItemsImports = 13
+		Scaleout.Streaming.TimeWindowing\Scaleout.Streaming.TimeWindowing.projitems*{9188ce95-1106-4518-a392-b56b144d0d4f}*SharedItemsImports = 4
+		Scaleout.Streaming.TimeWindowing\Scaleout.Streaming.TimeWindowing.projitems*{b799536b-9101-43ae-856e-13dbcfafa3e2}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

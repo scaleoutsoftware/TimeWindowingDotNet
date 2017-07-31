@@ -13,6 +13,6 @@
     <AssemblyOriginatorKeyFile>Scaleout.Client.Streaming.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
-  <Import Project="..\Scaleout.Streaming.TimeWindowing\Scaleout.Client.Streaming.projitems" Label="Shared" />
+  <Import Project="..\Scaleout.Streaming.TimeWindowing\Scaleout.Streaming.TimeWindowing.projitems" Label="Shared" />
 
 </Project>
