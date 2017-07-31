@@ -60,31 +60,34 @@ namespace Scaleout.Streaming.TimeWindowing.Linq
             // location in the source collection where the next window should start looking for elements.
             int startingIndexHint = 0;
 
-            switch (source)
+            // Would like to use a pattern matching switch statement, but it crashes csc.exe in release mode, maybe 
+            // because I'm yielding from within the switch? Seems related to https://github.com/dotnet/roslyn/issues/18948
+            // ...so I'll use "is" tests for the time being while Microsoft sorts out the problem.
+            if (source is IList<TSource> list)
             {
-                case IList<TSource> list:
-                    foreach (var window in intervalGen)
-                    {
-                        startingIndexHint = window.SetItems(list, startingIndexHint, timestampSelector);
-                        yield return window;
-                    }
-                    break;
-                case LinkedList<TSource> linkedList:
-                    var startHintNode = linkedList.First;
-                    foreach (var window in intervalGen)
-                    {
-                        startHintNode = window.SetItems(startHintNode, timestampSelector);
-                        yield return window;
-                    }
-                    break;
-                default:
-                    // any old IEnumerable.
-                    foreach (var window in intervalGen)
-                    {
-                        startingIndexHint = window.SetItems(source, startingIndexHint, timestampSelector);
-                        yield return window;
-                    }
-                    break;
+                foreach (var window in intervalGen)
+                {
+                    startingIndexHint = window.SetItems(list, startingIndexHint, timestampSelector);
+                    yield return window;
+                }
+            }
+            else if (source is LinkedList<TSource> linkedList)
+            {
+                var startHintNode = linkedList.First;
+                foreach (var window in intervalGen)
+                {
+                    startHintNode = window.SetItems(startHintNode, timestampSelector);
+                    yield return window;
+                }
+            }
+            else
+            {
+                // any old IEnumerable.
+                foreach (var window in intervalGen)
+                {
+                    startingIndexHint = window.SetItems(source, startingIndexHint, timestampSelector);
+                    yield return window;
+                }
             }
 
         }
