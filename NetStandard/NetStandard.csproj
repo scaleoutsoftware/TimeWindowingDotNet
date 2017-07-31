@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.4</TargetFramework>
     <SignAssembly>True</SignAssembly>
+    <Title>ScaleOut Time Windowing Library for .NET</Title>
     <Company>ScaleOut Software, Inc.</Company>
     <Authors />
     <Description>The ScaleOut Time Windowing Library for .NET provides a set of windowing functions for time-ordered collections of events.</Description>
@@ -13,6 +14,8 @@
     <AssemblyOriginatorKeyFile>Scaleout.Streaming.TimeWindowing.snk</AssemblyOriginatorKeyFile>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Version>1.0.0-beta</Version>
+    <PackageProjectUrl>https://github.com/scaleoutsoftware/TimeWindowingDotNet</PackageProjectUrl>
+    <PackageReleaseNotes>Initial Beta release.</PackageReleaseNotes>
   </PropertyGroup>
 
   <Import Project="..\Scaleout.Streaming.TimeWindowing\Scaleout.Streaming.TimeWindowing.projitems" Label="Shared" />
