@@ -691,3 +691,406 @@ references:
   fullName.vb: Scaleout.Client.Streaming.TumblingWindowTransform(Of T).System.Collections.IEnumerable.GetEnumerator
   nameWithType: TumblingWindowTransform<T>.IEnumerable.GetEnumerator
   nameWithType.vb: TumblingWindowTransform(Of T).System.Collections.IEnumerable.GetEnumerator
+- uid: Scaleout.Streaming.TimeWindowing
+  name: Scaleout.Streaming.TimeWindowing
+  href: api/Scaleout.Streaming.TimeWindowing.html
+  commentId: N:Scaleout.Streaming.TimeWindowing
+  fullName: Scaleout.Streaming.TimeWindowing
+  nameWithType: Scaleout.Streaming.TimeWindowing
+- uid: Scaleout.Streaming.TimeWindowing.ITimeWindow`1
+  name: ITimeWindow<TElement>
+  href: api/Scaleout.Streaming.TimeWindowing.ITimeWindow-1.html
+  commentId: T:Scaleout.Streaming.TimeWindowing.ITimeWindow`1
+  name.vb: ITimeWindow(Of TElement)
+  fullName: Scaleout.Streaming.TimeWindowing.ITimeWindow<TElement>
+  fullName.vb: Scaleout.Streaming.TimeWindowing.ITimeWindow(Of TElement)
+  nameWithType: ITimeWindow<TElement>
+  nameWithType.vb: ITimeWindow(Of TElement)
+- uid: Scaleout.Streaming.TimeWindowing.ITimeWindow`1.EndTime
+  name: EndTime
+  href: api/Scaleout.Streaming.TimeWindowing.ITimeWindow-1.html#Scaleout_Streaming_TimeWindowing_ITimeWindow_1_EndTime
+  commentId: P:Scaleout.Streaming.TimeWindowing.ITimeWindow`1.EndTime
+  fullName: Scaleout.Streaming.TimeWindowing.ITimeWindow<TElement>.EndTime
+  fullName.vb: Scaleout.Streaming.TimeWindowing.ITimeWindow(Of TElement).EndTime
+  nameWithType: ITimeWindow<TElement>.EndTime
+  nameWithType.vb: ITimeWindow(Of TElement).EndTime
+- uid: Scaleout.Streaming.TimeWindowing.ITimeWindow`1.EndTime*
+  name: EndTime
+  href: api/Scaleout.Streaming.TimeWindowing.ITimeWindow-1.html#Scaleout_Streaming_TimeWindowing_ITimeWindow_1_EndTime_
+  commentId: Overload:Scaleout.Streaming.TimeWindowing.ITimeWindow`1.EndTime
+  fullName: Scaleout.Streaming.TimeWindowing.ITimeWindow<TElement>.EndTime
+  fullName.vb: Scaleout.Streaming.TimeWindowing.ITimeWindow(Of TElement).EndTime
+  nameWithType: ITimeWindow<TElement>.EndTime
+  nameWithType.vb: ITimeWindow(Of TElement).EndTime
+- uid: Scaleout.Streaming.TimeWindowing.ITimeWindow`1.StartTime
+  name: StartTime
+  href: api/Scaleout.Streaming.TimeWindowing.ITimeWindow-1.html#Scaleout_Streaming_TimeWindowing_ITimeWindow_1_StartTime
+  commentId: P:Scaleout.Streaming.TimeWindowing.ITimeWindow`1.StartTime
+  fullName: Scaleout.Streaming.TimeWindowing.ITimeWindow<TElement>.StartTime
+  fullName.vb: Scaleout.Streaming.TimeWindowing.ITimeWindow(Of TElement).StartTime
+  nameWithType: ITimeWindow<TElement>.StartTime
+  nameWithType.vb: ITimeWindow(Of TElement).StartTime
+- uid: Scaleout.Streaming.TimeWindowing.ITimeWindow`1.StartTime*
+  name: StartTime
+  href: api/Scaleout.Streaming.TimeWindowing.ITimeWindow-1.html#Scaleout_Streaming_TimeWindowing_ITimeWindow_1_StartTime_
+  commentId: Overload:Scaleout.Streaming.TimeWindowing.ITimeWindow`1.StartTime
+  fullName: Scaleout.Streaming.TimeWindowing.ITimeWindow<TElement>.StartTime
+  fullName.vb: Scaleout.Streaming.TimeWindowing.ITimeWindow(Of TElement).StartTime
+  nameWithType: ITimeWindow<TElement>.StartTime
+  nameWithType.vb: ITimeWindow(Of TElement).StartTime
+- uid: Scaleout.Streaming.TimeWindowing.Linq
+  name: Scaleout.Streaming.TimeWindowing.Linq
+  href: api/Scaleout.Streaming.TimeWindowing.Linq.html
+  commentId: N:Scaleout.Streaming.TimeWindowing.Linq
+  fullName: Scaleout.Streaming.TimeWindowing.Linq
+  nameWithType: Scaleout.Streaming.TimeWindowing.Linq
+- uid: Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions
+  name: SessionWindowExtensions
+  href: api/Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions.html
+  commentId: T:Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions
+  fullName: Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions
+  nameWithType: SessionWindowExtensions
+- uid: Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions.ToSessionWindows*
+  name: ToSessionWindows
+  href: api/Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions.html#Scaleout_Streaming_TimeWindowing_Linq_SessionWindowExtensions_ToSessionWindows_
+  commentId: Overload:Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions.ToSessionWindows
+  fullName: Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions.ToSessionWindows
+  nameWithType: SessionWindowExtensions.ToSessionWindows
+- uid: Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions.ToSessionWindows``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.DateTime},System.TimeSpan)
+  name: ToSessionWindows<TSource>(IEnumerable<TSource>, Func<TSource, DateTime>, TimeSpan)
+  href: api/Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions.html#Scaleout_Streaming_TimeWindowing_Linq_SessionWindowExtensions_ToSessionWindows__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_DateTime__System_TimeSpan_
+  commentId: M:Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions.ToSessionWindows``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.DateTime},System.TimeSpan)
+  name.vb: ToSessionWindows(Of TSource)(IEnumerable(Of TSource), Func(Of TSource, DateTime), TimeSpan)
+  fullName: Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions.ToSessionWindows<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, System.DateTime>, System.TimeSpan)
+  fullName.vb: Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions.ToSessionWindows(Of TSource)(System.Collections.Generic.IEnumerable(Of TSource), System.Func(Of TSource, System.DateTime), System.TimeSpan)
+  nameWithType: SessionWindowExtensions.ToSessionWindows<TSource>(IEnumerable<TSource>, Func<TSource, DateTime>, TimeSpan)
+  nameWithType.vb: SessionWindowExtensions.ToSessionWindows(Of TSource)(IEnumerable(Of TSource), Func(Of TSource, DateTime), TimeSpan)
+- uid: Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions
+  name: SlidingWindowExtensions
+  href: api/Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions.html
+  commentId: T:Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions
+  fullName: Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions
+  nameWithType: SlidingWindowExtensions
+- uid: Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions.ToSlidingWindows*
+  name: ToSlidingWindows
+  href: api/Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions.html#Scaleout_Streaming_TimeWindowing_Linq_SlidingWindowExtensions_ToSlidingWindows_
+  commentId: Overload:Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions.ToSlidingWindows
+  fullName: Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions.ToSlidingWindows
+  nameWithType: SlidingWindowExtensions.ToSlidingWindows
+- uid: Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions.ToSlidingWindows``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.DateTime},System.DateTime,System.DateTime,System.TimeSpan,System.TimeSpan)
+  name: ToSlidingWindows<TSource>(IEnumerable<TSource>, Func<TSource, DateTime>, DateTime, DateTime, TimeSpan, TimeSpan)
+  href: api/Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions.html#Scaleout_Streaming_TimeWindowing_Linq_SlidingWindowExtensions_ToSlidingWindows__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_DateTime__System_DateTime_System_DateTime_System_TimeSpan_System_TimeSpan_
+  commentId: M:Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions.ToSlidingWindows``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.DateTime},System.DateTime,System.DateTime,System.TimeSpan,System.TimeSpan)
+  name.vb: ToSlidingWindows(Of TSource)(IEnumerable(Of TSource), Func(Of TSource, DateTime), DateTime, DateTime, TimeSpan, TimeSpan)
+  fullName: Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions.ToSlidingWindows<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, System.DateTime>, System.DateTime, System.DateTime, System.TimeSpan, System.TimeSpan)
+  fullName.vb: Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions.ToSlidingWindows(Of TSource)(System.Collections.Generic.IEnumerable(Of TSource), System.Func(Of TSource, System.DateTime), System.DateTime, System.DateTime, System.TimeSpan, System.TimeSpan)
+  nameWithType: SlidingWindowExtensions.ToSlidingWindows<TSource>(IEnumerable<TSource>, Func<TSource, DateTime>, DateTime, DateTime, TimeSpan, TimeSpan)
+  nameWithType.vb: SlidingWindowExtensions.ToSlidingWindows(Of TSource)(IEnumerable(Of TSource), Func(Of TSource, DateTime), DateTime, DateTime, TimeSpan, TimeSpan)
+- uid: Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions
+  name: TumblingWindowExtensions
+  href: api/Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions.html
+  commentId: T:Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions
+  fullName: Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions
+  nameWithType: TumblingWindowExtensions
+- uid: Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions.ToTumblingWindows*
+  name: ToTumblingWindows
+  href: api/Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions.html#Scaleout_Streaming_TimeWindowing_Linq_TumblingWindowExtensions_ToTumblingWindows_
+  commentId: Overload:Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions.ToTumblingWindows
+  fullName: Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions.ToTumblingWindows
+  nameWithType: TumblingWindowExtensions.ToTumblingWindows
+- uid: Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions.ToTumblingWindows``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.DateTime},System.DateTime,System.DateTime,System.TimeSpan)
+  name: ToTumblingWindows<TSource>(IEnumerable<TSource>, Func<TSource, DateTime>, DateTime, DateTime, TimeSpan)
+  href: api/Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions.html#Scaleout_Streaming_TimeWindowing_Linq_TumblingWindowExtensions_ToTumblingWindows__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_DateTime__System_DateTime_System_DateTime_System_TimeSpan_
+  commentId: M:Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions.ToTumblingWindows``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.DateTime},System.DateTime,System.DateTime,System.TimeSpan)
+  name.vb: ToTumblingWindows(Of TSource)(IEnumerable(Of TSource), Func(Of TSource, DateTime), DateTime, DateTime, TimeSpan)
+  fullName: Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions.ToTumblingWindows<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, System.DateTime>, System.DateTime, System.DateTime, System.TimeSpan)
+  fullName.vb: Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions.ToTumblingWindows(Of TSource)(System.Collections.Generic.IEnumerable(Of TSource), System.Func(Of TSource, System.DateTime), System.DateTime, System.DateTime, System.TimeSpan)
+  nameWithType: TumblingWindowExtensions.ToTumblingWindows<TSource>(IEnumerable<TSource>, Func<TSource, DateTime>, DateTime, DateTime, TimeSpan)
+  nameWithType.vb: TumblingWindowExtensions.ToTumblingWindows(Of TSource)(IEnumerable(Of TSource), Func(Of TSource, DateTime), DateTime, DateTime, TimeSpan)
+- uid: Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1
+  name: SessionWindowCollection<T>
+  href: api/Scaleout.Streaming.TimeWindowing.SessionWindowCollection-1.html
+  commentId: T:Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1
+  name.vb: SessionWindowCollection(Of T)
+  fullName: Scaleout.Streaming.TimeWindowing.SessionWindowCollection<T>
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SessionWindowCollection(Of T)
+  nameWithType: SessionWindowCollection<T>
+  nameWithType.vb: SessionWindowCollection(Of T)
+- uid: Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.#ctor(System.Collections.Generic.IList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.Int32)
+  name: SessionWindowCollection(IList<T>, Func<T, DateTime>, TimeSpan, Int32)
+  href: api/Scaleout.Streaming.TimeWindowing.SessionWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SessionWindowCollection_1__ctor_System_Collections_Generic_IList__0__System_Func__0_System_DateTime__System_TimeSpan_System_Int32_
+  commentId: M:Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.#ctor(System.Collections.Generic.IList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.Int32)
+  name.vb: SessionWindowCollection(IList(Of T), Func(Of T, DateTime), TimeSpan, Int32)
+  fullName: Scaleout.Streaming.TimeWindowing.SessionWindowCollection<T>.SessionWindowCollection(System.Collections.Generic.IList<T>, System.Func<T, System.DateTime>, System.TimeSpan, System.Int32)
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SessionWindowCollection(Of T).SessionWindowCollection(System.Collections.Generic.IList(Of T), System.Func(Of T, System.DateTime), System.TimeSpan, System.Int32)
+  nameWithType: SessionWindowCollection<T>.SessionWindowCollection(IList<T>, Func<T, DateTime>, TimeSpan, Int32)
+  nameWithType.vb: SessionWindowCollection(Of T).SessionWindowCollection(IList(Of T), Func(Of T, DateTime), TimeSpan, Int32)
+- uid: Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.#ctor(System.Collections.Generic.LinkedList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.Int32)
+  name: SessionWindowCollection(LinkedList<T>, Func<T, DateTime>, TimeSpan, Int32)
+  href: api/Scaleout.Streaming.TimeWindowing.SessionWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SessionWindowCollection_1__ctor_System_Collections_Generic_LinkedList__0__System_Func__0_System_DateTime__System_TimeSpan_System_Int32_
+  commentId: M:Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.#ctor(System.Collections.Generic.LinkedList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.Int32)
+  name.vb: SessionWindowCollection(LinkedList(Of T), Func(Of T, DateTime), TimeSpan, Int32)
+  fullName: Scaleout.Streaming.TimeWindowing.SessionWindowCollection<T>.SessionWindowCollection(System.Collections.Generic.LinkedList<T>, System.Func<T, System.DateTime>, System.TimeSpan, System.Int32)
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SessionWindowCollection(Of T).SessionWindowCollection(System.Collections.Generic.LinkedList(Of T), System.Func(Of T, System.DateTime), System.TimeSpan, System.Int32)
+  nameWithType: SessionWindowCollection<T>.SessionWindowCollection(LinkedList<T>, Func<T, DateTime>, TimeSpan, Int32)
+  nameWithType.vb: SessionWindowCollection(Of T).SessionWindowCollection(LinkedList(Of T), Func(Of T, DateTime), TimeSpan, Int32)
+- uid: Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.#ctor*
+  name: SessionWindowCollection
+  href: api/Scaleout.Streaming.TimeWindowing.SessionWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SessionWindowCollection_1__ctor_
+  commentId: Overload:Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.#ctor
+  fullName: Scaleout.Streaming.TimeWindowing.SessionWindowCollection<T>.SessionWindowCollection
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SessionWindowCollection(Of T).SessionWindowCollection
+  nameWithType: SessionWindowCollection<T>.SessionWindowCollection
+  nameWithType.vb: SessionWindowCollection(Of T).SessionWindowCollection
+- uid: Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.Add(`0)
+  name: Add(T)
+  href: api/Scaleout.Streaming.TimeWindowing.SessionWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SessionWindowCollection_1_Add__0_
+  commentId: M:Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.Add(`0)
+  fullName: Scaleout.Streaming.TimeWindowing.SessionWindowCollection<T>.Add(T)
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SessionWindowCollection(Of T).Add(T)
+  nameWithType: SessionWindowCollection<T>.Add(T)
+  nameWithType.vb: SessionWindowCollection(Of T).Add(T)
+- uid: Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.Add*
+  name: Add
+  href: api/Scaleout.Streaming.TimeWindowing.SessionWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SessionWindowCollection_1_Add_
+  commentId: Overload:Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.Add
+  fullName: Scaleout.Streaming.TimeWindowing.SessionWindowCollection<T>.Add
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SessionWindowCollection(Of T).Add
+  nameWithType: SessionWindowCollection<T>.Add
+  nameWithType.vb: SessionWindowCollection(Of T).Add
+- uid: Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Scaleout.Streaming.TimeWindowing.SessionWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SessionWindowCollection_1_GetEnumerator
+  commentId: M:Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.GetEnumerator
+  fullName: Scaleout.Streaming.TimeWindowing.SessionWindowCollection<T>.GetEnumerator()
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SessionWindowCollection(Of T).GetEnumerator()
+  nameWithType: SessionWindowCollection<T>.GetEnumerator()
+  nameWithType.vb: SessionWindowCollection(Of T).GetEnumerator()
+- uid: Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Scaleout.Streaming.TimeWindowing.SessionWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SessionWindowCollection_1_GetEnumerator_
+  commentId: Overload:Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.GetEnumerator
+  fullName: Scaleout.Streaming.TimeWindowing.SessionWindowCollection<T>.GetEnumerator
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SessionWindowCollection(Of T).GetEnumerator
+  nameWithType: SessionWindowCollection<T>.GetEnumerator
+  nameWithType.vb: SessionWindowCollection(Of T).GetEnumerator
+- uid: Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.Refresh(System.Boolean)
+  name: Refresh(Boolean)
+  href: api/Scaleout.Streaming.TimeWindowing.SessionWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SessionWindowCollection_1_Refresh_System_Boolean_
+  commentId: M:Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.Refresh(System.Boolean)
+  fullName: Scaleout.Streaming.TimeWindowing.SessionWindowCollection<T>.Refresh(System.Boolean)
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SessionWindowCollection(Of T).Refresh(System.Boolean)
+  nameWithType: SessionWindowCollection<T>.Refresh(Boolean)
+  nameWithType.vb: SessionWindowCollection(Of T).Refresh(Boolean)
+- uid: Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.Refresh*
+  name: Refresh
+  href: api/Scaleout.Streaming.TimeWindowing.SessionWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SessionWindowCollection_1_Refresh_
+  commentId: Overload:Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.Refresh
+  fullName: Scaleout.Streaming.TimeWindowing.SessionWindowCollection<T>.Refresh
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SessionWindowCollection(Of T).Refresh
+  nameWithType: SessionWindowCollection<T>.Refresh
+  nameWithType.vb: SessionWindowCollection(Of T).Refresh
+- uid: Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.Source
+  name: Source
+  href: api/Scaleout.Streaming.TimeWindowing.SessionWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SessionWindowCollection_1_Source
+  commentId: P:Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.Source
+  fullName: Scaleout.Streaming.TimeWindowing.SessionWindowCollection<T>.Source
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SessionWindowCollection(Of T).Source
+  nameWithType: SessionWindowCollection<T>.Source
+  nameWithType.vb: SessionWindowCollection(Of T).Source
+- uid: Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.Source*
+  name: Source
+  href: api/Scaleout.Streaming.TimeWindowing.SessionWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SessionWindowCollection_1_Source_
+  commentId: Overload:Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.Source
+  fullName: Scaleout.Streaming.TimeWindowing.SessionWindowCollection<T>.Source
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SessionWindowCollection(Of T).Source
+  nameWithType: SessionWindowCollection<T>.Source
+  nameWithType.vb: SessionWindowCollection(Of T).Source
+- uid: Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Scaleout.Streaming.TimeWindowing.SessionWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SessionWindowCollection_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Scaleout.Streaming.TimeWindowing.SessionWindowCollection<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SessionWindowCollection(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: SessionWindowCollection<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: SessionWindowCollection(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Scaleout.Streaming.TimeWindowing.SessionWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SessionWindowCollection_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Scaleout.Streaming.TimeWindowing.SessionWindowCollection`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Scaleout.Streaming.TimeWindowing.SessionWindowCollection<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SessionWindowCollection(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: SessionWindowCollection<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: SessionWindowCollection(Of T).System.Collections.IEnumerable.GetEnumerator
+- uid: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1
+  name: SlidingWindowCollection<T>
+  href: api/Scaleout.Streaming.TimeWindowing.SlidingWindowCollection-1.html
+  commentId: T:Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1
+  name.vb: SlidingWindowCollection(Of T)
+  fullName: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection<T>
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection(Of T)
+  nameWithType: SlidingWindowCollection<T>
+  nameWithType.vb: SlidingWindowCollection(Of T)
+- uid: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1.#ctor(System.Collections.Generic.IList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.TimeSpan,System.DateTime)
+  name: SlidingWindowCollection(IList<T>, Func<T, DateTime>, TimeSpan, TimeSpan, DateTime)
+  href: api/Scaleout.Streaming.TimeWindowing.SlidingWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SlidingWindowCollection_1__ctor_System_Collections_Generic_IList__0__System_Func__0_System_DateTime__System_TimeSpan_System_TimeSpan_System_DateTime_
+  commentId: M:Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1.#ctor(System.Collections.Generic.IList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.TimeSpan,System.DateTime)
+  name.vb: SlidingWindowCollection(IList(Of T), Func(Of T, DateTime), TimeSpan, TimeSpan, DateTime)
+  fullName: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection<T>.SlidingWindowCollection(System.Collections.Generic.IList<T>, System.Func<T, System.DateTime>, System.TimeSpan, System.TimeSpan, System.DateTime)
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection(Of T).SlidingWindowCollection(System.Collections.Generic.IList(Of T), System.Func(Of T, System.DateTime), System.TimeSpan, System.TimeSpan, System.DateTime)
+  nameWithType: SlidingWindowCollection<T>.SlidingWindowCollection(IList<T>, Func<T, DateTime>, TimeSpan, TimeSpan, DateTime)
+  nameWithType.vb: SlidingWindowCollection(Of T).SlidingWindowCollection(IList(Of T), Func(Of T, DateTime), TimeSpan, TimeSpan, DateTime)
+- uid: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1.#ctor(System.Collections.Generic.LinkedList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.TimeSpan,System.DateTime)
+  name: SlidingWindowCollection(LinkedList<T>, Func<T, DateTime>, TimeSpan, TimeSpan, DateTime)
+  href: api/Scaleout.Streaming.TimeWindowing.SlidingWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SlidingWindowCollection_1__ctor_System_Collections_Generic_LinkedList__0__System_Func__0_System_DateTime__System_TimeSpan_System_TimeSpan_System_DateTime_
+  commentId: M:Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1.#ctor(System.Collections.Generic.LinkedList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.TimeSpan,System.DateTime)
+  name.vb: SlidingWindowCollection(LinkedList(Of T), Func(Of T, DateTime), TimeSpan, TimeSpan, DateTime)
+  fullName: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection<T>.SlidingWindowCollection(System.Collections.Generic.LinkedList<T>, System.Func<T, System.DateTime>, System.TimeSpan, System.TimeSpan, System.DateTime)
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection(Of T).SlidingWindowCollection(System.Collections.Generic.LinkedList(Of T), System.Func(Of T, System.DateTime), System.TimeSpan, System.TimeSpan, System.DateTime)
+  nameWithType: SlidingWindowCollection<T>.SlidingWindowCollection(LinkedList<T>, Func<T, DateTime>, TimeSpan, TimeSpan, DateTime)
+  nameWithType.vb: SlidingWindowCollection(Of T).SlidingWindowCollection(LinkedList(Of T), Func(Of T, DateTime), TimeSpan, TimeSpan, DateTime)
+- uid: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1.#ctor*
+  name: SlidingWindowCollection
+  href: api/Scaleout.Streaming.TimeWindowing.SlidingWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SlidingWindowCollection_1__ctor_
+  commentId: Overload:Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1.#ctor
+  fullName: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection<T>.SlidingWindowCollection
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection(Of T).SlidingWindowCollection
+  nameWithType: SlidingWindowCollection<T>.SlidingWindowCollection
+  nameWithType.vb: SlidingWindowCollection(Of T).SlidingWindowCollection
+- uid: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1.Add(`0)
+  name: Add(T)
+  href: api/Scaleout.Streaming.TimeWindowing.SlidingWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SlidingWindowCollection_1_Add__0_
+  commentId: M:Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1.Add(`0)
+  fullName: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection<T>.Add(T)
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection(Of T).Add(T)
+  nameWithType: SlidingWindowCollection<T>.Add(T)
+  nameWithType.vb: SlidingWindowCollection(Of T).Add(T)
+- uid: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1.Add*
+  name: Add
+  href: api/Scaleout.Streaming.TimeWindowing.SlidingWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SlidingWindowCollection_1_Add_
+  commentId: Overload:Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1.Add
+  fullName: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection<T>.Add
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection(Of T).Add
+  nameWithType: SlidingWindowCollection<T>.Add
+  nameWithType.vb: SlidingWindowCollection(Of T).Add
+- uid: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Scaleout.Streaming.TimeWindowing.SlidingWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SlidingWindowCollection_1_GetEnumerator
+  commentId: M:Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1.GetEnumerator
+  fullName: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection<T>.GetEnumerator()
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection(Of T).GetEnumerator()
+  nameWithType: SlidingWindowCollection<T>.GetEnumerator()
+  nameWithType.vb: SlidingWindowCollection(Of T).GetEnumerator()
+- uid: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Scaleout.Streaming.TimeWindowing.SlidingWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SlidingWindowCollection_1_GetEnumerator_
+  commentId: Overload:Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1.GetEnumerator
+  fullName: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection<T>.GetEnumerator
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection(Of T).GetEnumerator
+  nameWithType: SlidingWindowCollection<T>.GetEnumerator
+  nameWithType.vb: SlidingWindowCollection(Of T).GetEnumerator
+- uid: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Scaleout.Streaming.TimeWindowing.SlidingWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SlidingWindowCollection_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: SlidingWindowCollection<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: SlidingWindowCollection(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Scaleout.Streaming.TimeWindowing.SlidingWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_SlidingWindowCollection_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Scaleout.Streaming.TimeWindowing.SlidingWindowCollection`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Scaleout.Streaming.TimeWindowing.SlidingWindowCollection(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: SlidingWindowCollection<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: SlidingWindowCollection(Of T).System.Collections.IEnumerable.GetEnumerator
+- uid: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1
+  name: TumblingWindowCollection<T>
+  href: api/Scaleout.Streaming.TimeWindowing.TumblingWindowCollection-1.html
+  commentId: T:Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1
+  name.vb: TumblingWindowCollection(Of T)
+  fullName: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection<T>
+  fullName.vb: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection(Of T)
+  nameWithType: TumblingWindowCollection<T>
+  nameWithType.vb: TumblingWindowCollection(Of T)
+- uid: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1.#ctor(System.Collections.Generic.IList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.DateTime)
+  name: TumblingWindowCollection(IList<T>, Func<T, DateTime>, TimeSpan, DateTime)
+  href: api/Scaleout.Streaming.TimeWindowing.TumblingWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_TumblingWindowCollection_1__ctor_System_Collections_Generic_IList__0__System_Func__0_System_DateTime__System_TimeSpan_System_DateTime_
+  commentId: M:Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1.#ctor(System.Collections.Generic.IList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.DateTime)
+  name.vb: TumblingWindowCollection(IList(Of T), Func(Of T, DateTime), TimeSpan, DateTime)
+  fullName: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection<T>.TumblingWindowCollection(System.Collections.Generic.IList<T>, System.Func<T, System.DateTime>, System.TimeSpan, System.DateTime)
+  fullName.vb: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection(Of T).TumblingWindowCollection(System.Collections.Generic.IList(Of T), System.Func(Of T, System.DateTime), System.TimeSpan, System.DateTime)
+  nameWithType: TumblingWindowCollection<T>.TumblingWindowCollection(IList<T>, Func<T, DateTime>, TimeSpan, DateTime)
+  nameWithType.vb: TumblingWindowCollection(Of T).TumblingWindowCollection(IList(Of T), Func(Of T, DateTime), TimeSpan, DateTime)
+- uid: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1.#ctor(System.Collections.Generic.LinkedList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.DateTime)
+  name: TumblingWindowCollection(LinkedList<T>, Func<T, DateTime>, TimeSpan, DateTime)
+  href: api/Scaleout.Streaming.TimeWindowing.TumblingWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_TumblingWindowCollection_1__ctor_System_Collections_Generic_LinkedList__0__System_Func__0_System_DateTime__System_TimeSpan_System_DateTime_
+  commentId: M:Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1.#ctor(System.Collections.Generic.LinkedList{`0},System.Func{`0,System.DateTime},System.TimeSpan,System.DateTime)
+  name.vb: TumblingWindowCollection(LinkedList(Of T), Func(Of T, DateTime), TimeSpan, DateTime)
+  fullName: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection<T>.TumblingWindowCollection(System.Collections.Generic.LinkedList<T>, System.Func<T, System.DateTime>, System.TimeSpan, System.DateTime)
+  fullName.vb: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection(Of T).TumblingWindowCollection(System.Collections.Generic.LinkedList(Of T), System.Func(Of T, System.DateTime), System.TimeSpan, System.DateTime)
+  nameWithType: TumblingWindowCollection<T>.TumblingWindowCollection(LinkedList<T>, Func<T, DateTime>, TimeSpan, DateTime)
+  nameWithType.vb: TumblingWindowCollection(Of T).TumblingWindowCollection(LinkedList(Of T), Func(Of T, DateTime), TimeSpan, DateTime)
+- uid: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1.#ctor*
+  name: TumblingWindowCollection
+  href: api/Scaleout.Streaming.TimeWindowing.TumblingWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_TumblingWindowCollection_1__ctor_
+  commentId: Overload:Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1.#ctor
+  fullName: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection<T>.TumblingWindowCollection
+  fullName.vb: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection(Of T).TumblingWindowCollection
+  nameWithType: TumblingWindowCollection<T>.TumblingWindowCollection
+  nameWithType.vb: TumblingWindowCollection(Of T).TumblingWindowCollection
+- uid: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1.Add(`0)
+  name: Add(T)
+  href: api/Scaleout.Streaming.TimeWindowing.TumblingWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_TumblingWindowCollection_1_Add__0_
+  commentId: M:Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1.Add(`0)
+  fullName: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection<T>.Add(T)
+  fullName.vb: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection(Of T).Add(T)
+  nameWithType: TumblingWindowCollection<T>.Add(T)
+  nameWithType.vb: TumblingWindowCollection(Of T).Add(T)
+- uid: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1.Add*
+  name: Add
+  href: api/Scaleout.Streaming.TimeWindowing.TumblingWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_TumblingWindowCollection_1_Add_
+  commentId: Overload:Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1.Add
+  fullName: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection<T>.Add
+  fullName.vb: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection(Of T).Add
+  nameWithType: TumblingWindowCollection<T>.Add
+  nameWithType.vb: TumblingWindowCollection(Of T).Add
+- uid: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Scaleout.Streaming.TimeWindowing.TumblingWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_TumblingWindowCollection_1_GetEnumerator
+  commentId: M:Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1.GetEnumerator
+  fullName: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection<T>.GetEnumerator()
+  fullName.vb: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection(Of T).GetEnumerator()
+  nameWithType: TumblingWindowCollection<T>.GetEnumerator()
+  nameWithType.vb: TumblingWindowCollection(Of T).GetEnumerator()
+- uid: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Scaleout.Streaming.TimeWindowing.TumblingWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_TumblingWindowCollection_1_GetEnumerator_
+  commentId: Overload:Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1.GetEnumerator
+  fullName: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection<T>.GetEnumerator
+  fullName.vb: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection(Of T).GetEnumerator
+  nameWithType: TumblingWindowCollection<T>.GetEnumerator
+  nameWithType.vb: TumblingWindowCollection(Of T).GetEnumerator
+- uid: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Scaleout.Streaming.TimeWindowing.TumblingWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_TumblingWindowCollection_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: TumblingWindowCollection<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: TumblingWindowCollection(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Scaleout.Streaming.TimeWindowing.TumblingWindowCollection-1.html#Scaleout_Streaming_TimeWindowing_TumblingWindowCollection_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Scaleout.Streaming.TimeWindowing.TumblingWindowCollection`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Scaleout.Streaming.TimeWindowing.TumblingWindowCollection(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: TumblingWindowCollection<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: TumblingWindowCollection(Of T).System.Collections.IEnumerable.GetEnumerator
