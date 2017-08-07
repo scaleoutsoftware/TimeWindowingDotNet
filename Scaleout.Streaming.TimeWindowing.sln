@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetStandard", "NetStandard\
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Scaleout.Streaming.TimeWindowing", "Scaleout.Streaming.TimeWindowing\Scaleout.Streaming.TimeWindowing.shproj", "{B799536B-9101-43AE-856E-13DBCFAFA3E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework47", "Framework47\Framework47.csproj", "{9188CE95-1106-4518-A392-B56B144D0D4F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework45", "Framework47\Framework45.csproj", "{9188CE95-1106-4518-A392-B56B144D0D4F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scaleout.Streaming.TimeWindowing.Tests", "Scaleout.Streaming.TimeWindowing.Tests\Scaleout.Streaming.TimeWindowing.Tests.csproj", "{7748387B-AE55-4F1C-A508-84750EDE0700}"
 EndProject

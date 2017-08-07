@@ -76,9 +76,9 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Framework47\Framework47.csproj">
+    <ProjectReference Include="..\Framework47\Framework45.csproj">
       <Project>{9188ce95-1106-4518-a392-b56b144d0d4f}</Project>
-      <Name>Framework47</Name>
+      <Name>Framework45</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
