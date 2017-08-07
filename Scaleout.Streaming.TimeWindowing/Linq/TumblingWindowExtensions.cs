@@ -19,6 +19,9 @@ using System.Text;
 
 namespace Scaleout.Streaming.TimeWindowing.Linq
 {
+    /// <summary>
+    /// Provides extension method for tumbling window transformation of a collection.
+    /// </summary>
     public static class TumblingWindowExtensions
     {
         /// <summary>

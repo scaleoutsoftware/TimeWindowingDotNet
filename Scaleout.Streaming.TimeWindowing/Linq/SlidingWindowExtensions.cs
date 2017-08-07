@@ -20,6 +20,9 @@ using System.Linq;
 
 namespace Scaleout.Streaming.TimeWindowing.Linq
 {
+    /// <summary>
+    /// Provides extension method for sliding window transformation of a collection.
+    /// </summary>
     public static class SlidingWindowExtensions
     {
         /// <summary>

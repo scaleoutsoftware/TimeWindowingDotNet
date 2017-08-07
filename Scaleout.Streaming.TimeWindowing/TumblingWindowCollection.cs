@@ -79,6 +79,10 @@ namespace Scaleout.Streaming.TimeWindowing
             _transform.Add(item);
         }
 
+        /// <summary>
+        /// Returns an enumerator that iterates through the collection of time windows.
+        /// </summary>
+        /// <returns>An enumerator that can be used to iterate through the collection of <see cref="ITimeWindow{TElement}"/> elements.</returns>
         public IEnumerator<ITimeWindow<T>> GetEnumerator()
         {
             return _transform.GetEnumerator();

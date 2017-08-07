@@ -21,6 +21,9 @@ using System.Text;
 
 namespace Scaleout.Streaming.TimeWindowing.Linq
 {
+    /// <summary>
+    /// Provides extension method for session windowing.
+    /// </summary>
     public static class SessionWindowExtensions
     {
         /// <summary>
