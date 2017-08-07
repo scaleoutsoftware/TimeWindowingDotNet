@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Scaleout.Streaming.TimeWindowing</id>
+    <version>1.0.1-beta</version>
+    <releaseNotes>Added assembly targeting .NET Framework 4.5+ in addition to .NET Standard 1.4 (to minimize System.* dependencies pulled into .NET Framework projects).</releaseNotes>
+    <title>ScaleOut Time Windowing Library for .NET</title>
+    <authors>scaleoutsoftware</authors>
+    <owners>scaleoutsoftware</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://github.com/scaleoutsoftware/TimeWindowingDotNet</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The ScaleOut Time Windowing Library for .NET provides a set of windowing functions for time-ordered collections of events.</description>
+    <copyright>Copyright (C), 2017 by ScaleOut Software, Inc.</copyright>
+    <tags>Sliding Tumbling Session Windowing Streaming</tags>
+
+    <dependencies>
+      <group targetFramework=".NETStandard1.4">
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+      </group>
+	  <group targetFramework="net45">
+	  </group>
+    </dependencies>
+
+  </metadata>
+  <files>
+    <!-- Cross-platform -->
+    <file src="..\NetStandard\bin\Release\netstandard1.4\Scaleout.Streaming.TimeWindowing.dll" target="lib\netstandard1.4\Scaleout.Streaming.TimeWindowing.dll" />
+    <file src="..\NetStandard\bin\Release\netstandard1.4\Scaleout.Streaming.TimeWindowing.xml" target="lib\netstandard1.4\Scaleout.Streaming.TimeWindowing.xml" />
+
+    <!-- .NET Framework 4.5 and higher -->
+    <file src="..\Framework45\bin\Release\Scaleout.Streaming.TimeWindowing.dll" target="lib\net45\Scaleout.Streaming.TimeWindowing.dll" />
+    <file src="..\Framework45\bin\Release\Scaleout.Streaming.TimeWindowing.xml" target="lib\net45\Scaleout.Streaming.TimeWindowing.xml" />
+  </files>
+</package>
