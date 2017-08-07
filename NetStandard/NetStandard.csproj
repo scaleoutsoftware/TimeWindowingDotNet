@@ -13,7 +13,7 @@
     <RootNamespace>Scaleout.Streaming.TimeWindowing</RootNamespace>
     <AssemblyOriginatorKeyFile>Scaleout.Streaming.TimeWindowing.snk</AssemblyOriginatorKeyFile>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-    <Version>1.0.0-beta</Version>
+    <Version>1.0.1-beta</Version>
     <PackageProjectUrl>https://github.com/scaleoutsoftware/TimeWindowingDotNet</PackageProjectUrl>
     <PackageReleaseNotes>Initial Beta release.</PackageReleaseNotes>
   </PropertyGroup>
