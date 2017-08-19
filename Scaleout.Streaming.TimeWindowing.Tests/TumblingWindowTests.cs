@@ -35,8 +35,8 @@ namespace Scaleout.Streaming.TimeWindowing.Tests
         {
             get
             {
-                /* First 5 days in December.
-                 * Assuming 2-day tumbling transform over Dec [1,5):
+                /* First 5 days in January.
+                 * Assuming 2-day tumbling transform over Jan [1,5):
                  * 
                  * [-)      1,2
                  *   [-)    3,4
