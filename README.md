@@ -3,7 +3,7 @@
 This library provides methods and collection wrappers that perform
 time windowing transformations of IEnumerable<T> collections.
 
-Nuget: `Install-Package Scaleout.Streaming.TimeWindowing -Pre`
+Nuget: `Install-Package Scaleout.Streaming.TimeWindowing`
 
 Documentation: https://scaleoutsoftware.github.io/TimeWindowingDotNet/
 
