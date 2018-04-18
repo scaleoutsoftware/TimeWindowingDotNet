@@ -232,7 +232,7 @@ implicitly set to the last (most recent) element in the source
 collection.
 
 Once constructed, the wrapper's `Add()` method should be used to add
-elements to the array.
+elements to the collection.
 
 ### Tumbling Window Wrapper
 
@@ -257,7 +257,7 @@ through windows exposed by the wrapper, the end time is implicitly set
 to the last (most recent) element in the source collection.
 
 Once constructed, the wrapper's `Add()` method should be used to add
-elements to the array.
+elements to the collection.
 
 ### Session Window Wrapper
 
