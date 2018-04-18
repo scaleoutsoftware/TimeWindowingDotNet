@@ -2,8 +2,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>Scaleout.Streaming.TimeWindowing</id>
-    <version>1.0.1-beta</version>
-    <releaseNotes>Added assembly targeting .NET Framework 4.5+ in addition to .NET Standard 1.4 (to minimize System.* dependencies pulled into .NET Framework projects).</releaseNotes>
+    <version>1.0.2</version>
+    <releaseNotes>First stable release. No changes since 1.0.1-beta.</releaseNotes>
     <title>ScaleOut Time Windowing Library for .NET</title>
     <authors>scaleoutsoftware</authors>
     <owners>scaleoutsoftware</owners>
@@ -11,7 +11,7 @@
     <projectUrl>https://github.com/scaleoutsoftware/TimeWindowingDotNet</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>The ScaleOut Time Windowing Library for .NET provides a set of windowing functions for time-ordered collections of events.</description>
-    <copyright>Copyright (C), 2017 by ScaleOut Software, Inc.</copyright>
+    <copyright>Copyright (C), 2017-2018 by ScaleOut Software, Inc.</copyright>
     <tags>Sliding Tumbling Session Windowing Streaming</tags>
 
     <dependencies>

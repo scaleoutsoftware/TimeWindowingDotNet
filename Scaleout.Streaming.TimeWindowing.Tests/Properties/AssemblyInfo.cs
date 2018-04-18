@@ -1,4 +1,4 @@
-﻿/* Copyright 2017 ScaleOut Software, Inc.
+﻿/* Copyright 2017-2018 ScaleOut Software, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Scaleout.Streaming.TimeWindowing.Tests")]
-[assembly: AssemblyCopyright("Copyright (C), 2017 by ScaleOut Software, Inc.")]
+[assembly: AssemblyCopyright("Copyright (C), 2017-2018 by ScaleOut Software, Inc.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
