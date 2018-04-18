@@ -4,35 +4,29 @@
       "src": [
         {
           "files": [
-            "*.csproj"
+            "**/**.csproj"
           ],
-          "cwd": ".",
-          "exclude": [
-            "**/obj/**",
-            "**/bin/**"
-          ]
+		  "src": "../Framework45"
         }
       ],
-      "dest": "obj/api"
+      "dest": "api",
+      "disableGitFeatures": false
     }
   ],
   "build": {
     "content": [
       {
         "files": [
-          "api/**.yml"
-        ],
-        "cwd": "obj"
+          "api/**.yml",
+          "api/index.md"
+        ]
       },
       {
         "files": [
-          "api/*.md",
           "articles/**.md",
+          "articles/**/toc.yml",
           "toc.yml",
           "*.md"
-        ],
-        "exclude": [
-          "obj/**"
         ]
       }
     ],
@@ -40,9 +34,6 @@
       {
         "files": [
           "images/**"
-        ],
-        "exclude": [
-          "obj/**"
         ]
       }
     ],
@@ -52,15 +43,23 @@
           "apidoc/**.md"
         ],
         "exclude": [
-          "obj/**"
+          "obj/**",
+          "../docs/**"
         ]
       }
     ],
     "dest": "../docs",
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
     "template": [
       "default"
     ],
-    "globalMetadata": {
+    "postProcessors": [],
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": true,
+	"globalMetadata": {
       "_appTitle": "ScaleOut Time Windowing Library for .NET",
       "_appLogoPath": "images/scaleout_logo.png",
       "_appFooter": "Copyright &copy; 2017-2018 ScaleOut Software, Inc.",
