@@ -50,7 +50,7 @@ namespace Scaleout.Streaming.TimeWindowing.Linq
         /// The last sliding windows returned by this method may have a shorter duration than what is specified
         /// by the <paramref name="windowDuration"/> argument. This happens when the duration would cause 
         /// the window to extend beyond the specified <paramref name="endTime"/>. These trailing windows can be skipped
-        /// by using a Linq Where() operation on the returned sequence to filters out windows with short durations.
+        /// by using a Linq Where() operation on the returned sequence to filter out windows with short durations.
         /// </para>
         /// </remarks>
         public static IEnumerable<ITimeWindow<TSource>> ToSlidingWindows<TSource>(this IEnumerable<TSource> source, Func<TSource, DateTime> timestampSelector, DateTime startTime, DateTime endTime, TimeSpan windowDuration, TimeSpan every)

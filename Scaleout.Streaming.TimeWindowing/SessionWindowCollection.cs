@@ -27,7 +27,7 @@ namespace Scaleout.Streaming.TimeWindowing
     /// Transforms a collection into an enumerable collection of session windows and manages 
     /// eviction of old items from the source collection. 
     /// This wrapper can be used to manage the retention policy of the underlying
-    /// collection. Objects added through this wrapper are inserted in chronologial
+    /// collection. Objects added through this wrapper are inserted in chronological
     /// order and evicted according to the policy provided to the constructor.
     /// </summary>
     /// <typeparam name="T">The type of objects in the source collection.</typeparam>
