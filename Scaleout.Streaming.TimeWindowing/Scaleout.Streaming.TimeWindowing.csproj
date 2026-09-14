@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <VersionPrefix>2.0.0</VersionPrefix>
+    <VersionSuffix>alpha1</VersionSuffix>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <TargetFrameworks>net462;netstandard2.0</TargetFrameworks>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>Scaleout.Streaming.TimeWindowing.snk</AssemblyOriginatorKeyFile>
+    <Title>ScaleOut Time Windowing Library for .NET</Title>
+    <Authors>scaleoutsoftware</Authors>
+    <Company>ScaleOut Software, Inc.</Company>
+    <Description>The ScaleOut Time Windowing Library for .NET provides a set of windowing functions for time-ordered collections of events.</Description>
+    <Copyright>Copyright (C), 2017-2026 by ScaleOut Software, Inc.</Copyright>
+    <PackageProjectUrl>https://github.com/scaleoutsoftware/TimeWindowingDotNet</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Sliding;Tumbling;Session;Windowing;Streaming</PackageTags>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

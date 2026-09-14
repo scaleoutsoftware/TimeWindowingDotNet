@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Scaleout.Streaming.TimeWindowing.Tests/Scaleout.Streaming.TimeWindowing.Tests.csproj" Id="3db96d88-fbd4-4da2-b62d-c0c783a520e8" />
+  <Project Path="Scaleout.Streaming.TimeWindowing/Scaleout.Streaming.TimeWindowing.csproj" Id="d75959a8-c28e-4b0f-a6e6-2afe339c59c0" />
+</Solution>
