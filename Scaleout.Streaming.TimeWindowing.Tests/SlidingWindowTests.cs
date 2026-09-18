@@ -93,7 +93,7 @@ namespace Scaleout.Streaming.TimeWindowing.Tests
 
             var list = slidingWindows.ToList();
             Assert.Equal(2, slidingWindows.First().Count());
-            Assert.Equal(1, slidingWindows.Last().Count());
+            Assert.Single(slidingWindows.Last());
         }
 
         [Fact]
@@ -129,18 +129,18 @@ namespace Scaleout.Streaming.TimeWindowing.Tests
             Assert.Empty(source);
 
             slidingTransform.Add(new DateTime(2017, 1, 1, 13, 0, 0)); // 1pm
-            Assert.Equal(1, source.Count);
-            Assert.Equal(1, slidingTransform.Count());
+            Assert.Single(source);
+            Assert.Single(slidingTransform);
 
             slidingTransform.Add(new DateTime(2017, 1, 1, 13, 0, 1)); // 1:00:01pm
             Assert.Equal(2, source.Count);
-            Assert.Equal(1, slidingTransform.Count());
+            Assert.Single(slidingTransform);
 
             slidingTransform.Add(new DateTime(2017, 1, 1, 13, 1, 0)); // 1:01:00pm
             Assert.Equal(3, source.Count);
             Assert.Equal(2, slidingTransform.Count()); // 2 windows
             Assert.Equal(3, slidingTransform.First().Count); // first window has all three
-            Assert.Equal(1, slidingTransform.Last().Count);  // second window just has the 1:01:00 element.
+            Assert.Single(slidingTransform.Last());  // second window just has the 1:01:00 element.
 
 
             // do a second transform with a later start time. Make sure eviction is performed.
@@ -149,9 +149,9 @@ namespace Scaleout.Streaming.TimeWindowing.Tests
                                                                   every: OneMinute,
                                                                   startTime: startTime + OneMinute);
 
-            Assert.Equal(1, source.Count); // first two items in source collection shouldn've been evicted.
-            Assert.Equal(1, transform2.Count()); // 1 window now
-            Assert.Equal(1, transform2.First().Count); // first (and only) window just has the 1:01:00 element
+            Assert.Single(source); // first two items in source collection shouldn've been evicted.
+            Assert.Single(transform2); // 1 window now
+            Assert.Single(transform2.First()); // first (and only) window just has the 1:01:00 element
 
         }
 
@@ -172,18 +172,18 @@ namespace Scaleout.Streaming.TimeWindowing.Tests
             Assert.Empty(source);
 
             slidingTransform.Add(new DateTime(2017, 1, 1, 13, 0, 0)); // 1pm
-            Assert.Equal(1, source.Count);
-            Assert.Equal(1, slidingTransform.Count());
+            Assert.Single(source);
+            Assert.Single(slidingTransform);
 
             slidingTransform.Add(new DateTime(2017, 1, 1, 13, 0, 1)); // 1:00:01pm
             Assert.Equal(2, source.Count);
-            Assert.Equal(1, slidingTransform.Count());
+            Assert.Single(slidingTransform);
 
             slidingTransform.Add(new DateTime(2017, 1, 1, 13, 1, 0)); // 1:01:00pm
             Assert.Equal(3, source.Count);
             Assert.Equal(2, slidingTransform.Count()); // 2 windows
             Assert.Equal(3, slidingTransform.First().Count); // first window has all three
-            Assert.Equal(1, slidingTransform.Last().Count);  // second window just has the 1:01:00 element.
+            Assert.Single(slidingTransform.Last());  // second window just has the 1:01:00 element.
 
 
             // do a second transform with a later start time. Make sure eviction is performed.
@@ -192,9 +192,9 @@ namespace Scaleout.Streaming.TimeWindowing.Tests
                                                                   every: OneMinute,
                                                                   startTime: startTime + OneMinute);
 
-            Assert.Equal(1, source.Count); // first two items in source collection shouldn've been evicted.
-            Assert.Equal(1, transform2.Count()); // 1 window now
-            Assert.Equal(1, transform2.First().Count); // first (and only) window just has the 1:01:00 element
+            Assert.Single(source); // first two items in source collection shouldn've been evicted.
+            Assert.Single(transform2); // 1 window now
+            Assert.Single(transform2.First()); // first (and only) window just has the 1:01:00 element
         }
 
 

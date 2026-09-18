@@ -31,16 +31,16 @@ namespace Scaleout.Streaming.TimeWindowing.Tests
         {
             List<int> foo = new List<int>();
             foo.RemoveFirstItems(0);
-            Assert.Equal(0, foo.Count);
+            Assert.Empty(foo);
         }
         
         [Fact]
         public void RemoveFirst1()
         {
             List<int> foo = new List<int> { 42 };
-            Assert.Equal(1, foo.Count);
+            Assert.Single(foo);
             foo.RemoveFirstItems(1);
-            Assert.Equal(0, foo.Count);
+            Assert.Empty(foo);
         }
 
         [Fact]
@@ -50,7 +50,7 @@ namespace Scaleout.Streaming.TimeWindowing.Tests
             Assert.Equal(2, foo.Count);
 
             foo.RemoveFirstItems(1);
-            Assert.Equal(1, foo.Count);
+            Assert.Single(foo);
             Assert.Equal(43, foo[0]);
         }
 
@@ -59,7 +59,7 @@ namespace Scaleout.Streaming.TimeWindowing.Tests
         {
             LinkedList<int> foo = new LinkedList<int>();
             foo.RemoveFirstItems(0);
-            Assert.Equal(0, foo.Count);
+            Assert.Empty(foo);
         }
 
         [Fact]
@@ -67,9 +67,9 @@ namespace Scaleout.Streaming.TimeWindowing.Tests
         {
             LinkedList<int> foo = new LinkedList<int>();
             foo.AddFirst(42);
-            Assert.Equal(1, foo.Count);
+            Assert.Single(foo);
             foo.RemoveFirstItems(1);
-            Assert.Equal(0, foo.Count);
+            Assert.Empty(foo);
         }
 
         [Fact]
@@ -81,8 +81,8 @@ namespace Scaleout.Streaming.TimeWindowing.Tests
             Assert.Equal(2, foo.Count);
 
             foo.RemoveFirstItems(1);
-            Assert.Equal(1, foo.Count);
-            Assert.Equal(43, foo.First.Value);
+            Assert.Single(foo);
+            Assert.Equal(43, foo.First!.Value);
         }
     }
 }

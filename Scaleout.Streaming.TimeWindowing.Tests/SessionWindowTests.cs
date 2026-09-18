@@ -95,7 +95,7 @@ namespace Scaleout.Streaming.TimeWindowing.Tests
         public void EmptySessionLinq(IEnumerable<DateTime> coll)
         {
             var sessionWindows = coll.ToSessionWindows(elem => elem, TimeSpan.FromSeconds(1));
-            Assert.Equal(0, sessionWindows.Count());
+            Assert.Empty(sessionWindows);
         }
 
         [Fact]
@@ -104,11 +104,11 @@ namespace Scaleout.Streaming.TimeWindowing.Tests
             var source = new List<DateTime>();
 
             var sessTransform = new SessionWindowCollection<DateTime>(source, elem => elem, TimeSpan.FromMinutes(10), int.MaxValue);
-            Assert.Equal(0, sessTransform.Count());
+            Assert.Empty(sessTransform);
 
             sessTransform.Add(new DateTime(2017, 1, 1, 14, 30, 42)); // 2:30:42pm
-            Assert.Equal(1, source.Count);
-            Assert.Equal(1, sessTransform.Count());
+            Assert.Single(source);
+            Assert.Single(sessTransform);
 
             sessTransform.Add(new DateTime(2017, 1, 1, 13, 45, 13)); // 1:45:13pm
             Assert.Equal(2, source.Count);
@@ -141,16 +141,16 @@ namespace Scaleout.Streaming.TimeWindowing.Tests
             var source = new LinkedList<DateTime>();
 
             var sessTransform = new SessionWindowCollection<DateTime>(source, elem => elem, TimeSpan.FromMinutes(10), int.MaxValue);
-            Assert.Equal(0, sessTransform.Count());
+            Assert.Empty(sessTransform);
 
             sessTransform.Add(new DateTime(2017, 1, 1, 14, 30, 42)); // 2:30:42pm
-            Assert.Equal(1, source.Count);
-            Assert.Equal(1, sessTransform.Count());
+            Assert.Single(source);
+            Assert.Single(sessTransform);
 
             sessTransform.Add(new DateTime(2017, 1, 1, 13, 45, 13)); // 1:45:13pm
             Assert.Equal(2, source.Count);
             Assert.Equal(2, sessTransform.Count());
-            Assert.Equal(new DateTime(2017, 1, 1, 13, 45, 13), source.First.Value);
+            Assert.Equal(new DateTime(2017, 1, 1, 13, 45, 13), source.First!.Value);
             Assert.Equal(new DateTime(2017, 1, 1, 14, 30, 42), source.ElementAt(1));
             Assert.Equal(new DateTime(2017, 1, 1, 14, 30, 42), sessTransform.Last().Last());
 
