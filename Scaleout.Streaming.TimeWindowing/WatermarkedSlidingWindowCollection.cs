@@ -182,12 +182,22 @@ namespace Scaleout.Streaming.TimeWindowing
 
         private IEnumerable<ITimeWindow<T>> PerformEviction(IList<T> source)
         {
+            // We don't implement this as a lazy (yield) enumerator because we need to remove items
+            // from the source collection after we have finished generating all of the windows to evict.
+            // If the user doesn't enumerate all of the windows to evict then we wouldn't remove items
+            // from the source collection.
+
+            if (source.Count == 0)
+                return Enumerable.Empty<ITimeWindow<T>>();
+
             DateTime lastTimestampToRemove = DateTime.MinValue;
+            List<ITimeWindow<T>> evictedWindows = new List<ITimeWindow<T>>();
 
             // location in the source collection where the next window should start looking for elements.
             int startingIndexHint = 0;
 
-            var intervalGen = new SlidingWindowIntervalGenerator<T>(_startTime, _currentWatermark, _every, _windowDuration);
+
+            var intervalGen = new OpenSlidingWindowIntervalGenerator<T>(_startTime, _every, _windowDuration);
             foreach (var window in intervalGen)
             {
                 if (window.EndTime < _currentWatermark)
@@ -197,13 +207,14 @@ namespace Scaleout.Streaming.TimeWindowing
                     {
                         lastTimestampToRemove = _timestampSelector(window.Last());
                     }
-                    yield return window;
+                    evictedWindows.Add(window);
                 }
                 else
                 {
                     // Done looking for windows to evict, since the rest of the windows will be after the watermark.
                     // This window is now the start time for the entire collection.
                     _startTime = window.StartTime;
+                    break;
                 }
             }
             
@@ -219,6 +230,8 @@ namespace Scaleout.Streaming.TimeWindowing
 
             if (countOfItemsToRemove > 0)
                 source.RemoveFirstItems(countOfItemsToRemove);
+
+            return evictedWindows;
         }
 
         private IEnumerable<ITimeWindow<T>> AddToLinkedList(T item)

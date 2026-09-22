@@ -16,6 +16,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Scaleout.Streaming.TimeWindowing.Linq
@@ -134,7 +135,39 @@ namespace Scaleout.Streaming.TimeWindowing.Linq
         }
     }
 
+    internal class OpenSlidingWindowIntervalGenerator<TElement> : IEnumerable<TimeWindow<TElement>>
+    {
+        private DateTime _startTime;
+        private TimeSpan _period;
+        private TimeSpan _duration;
+        public OpenSlidingWindowIntervalGenerator(DateTime start, TimeSpan period, TimeSpan duration)
+        {
+            if (period > duration) throw new ArgumentException($"{nameof(period)} cannot be longer than interval's {nameof(duration)}");
 
+            _startTime = start;
+            _period = period;
+            _duration = duration;
+        }
+
+        public IEnumerator<TimeWindow<TElement>> GetEnumerator()
+        {
+            var start = _startTime;
+            while (true)
+            {
+                var dur = _duration;
+                yield return new TimeWindow<TElement>(start, start + dur);
+                start = start + _period;
+            }
+
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+    }
+
+    [DebuggerDisplay("{StartTime} - {EndTime}, {Count} items")]
     internal class TimeWindow<TElement> : ITimeWindow<TElement>
     {
         private List<TElement> _items;
