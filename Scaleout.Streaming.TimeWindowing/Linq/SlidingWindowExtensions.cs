@@ -135,6 +135,12 @@ namespace Scaleout.Streaming.TimeWindowing.Linq
         }
     }
 
+    /// <summary>
+    /// Similar to SlidingWindowIntervalGenerator, but generates an infinite sequence 
+    /// of sliding windows starting at the specified start time. Used in the watermarked 
+    /// collections that don't have an end time. Consumer is expected to break out of the 
+    /// enumeration when the window's start time exceeds the watermark.
+    /// </summary>
     internal class OpenSlidingWindowIntervalGenerator<TElement> : IEnumerable<TimeWindow<TElement>>
     {
         private DateTime _startTime;

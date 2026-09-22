@@ -190,7 +190,6 @@ namespace Scaleout.Streaming.TimeWindowing
             if (source.Count == 0)
                 return Enumerable.Empty<ITimeWindow<T>>();
 
-            DateTime lastTimestampToRemove = DateTime.MinValue;
             List<ITimeWindow<T>> evictedWindows = new List<ITimeWindow<T>>();
 
             // location in the source collection where the next window should start looking for elements.
@@ -203,31 +202,30 @@ namespace Scaleout.Streaming.TimeWindowing
                 if (window.EndTime < _currentWatermark)
                 {
                     startingIndexHint = window.SetItems(source, startingIndexHint, _timestampSelector);
-                    if (window.Count > 0)
-                    {
-                        lastTimestampToRemove = _timestampSelector(window.Last());
-                    }
                     evictedWindows.Add(window);
                 }
                 else
                 {
                     // Done looking for windows to evict, since the rest of the windows will be after the watermark.
-                    // This window is now the start time for the entire collection.
+                    // This window is now the start time for the entire collection. We'll be evicting
+                    // all items prior to this window's start time
                     _startTime = window.StartTime;
                     break;
                 }
             }
             
-            // find index of first element to keep.
+            // Perform eviction of items from the source collection.
+            // First, figure out how many items to remove.
             int countOfItemsToRemove = 0;
             while (countOfItemsToRemove < source.Count)
             {
-                if (_timestampSelector(source[countOfItemsToRemove]) <= lastTimestampToRemove)
+                if (_timestampSelector(source[countOfItemsToRemove]) < _startTime)
                     countOfItemsToRemove++;
                 else
                     break;
             }
 
+            // Do removal.
             if (countOfItemsToRemove > 0)
                 source.RemoveFirstItems(countOfItemsToRemove);
 
@@ -245,9 +243,17 @@ namespace Scaleout.Streaming.TimeWindowing
 
         private IEnumerable<ITimeWindow<T>> PerformEviction(LinkedList<T> source)
         {
-            DateTime lastTimestampToRemove = DateTime.MinValue;
+            // We don't implement this as a lazy (yield) enumerator because we need to remove items
+            // from the source collection after we have finished generating all of the windows to evict.
+            // If the user doesn't enumerate all of the windows to evict then we wouldn't remove items
+            // from the source collection.
 
-            var intervalGen = new SlidingWindowIntervalGenerator<T>(_startTime, _currentWatermark, _every, _windowDuration);
+            if (source.Count == 0)
+                return Enumerable.Empty<ITimeWindow<T>>();
+
+            List<ITimeWindow<T>> evictedWindows = new List<ITimeWindow<T>>();
+
+            var intervalGen = new OpenSlidingWindowIntervalGenerator<T>(_startTime, _every, _windowDuration);
 
             var startHintNode = source.First;
             foreach (var window in intervalGen)
@@ -255,16 +261,13 @@ namespace Scaleout.Streaming.TimeWindowing
                 if (window.EndTime < _currentWatermark)
                 {
                     startHintNode = window.SetItems(startHintNode, _timestampSelector);
-                    if (window.Count > 0)
-                    {
-                        lastTimestampToRemove = _timestampSelector(window.Last());
-                    }
-                    yield return window;
+                    evictedWindows.Add(window);
                 }
                 else
                 {
                     // Done looking for windows to evict, since the rest of the windows will be after the watermark.
-                    // This window is now the start time for the entire collection.
+                    // This window is now the start time for the entire collection. We'll be evicting
+                    // all items prior to this window's start time
                     _startTime = window.StartTime;
                     break;
                 }
@@ -273,12 +276,13 @@ namespace Scaleout.Streaming.TimeWindowing
             
             while (source.First != null)
             {
-                if (_timestampSelector(source.First.Value) <= lastTimestampToRemove)
+                if (_timestampSelector(source.First.Value) < _startTime)
                     source.RemoveFirst();
                 else
                     break;
             }
-            
+
+            return evictedWindows;
         }
 
         /// <summary>
