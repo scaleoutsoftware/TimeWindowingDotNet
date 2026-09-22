@@ -8,7 +8,18 @@ using System.Threading.Tasks;
 
 namespace Scaleout.Streaming.TimeWindowing
 {
-    internal class WatermarkedSlidingWindowCollection<T> : IEnumerable<ITimeWindow<T>>
+    /// <summary>
+    /// Iterable collection of time windows that are generated from an underlying 
+    /// collection of elements.
+    /// </summary>
+    /// <remarks>
+    /// The underlying collection is expected to be ordered 
+    /// by timestamp, and the time windows are generated based on a sliding window
+    /// algorithm. The collection also supports watermark-based closure of time windows
+    /// and eviction of old elements from the underlying collection.
+    /// </remarks>
+    /// <typeparam name="T">The type of elements in the collection.</typeparam>
+    public class WatermarkedSlidingWindowCollection<T> : IEnumerable<ITimeWindow<T>>
     {
         IEnumerable<T> _source;
 
@@ -213,21 +224,9 @@ namespace Scaleout.Streaming.TimeWindowing
                     break;
                 }
             }
-            
-            // Perform eviction of items from the source collection.
-            // First, figure out how many items to remove.
-            int countOfItemsToRemove = 0;
-            while (countOfItemsToRemove < source.Count)
-            {
-                if (_timestampSelector(source[countOfItemsToRemove]) < _startTime)
-                    countOfItemsToRemove++;
-                else
-                    break;
-            }
 
-            // Do removal.
-            if (countOfItemsToRemove > 0)
-                source.RemoveFirstItems(countOfItemsToRemove);
+            // Perform eviction of items from the source collection.
+            TrimToStartTime();
 
             return evictedWindows;
         }
@@ -273,14 +272,8 @@ namespace Scaleout.Streaming.TimeWindowing
                 }
             }
 
-            
-            while (source.First != null)
-            {
-                if (_timestampSelector(source.First.Value) < _startTime)
-                    source.RemoveFirst();
-                else
-                    break;
-            }
+            // Perform eviction of items from the source collection.
+            TrimToStartTime();
 
             return evictedWindows;
         }
