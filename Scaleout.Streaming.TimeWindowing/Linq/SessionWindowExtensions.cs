@@ -16,6 +16,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -78,6 +79,7 @@ namespace Scaleout.Streaming.TimeWindowing.Linq
         }
     }
 
+    [DebuggerDisplay("{StartTime} - {EndTime}, {Count} items")]
     internal class SessionWindow<TElement> : ITimeWindow<TElement>
     {
         List<TElement> _items = new List<TElement>();

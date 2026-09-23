@@ -177,20 +177,6 @@ namespace Scaleout.Streaming.TimeWindowing
             return PerformEviction(source);
         }
 
-        private IEnumerable<ITimeWindow<T>> PerformEviction()
-        {
-            // Use add/evict algorithm tuned to underlying collection type.
-            switch (_collType)
-            {
-                case CollectionType.List:
-                    return PerformEviction(_source as IList<T>);
-                case CollectionType.LinkedList:
-                    return PerformEviction(_source as LinkedList<T>);
-                default:
-                    throw new NotImplementedException("Underlying collection type not supported");
-            }
-        }
-
         private IEnumerable<ITimeWindow<T>> PerformEviction(IList<T> source)
         {
             // We don't implement this as a lazy (yield) enumerator because we need to remove items
