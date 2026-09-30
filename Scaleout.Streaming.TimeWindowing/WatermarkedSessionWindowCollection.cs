@@ -11,12 +11,13 @@ namespace Scaleout.Streaming.TimeWindowing
 {
     public class WatermarkedSessionWindowCollection<T> : IEnumerable<ITimeWindow<T>>
     {
-        IEnumerable<T> _source;
-        private CollectionType _collType;
+        ICollection<T> _source;
         private Func<T, DateTime> _timestampSelector;
-        private TimeSpan _idleThreshold;
         private Func<DateTime, DateTime> _watermarkGenerator;
-        private DateTime _currentWatermark;
+
+        public IReadOnlyCollection<T> Items => _source as IReadOnlyCollection<T>;
+        public TimeSpan IdleThreshold { get; private set; }
+        public DateTime CurrentWatermark { get; private set; }
 
         /// <summary>
         /// Constructor
@@ -25,10 +26,9 @@ namespace Scaleout.Streaming.TimeWindowing
         /// <param name="timestampSelector">A function to extract a timestamp from an element.</param>
         /// <param name="idleThreshold">Maximum allowed time gap between elements before a new session window is started.</param>
         /// <param name="watermarkGenerator">A function to generate the watermark based on the time of the latest element added. Entries that arrive before the watermark time are evicted.</param>
-        public WatermarkedSessionWindowCollection(IList<T> source, Func<T, DateTime> timestampSelector, TimeSpan idleThreshold, Func<DateTime, DateTime> watermarkGenerator)
+        public WatermarkedSessionWindowCollection(ICollection<T> source, Func<T, DateTime> timestampSelector, TimeSpan idleThreshold, Func<DateTime, DateTime> watermarkGenerator) :
+            this(source, timestampSelector, idleThreshold, watermarkGenerator, DateTime.MinValue)
         {
-            _collType = CollectionType.List;
-            Init(source, timestampSelector, idleThreshold, watermarkGenerator);
         }
 
         /// <summary>
@@ -38,22 +38,15 @@ namespace Scaleout.Streaming.TimeWindowing
         /// <param name="timestampSelector">A function to extract a timestamp from an element.</param>
         /// <param name="idleThreshold">Maximum allowed time gap between elements before a new session window is started.</param>
         /// <param name="watermarkGenerator">A function to generate the watermark based on the time of the latest element added. Entries that arrive before the watermark time are evicted.</param>
-        public WatermarkedSessionWindowCollection(LinkedList<T> source, Func<T, DateTime> timestampSelector, TimeSpan idleThreshold, Func<DateTime, DateTime> watermarkGenerator)
-        {
-            _collType = CollectionType.LinkedList;
-            Init(source, timestampSelector, idleThreshold, watermarkGenerator);
-        }
-
-        private void Init(IEnumerable<T> source, Func<T, DateTime> timestampSelector, TimeSpan idleThreshold, Func<DateTime, DateTime> watermarkGenerator)
+        /// <param name="currentWatermark">The current watermark time.</param>
+        public WatermarkedSessionWindowCollection(ICollection<T> source, Func<T, DateTime> timestampSelector, TimeSpan idleThreshold, Func<DateTime, DateTime> watermarkGenerator, DateTime currentWatermark)
         {
             _source = source ?? throw new ArgumentNullException(nameof(source));
             _timestampSelector = timestampSelector ?? throw new ArgumentNullException(nameof(timestampSelector));
-            _idleThreshold = (idleThreshold > TimeSpan.Zero) ? idleThreshold : throw new ArgumentOutOfRangeException(nameof(idleThreshold));
+            IdleThreshold = (idleThreshold > TimeSpan.Zero) ? idleThreshold : throw new ArgumentOutOfRangeException(nameof(idleThreshold));
             _watermarkGenerator = watermarkGenerator ?? throw new ArgumentNullException(nameof(watermarkGenerator));
-            _currentWatermark = DateTime.MinValue;
+            CurrentWatermark = currentWatermark;
         }
-
-        
 
         /// <summary>
         /// Adds an element to the underlying collection, inserting it into the underlying source collection
@@ -66,19 +59,19 @@ namespace Scaleout.Streaming.TimeWindowing
         {
             DateTime itemTimestamp = _timestampSelector(item);
             DateTime nextWatermark = _watermarkGenerator(itemTimestamp);
-            if (nextWatermark > _currentWatermark)
+            if (nextWatermark > CurrentWatermark)
             {
-                _currentWatermark = nextWatermark;
+                CurrentWatermark = nextWatermark;
             }
 
-            if (itemTimestamp > _currentWatermark)
+            if (itemTimestamp > CurrentWatermark)
             {
                 // Use add/evict algorithm tuned to underlying collection type.
-                switch (_collType)
+                switch (_source)
                 {
-                    case CollectionType.List:
+                    case IList<T> list:
                         return AddToList(item);
-                    case CollectionType.LinkedList:
+                    case LinkedList<T> linkedList:
                         return AddToLinkedList(item);
                     default:
                         throw new NotImplementedException("Underlying collection type not supported");
@@ -123,11 +116,11 @@ namespace Scaleout.Streaming.TimeWindowing
 
             List<ITimeWindow<T>> evictedWindows = new List<ITimeWindow<T>>();
 
-            var windows = source.ToSessionWindows(_timestampSelector, _idleThreshold);
+            var windows = source.ToSessionWindows(_timestampSelector, IdleThreshold);
             int itemsToRemoveCount = 0;
             foreach (var window in windows)
             {
-                if (window.EndTime < _currentWatermark)
+                if (window.EndTime < CurrentWatermark)
                 {
                     evictedWindows.Add(window);
                     itemsToRemoveCount += window.Count;
@@ -166,7 +159,7 @@ namespace Scaleout.Streaming.TimeWindowing
             if (_source.Count() == 0)
                 return Enumerable.Empty<ITimeWindow<T>>().GetEnumerator();
 
-            return _source.ToSessionWindows(_timestampSelector, _idleThreshold).GetEnumerator();
+            return _source.ToSessionWindows(_timestampSelector, IdleThreshold).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()

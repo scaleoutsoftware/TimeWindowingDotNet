@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,21 +22,21 @@ namespace Scaleout.Streaming.TimeWindowing
     /// <typeparam name="T">The type of elements in the collection.</typeparam>
     public class WatermarkedSlidingWindowCollection<T> : IEnumerable<ITimeWindow<T>>
     {
-        IEnumerable<T> _source;
+        ICollection<T> _source;
 
-        private CollectionType _collType;
         private Func<T, DateTime> _timestampSelector;
         private Func<DateTime, DateTime> _watermarkGenerator;
-        private DateTime _currentWatermark;
-        private DateTime _startTime;
 
-        TimeSpan _windowDuration;
-        TimeSpan _every;
+        public IReadOnlyCollection<T> Items => _source as IReadOnlyCollection<T>;
+        public DateTime CurrentWatermark { get; private set; }
+        public DateTime StartTime { get; private set; }
+        public TimeSpan WindowDuration { get; private set; }
+        public TimeSpan Every { get; private set; }
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        /// <param name="source">The list of elements to wrap with the transformation.</param>
+        /// <param name="source">An enumerable collection of elements to wrap with the transformation.</param>
         /// <param name="timestampSelector">A function to extract a timestamp from an element.</param>
         /// <param name="windowDuration">
         /// Duration of each time window. This is a maximum value that will be shortened for the last window(s) 
@@ -44,16 +45,15 @@ namespace Scaleout.Streaming.TimeWindowing
         /// <param name="every">The period of time between the start of each sliding window.</param>
         /// <param name="startTime">Start time (inclusive) of the first sliding window.</param>
         /// <param name="watermarkGenerator">A function to generate a watermark. Entries that arrive before the watermark time are evicted.</param>
-        public WatermarkedSlidingWindowCollection(IList<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, TimeSpan every, DateTime startTime, Func<DateTime, DateTime> watermarkGenerator)
+        public WatermarkedSlidingWindowCollection(ICollection<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, TimeSpan every, DateTime startTime, Func<DateTime, DateTime> watermarkGenerator)
         {
-            _collType = CollectionType.List;
-            Init(source, timestampSelector, windowDuration, every, startTime, watermarkGenerator);
+            Init(source, timestampSelector, windowDuration, every, startTime, watermarkGenerator, DateTime.MinValue);
         }
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        /// <param name="source">The linked list of elements to wrap with the transformation.</param>
+        /// <param name="source">An enumerable collection of elements to wrap with the transformation.</param>
         /// <param name="timestampSelector">A function to extract a timestamp from an element.</param>
         /// <param name="windowDuration">
         /// Duration of each time window. This is a maximum value that will be shortened for the last window(s) 
@@ -62,13 +62,13 @@ namespace Scaleout.Streaming.TimeWindowing
         /// <param name="every">The period of time between the start of each sliding window.</param>
         /// <param name="startTime">Start time (inclusive) of the first sliding window.</param>
         /// <param name="watermarkGenerator">A function to generate a watermark. Entries that arrive before the watermark time are evicted.</param>
-        public WatermarkedSlidingWindowCollection(LinkedList<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, TimeSpan every, DateTime startTime, Func<DateTime, DateTime> watermarkGenerator)
+        /// <param name="currentWatermark">The current watermark time.</param>
+        public WatermarkedSlidingWindowCollection(ICollection<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, TimeSpan every, DateTime startTime, Func<DateTime, DateTime> watermarkGenerator, DateTime currentWatermark)
         {
-            _collType = CollectionType.LinkedList;
-            Init(source, timestampSelector, windowDuration, every, startTime, watermarkGenerator);
+            Init(source, timestampSelector, windowDuration, every, startTime, watermarkGenerator, currentWatermark);
         }
 
-        private void Init(IEnumerable<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, TimeSpan every, DateTime startTime, Func<DateTime, DateTime> watermarkGenerator)
+        private void Init(ICollection<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, TimeSpan every, DateTime startTime, Func<DateTime, DateTime> watermarkGenerator, DateTime currentWatermark)
         {
             _source = source ?? throw new ArgumentNullException(nameof(source));
             _timestampSelector = timestampSelector ?? throw new ArgumentNullException(nameof(timestampSelector));
@@ -76,9 +76,9 @@ namespace Scaleout.Streaming.TimeWindowing
             if (every > windowDuration)
                 throw new ArgumentException("Window duration must be larger than period.");
 
-            _windowDuration = windowDuration;
-            _every = every;
-            _startTime = startTime;
+            WindowDuration = windowDuration;
+            Every = every;
+            StartTime = startTime;
 
             // We silently do eviction here before any watermark-based eviction logic is performed.
             // This is to ensure that the collection is in a valid state before we start adding new elements--
@@ -91,21 +91,20 @@ namespace Scaleout.Streaming.TimeWindowing
             // of the first element in the source collection. Instead, we wait for an add to start at the
             // timestamp of the first element that is added to the collection.
             // So we set the watermark to DateTime.MaxValue and update it when the first element is added.
-            _currentWatermark = DateTime.MinValue;
+            CurrentWatermark = currentWatermark;
         }
 
         private void TrimToStartTime()
         {
             // Use add/evict algorithm tuned to underlying collection type.
-            switch (_collType)
+            switch (_source)
             {
-                case CollectionType.List:
-                    IList<T> list = _source as IList<T>;
+                case IList<T> list:
                     // find index of first element to keep.
                     int countOfItemsToRemove = 0;
                     while (countOfItemsToRemove < list.Count)
                     {
-                        if (_timestampSelector(list[countOfItemsToRemove]) < _startTime)
+                        if (_timestampSelector(list[countOfItemsToRemove]) < StartTime)
                             countOfItemsToRemove++;
                         else
                             break;
@@ -114,11 +113,10 @@ namespace Scaleout.Streaming.TimeWindowing
                     if (countOfItemsToRemove > 0)
                         list.RemoveFirstItems(countOfItemsToRemove);
                     break;
-                case CollectionType.LinkedList:
-                    LinkedList<T> linkedList = _source as LinkedList<T>;
+                case LinkedList<T> linkedList:
                     while (linkedList.First != null)
                     {
-                        if (_timestampSelector(linkedList.First.Value) < _startTime)
+                        if (_timestampSelector(linkedList.First.Value) < StartTime)
                             linkedList.RemoveFirst();
                         else
                             break;
@@ -142,19 +140,19 @@ namespace Scaleout.Streaming.TimeWindowing
         {
             DateTime itemTimestamp = _timestampSelector(item);
             DateTime nextWatermark = _watermarkGenerator(itemTimestamp);
-            if (nextWatermark > _currentWatermark)
+            if (nextWatermark > CurrentWatermark)
             {
-                _currentWatermark = nextWatermark;
+                CurrentWatermark = nextWatermark;
             }
 
-            if (itemTimestamp > _currentWatermark)
+            if (itemTimestamp > CurrentWatermark)
             {
                 // Use add/evict algorithm tuned to underlying collection type.
-                switch (_collType)
+                switch (_source)
                 {
-                    case CollectionType.List:
+                    case IList<T> list:
                         return AddToList(item);
-                    case CollectionType.LinkedList:
+                    case LinkedList<T> linkedList:
                         return AddToLinkedList(item);
                     default:
                         throw new NotImplementedException("Underlying collection type not supported");
@@ -193,10 +191,10 @@ namespace Scaleout.Streaming.TimeWindowing
             int startingIndexHint = 0;
 
 
-            var intervalGen = new OpenSlidingWindowIntervalGenerator<T>(_startTime, _every, _windowDuration);
+            var intervalGen = new OpenSlidingWindowIntervalGenerator<T>(StartTime, Every, WindowDuration);
             foreach (var window in intervalGen)
             {
-                if (window.EndTime < _currentWatermark)
+                if (window.EndTime < CurrentWatermark)
                 {
                     startingIndexHint = window.SetItems(source, startingIndexHint, _timestampSelector);
                     evictedWindows.Add(window);
@@ -206,7 +204,7 @@ namespace Scaleout.Streaming.TimeWindowing
                     // Done looking for windows to evict, since the rest of the windows will be after the watermark.
                     // This window is now the start time for the entire collection. We'll be evicting
                     // all items prior to this window's start time
-                    _startTime = window.StartTime;
+                    StartTime = window.StartTime;
                     break;
                 }
             }
@@ -238,12 +236,12 @@ namespace Scaleout.Streaming.TimeWindowing
 
             List<ITimeWindow<T>> evictedWindows = new List<ITimeWindow<T>>();
 
-            var intervalGen = new OpenSlidingWindowIntervalGenerator<T>(_startTime, _every, _windowDuration);
+            var intervalGen = new OpenSlidingWindowIntervalGenerator<T>(StartTime, Every, WindowDuration);
 
             var startHintNode = source.First;
             foreach (var window in intervalGen)
             {
-                if (window.EndTime < _currentWatermark)
+                if (window.EndTime < CurrentWatermark)
                 {
                     startHintNode = window.SetItems(startHintNode, _timestampSelector);
                     evictedWindows.Add(window);
@@ -253,7 +251,7 @@ namespace Scaleout.Streaming.TimeWindowing
                     // Done looking for windows to evict, since the rest of the windows will be after the watermark.
                     // This window is now the start time for the entire collection. We'll be evicting
                     // all items prior to this window's start time
-                    _startTime = window.StartTime;
+                    StartTime = window.StartTime;
                     break;
                 }
             }
@@ -274,7 +272,7 @@ namespace Scaleout.Streaming.TimeWindowing
                 return Enumerable.Empty<ITimeWindow<T>>().GetEnumerator();
 
             DateTime endTime = _timestampSelector(_source.Last()).AddTicks(1);
-            return _source.ToSlidingWindows(_timestampSelector, _startTime, endTime, _windowDuration, _every).GetEnumerator();
+            return _source.ToSlidingWindows(_timestampSelector, StartTime, endTime, WindowDuration, Every).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()

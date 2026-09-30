@@ -14,6 +14,11 @@ namespace Scaleout.Streaming.TimeWindowing
         // just a nice alias--it just wraps a SlidingWindowCollection and lets it do the hard work. 
         WatermarkedSlidingWindowCollection<T> _transform;
 
+        public IReadOnlyCollection<T> Items => _transform.Items;
+        public DateTime CurrentWatermark => _transform.CurrentWatermark;
+        public DateTime StartTime => _transform.StartTime;
+        public TimeSpan WindowDuration => _transform.WindowDuration;
+
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -22,7 +27,7 @@ namespace Scaleout.Streaming.TimeWindowing
         /// <param name="windowDuration">The duration of each tumbling window.</param>
         /// <param name="startTime">The start time for the first window.</param>
         /// <param name="watermarkGenerator">A function to generate the watermark based on the time of the latest element added. Entries that arrive before the watermark time are evicted.</param>
-        public WatermarkedTumblingWindowCollection(IList<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, DateTime startTime, Func<DateTime, DateTime> watermarkGenerator)
+        public WatermarkedTumblingWindowCollection(ICollection<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, DateTime startTime, Func<DateTime, DateTime> watermarkGenerator)
         {
             _transform = new WatermarkedSlidingWindowCollection<T>(source, timestampSelector, windowDuration, windowDuration, startTime, watermarkGenerator);
         }
@@ -35,9 +40,10 @@ namespace Scaleout.Streaming.TimeWindowing
         /// <param name="windowDuration">The duration of each tumbling window.</param>
         /// <param name="startTime">The start time for the first window.</param>
         /// <param name="watermarkGenerator">A function to generate the watermark based on the time of the latest element added. Entries that arrive before the watermark time are evicted.</param>
-        public WatermarkedTumblingWindowCollection(LinkedList<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, DateTime startTime, Func<DateTime, DateTime> watermarkGenerator)
+        /// <param name="currentWatermark">The current watermark time.</param>
+        public WatermarkedTumblingWindowCollection(ICollection<T> source, Func<T, DateTime> timestampSelector, TimeSpan windowDuration, DateTime startTime, Func<DateTime, DateTime> watermarkGenerator, DateTime currentWatermark)
         {
-            _transform = new WatermarkedSlidingWindowCollection<T>(source, timestampSelector, windowDuration, windowDuration, startTime, watermarkGenerator);
+            _transform = new WatermarkedSlidingWindowCollection<T>(source, timestampSelector, windowDuration, windowDuration, startTime, watermarkGenerator, currentWatermark);
         }
 
         /// <summary>
