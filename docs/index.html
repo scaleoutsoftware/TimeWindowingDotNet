@@ -1,65 +1,72 @@
-﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
+<!DOCTYPE html>
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>ScaleOut Time Windowing Library for .NET | ScaleOut Time Windowing Library for .NET </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="ScaleOut Time Windowing Library for .NET | ScaleOut Time Windowing Library for .NET ">
-    <meta name="generator" content="docfx 2.34.0.0">
-    
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="styles/docfx.vendor.css">
-    <link rel="stylesheet" href="styles/docfx.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <meta property="docfx:navrel" content="toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    
+      <title>ScaleOut Time Windowing Library for .NET | ScaleOut Time Windowing Library for .NET </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="ScaleOut Time Windowing Library for .NET | ScaleOut Time Windowing Library for .NET ">
+      
+      
+      <link rel="icon" href="images/favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="index.html">
-                <img id="logo" class="svg" src="images/scaleout_logo.png" alt="">
-              </a>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="images/scaleout_logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
             </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
-              </form>
-            </div>
-          </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
           </div>
         </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
-        <div class="article row grid">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
 <h1 id="scaleout-time-windowing-library-for-net">ScaleOut Time Windowing Library for .NET</h1>
 
 <h2 id="introduction">Introduction</h2>
@@ -71,12 +78,12 @@ operate on any <code>IEnumerable&lt;T&gt;</code> collection.</p>
 <pre><code>using Scaleout.Streaming.TimeWindowing.Linq;
 
 class HeartRate {
-    public DateTime Timestamp { get; set; } // assumes UTC
-    public short BeatsPerMinute { get; set; }
+	public DateTime Timestamp { get; set; } // assumes UTC
+	public short BeatsPerMinute { get; set; }
 }
 
 // Given heart-rate readings every minute, calculate the 5-minute
-// moving average of a person&#39;s heart rate for the past 24 hours.
+// moving average of a person's heart rate for the past 24 hours.
 
 var readings = new List&lt;HeartRate&gt;();
 // [...time-ordered readings populated here, one per minute]
@@ -88,10 +95,11 @@ var slidingWindows = readings.ToSlidingWindows(
         windowDuration: TimeSpan.FromMinutes(5),
         every: TimeSpan.FromMinutes(1));
 
-// print each window&#39;s boundaries and its heartbeat average:
+// print each window's boundaries and its heartbeat average:
 foreach (var win in slidingWindows)
     Console.WriteLine($&quot;{win.StartTime:t} - {win.EndTime:t}: {win.Average(hb =&gt; hb.BeatsPerMinute)}&quot;);
-</code></pre><p>The library also provides convenience classes for management of
+</code></pre>
+<p>The library also provides convenience classes for management of
 collections of time-ordered elements. These classes offer automatic
 eviction and ordering of elements, and they are suited for scenarios
 where elements are only accessed and analyzed as a windowed
@@ -122,7 +130,7 @@ the returned timestamp.</p>
 <strong><a class="xref" href="api/Scaleout.Streaming.TimeWindowing.ITimeWindow-1.html">ITimeWindow</a></strong>
 objects. An <code>ITimeWindow</code> instance is itself an enumerable collection
 of the elements in the source collection whose timestamps fall within
-the window&#39;s time span.</p>
+the window's time span.</p>
 <h3 id="sliding-windows">Sliding Windows</h3>
 <p>Sliding window functions are often used to calculate the moving
 average of time series data. The duration of sliding windows is larger
@@ -131,7 +139,7 @@ each window overlaps with its neighbors:</p>
 <p><img src="images/sliding.jpg" alt="sliding windows"></p>
 <p>If no elements fall in a sliding time window, that window will be
 empty.</p>
-<p>To use the library&#39;s
+<p>To use the library's
 <strong><a class="xref" href="api/Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions.html#Scaleout_Streaming_TimeWindowing_Linq_SlidingWindowExtensions_ToSlidingWindows_">ToSlidingWindows</a></strong>
 method, the source collection <em>must</em> be sorted chronologically. (See
 the <a href="#WrapperClasses">Wrapper Classes</a> section below for details on
@@ -143,7 +151,8 @@ convenient wrapper classes that keep your source collection sorted.)</p>
     DateTime endTime, 
     TimeSpan windowDuration, 
     TimeSpan every)
-</code></pre><p><strong>Parameters</strong>
+</code></pre>
+<p><strong>Parameters</strong></p>
 <dl>
 <dt>source</dt><dd>The sequence of elements to transform.</dd>
 <dt>timestampSelector</dt><dd>A function to extract a timestamp from an element.</dd>
@@ -151,7 +160,7 @@ convenient wrapper classes that keep your source collection sorted.)</p>
 <dt>endTime</dt><dd>End time (exclusive) for the last sliding window(s).</dd>
 <dt>windowDuration</dt><dd>Duration of each time window. This is a maximum value that will be shortened for the last window(s) in the returned sequence.</dd>
 <dt>every</dt><dd>The period of time between the start of each sliding window.</dd>
-</dl></p>
+</dl>
 <h3 id="tumbling-windows">Tumbling Windows</h3>
 <p>Tumbling windows, (or &quot;fixed&quot; windows), divide time series data into
 periodic, non-overlapping windows. Unlike sliding time windows, an
@@ -160,7 +169,7 @@ single window.</p>
 <p><img src="images/tumbling.jpg" alt="tumbling windows"></p>
 <p>If no elements fall in a tumbling time window, that window will be
 empty.</p>
-<p>To use the library&#39;s
+<p>To use the library's
 <strong><a class="xref" href="api/Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions.html#Scaleout_Streaming_TimeWindowing_Linq_TumblingWindowExtensions_ToTumblingWindows_">ToTumblingWindows</a></strong>
 method, the source collection <em>must</em> be sorted chronologically. (See
 the <a href="#WrapperClasses">Wrapper Classes</a> section below for details on
@@ -171,14 +180,15 @@ convenient wrapper classes that keep your source collection sorted.)</p>
     DateTime startTime, 
     DateTime endTime, 
     TimeSpan windowDuration)
-</code></pre><p><strong>Parameters</strong>
+</code></pre>
+<p><strong>Parameters</strong></p>
 <dl>
 <dt>source</dt><dd>The sequence of elements to transform.</dd>
 <dt>timestampSelector</dt><dd>A function to extract a timestamp from an element.</dd>
 <dt>startTime</dt><dd>Start time (inclusive) of the first tumbling window.</dd>
 <dt>endTime</dt><dd>End time (exclusive) for the last tumbling window.</dd>
 <dt>windowDuration</dt><dd>Duration of each time window. This is a maximum value that will be shortened for the last window in the returned sequence.</dd>
-</dl></p>
+</dl>
 <h3 id="session-windows">Session Windows</h3>
 <p>The duration of a session window is not fixed; rather, it is
 determined by the time interval between elements: if a period of idle
@@ -201,12 +211,13 @@ sorted.)</p>
     this IEnumerable&lt;TSource&gt; source, 
     Func&lt;TSource, DateTime&gt; timestampSelector,
     TimeSpan idleThreshold)
-</code></pre><p><strong>Parameters</strong>
+</code></pre>
+<p><strong>Parameters</strong></p>
 <dl>
 <dt>source</dt><dd>The sequence of elements to transform.</dd>
 <dt>timestampSelector</dt><dd>A function to extract a timestamp from an element.</dd>
 <dt>idleThreshold</dt><dd>Maximum allowed time gap between elements before a new session window is started.</dd>
-</dl></p>
+</dl>
 <p><a name="WrapperClasses"></a></p>
 <h2 id="wrapper-classes">Wrapper Classes</h2>
 <p>In addition to the three extension methods detailed above, the library
@@ -219,18 +230,18 @@ and
 classes wrap a source collection (typically a <code>List&lt;T&gt;</code> or
 <code>LinkedList&lt;T&gt;</code>) and manage its elements.</p>
 <p>These wrapper classes are intended to be used as alternatives to the
-library&#39;s extension methods when the underlying elements are accessed
+library's extension methods when the underlying elements are accessed
 primarily as a windowed collection. It is therefore expected that the
 elements in the underlying source collection will only be accessed and
 modified through the chosen wrapper. These wrappers perform the
 following work on your behalf:</p>
 <ul>
 <li><strong>Eviction:</strong> Eviction of elements is automatically handled, as
-specified by the policy passed into the wrapper&#39;s
+specified by the policy passed into the wrapper's
 constructor. Eviction is performed when the wrapper collection is
-constructed and when new items are added through the a wrapper&#39;s
+constructed and when new items are added through the a wrapper's
 <code>Add()</code> method.</li>
-<li><strong>Ordering:</strong> When elements are added through a wrapper&#39;s <code>Add()</code>
+<li><strong>Ordering:</strong> When elements are added through a wrapper's <code>Add()</code>
 method, it is inserted into the underlying collection in the correct
 chronological position.</li>
 </ul>
@@ -244,18 +255,19 @@ associated time windows.</p>
     TimeSpan windowDuration,
     TimeSpan every
     DateTime startTime)
-</code></pre><p>The parameters to this constructor are similar to the parameters to
+</code></pre>
+<p>The parameters to this constructor are similar to the parameters to
 the <code>ToSlidingWindows</code> extension method, except that the <code>startTime</code>
 parameter defines the eviction policy for the collection as well as
 the starting point for the windowing transform--elements with
 timestamps prior to <code>startTime</code> will be removed from the source
 collection.</p>
-<p>Also, there is no <code>endTime</code> parameter in the wrapper&#39;s constructor
+<p>Also, there is no <code>endTime</code> parameter in the wrapper's constructor
 like there is in the <code>ToSlidingWindows</code> method. When enumerating
 through sliding windows exposed by the wrapper, the end time is
 implicitly set to the last (most recent) element in the source
 collection.</p>
-<p>Once constructed, the wrapper&#39;s <code>Add()</code> method should be used to add
+<p>Once constructed, the wrapper's <code>Add()</code> method should be used to add
 elements to the collection.</p>
 <h3 id="tumbling-window-wrapper">Tumbling Window Wrapper</h3>
 <p>The <code>TumblingWindowCollection&lt;T&gt;</code> class provides the following constructor:</p>
@@ -264,17 +276,18 @@ elements to the collection.</p>
     Func&lt;T, DateTime&gt; timestampSelector,
     TimeSpan windowDuration,
     DateTime startTime)
-</code></pre><p>The parameters to this constructor are similar to the parameters to
+</code></pre>
+<p>The parameters to this constructor are similar to the parameters to
 the <code>ToTumblingWindows</code> extension method, except that the <code>startTime</code>
 parameter defines the eviction policy for the collection as well as
 the starting point for the windowing transform. Elements with
 timestamps prior to <code>startTime</code> will be removed from the source
 collection.</p>
-<p>Also, there is no <code>endTime</code> parameter in the wrapper&#39;s constructor
+<p>Also, there is no <code>endTime</code> parameter in the wrapper's constructor
 like there is in the <code>ToTumblingWindows</code> method. When enumerating
 through windows exposed by the wrapper, the end time is implicitly set
 to the last (most recent) element in the source collection.</p>
-<p>Once constructed, the wrapper&#39;s <code>Add()</code> method should be used to add
+<p>Once constructed, the wrapper's <code>Add()</code> method should be used to add
 elements to the collection.</p>
 <h3 id="session-window-wrapper">Session Window Wrapper</h3>
 <p>The <code>SessionWindowCollection&lt;T&gt;</code> class provides the following constructor:</p>
@@ -283,51 +296,123 @@ elements to the collection.</p>
     Func&lt;T, DateTime&gt; timestampSelector,
     TimeSpan idleThreshold,
     int boundedSessionCapacity)
-</code></pre><p>The parameters to this constructor are largely identical to the
+</code></pre>
+<p>The parameters to this constructor are largely identical to the
 paramaters to the <code>ToSessionWindows</code> extension method, with the
 exception of the additional <code>boundedSessionCapacity</code>, which defines
 how many sessions worth of elements to keep in the underlying
 collection. If the <code>boundedSessionCapacity</code> is exceeded then the
 elements associated with the oldest session(s) at the front of the
 source collection will be removed.</p>
-<p>Once constructed, the wrapper&#39;s <code>Add()</code> method should be used to add
+<p>Once constructed, the wrapper's <code>Add()</code> method should be used to add
 elements to the source collection instead of adding elements directly
-to the source collection. If the wrapper&#39;s <code>Add()</code> operation results
+to the source collection. If the wrapper's <code>Add()</code> operation results
 in the creation of a new session window then it may evict elements in
-accordance to the wrapper&#39;s <code>boundedSessionCapacity</code> policy.</p>
+accordance to the wrapper's <code>boundedSessionCapacity</code> policy.</p>
+<h2 id="watermarked-collections">Watermarked Collections</h2>
+<p>In addition to the basic wrapper classes described above, the library supplies a set of &quot;watermarked&quot; wrapper collection classes that perform more sophisticated eviction based on the timestamps of incoming events. These watermarked collections are intended for use in scenarios where the collection is long-lived and is being populated with events in real-time, and where the timestamps of those events may not be strictly ordered.</p>
+<p>These wrappers perform the following work on your behalf:</p>
+<ul>
+<li><strong>Watermarking:</strong> The collections maintain a watermark based on the timestamp
+from elements that are added to the collection via the <code>Add()</code> method. A callback function
+is provided to the wrapper's constructor to generate a watermark from the timestamp of an incoming event.</li>
+<li><strong>Window Closure:</strong> When the watermark passes the inclusive end of a window,
+that window is closed because no new events can be added to the window. Closed windows
+are returned from the <code>Add()</code> method.</li>
+<li><strong>Eviction:</strong> Elements that reside exclusively in closed windows are evicted from the source collection. Eviction is performed when new items are added through the wrapper's <code>Add()</code> method.</li>
+<li><strong>Ordering:</strong> When elements are added through a wrapper's <code>Add()</code>
+method, the timestamp of the incoming event is checked against the collection's current watermark. If the event's
+timestamp is after the watermark, then a new watermark is generated from the incoming event and the event is inserted into the underlying collection in the correct chronological position.</li>
+</ul>
+<h3 id="watermarked-sliding-window-collection">Watermarked Sliding Window Collection</h3>
+<p><img src="images/watermarkedslidingwindow.png" alt="WatermarkedSlidingWindowCollection"></p>
+<p>The <strong><a class="xref" href="api/Scaleout.Streaming.TimeWindowing.WatermarkedSlidingWindowCollection-1.html">WatermarkedSlidingWindowCollection&lt;T&gt;</a></strong> class provides the following constructor:</p>
+<pre><code>public WatermarkedSlidingWindowCollection(
+    ICollection&lt;T&gt; source,
+    Func&lt;T, DateTime&gt; timestampSelector,
+    TimeSpan windowDuration,
+    TimeSpan every,
+    DateTime startTime,
+    Func&lt;DateTime, DateTime&gt; watermarkGenerator)
+</code></pre>
+<p>The parameters to this constructor are similar to the parameters to
+the <code>ToSlidingWindows</code> method, except that the <code>startTime</code>
+parameter defines the eviction policy for the collection as well as
+the starting point for the windowing transform--elements with
+timestamps prior to <code>startTime</code> will be removed from the source
+collection.</p>
+<p>Also, there is no <code>endTime</code> parameter in the wrapper's constructor
+like there is in the <code>ToSlidingWindows</code> method. When iterating
+through sliding windows exposed by the wrapper, the end time is
+implicitly set to the last (most recent) element in the source
+collection.</p>
+<p>Once constructed, the wrapper's <code>Add()</code> method should be used to add
+elements to the source list. If an <code>Add()</code> causes <code>TimeWindows</code> to close,
+then those TimeWindows will be returned to the caller of the <code>Add()</code> method.</p>
+<p>Elements that reside exclusively in the closed <code>TimeWindow</code> will be evicted.</p>
+<h3 id="watermarked-tumbling-window-collection">Watermarked Tumbling Window Collection</h3>
+<p><img src="images/watermarkedtumblingwindow.png" alt="WatermarkedTumblingWindowCollection"></p>
+<p>The <strong><a class="xref" href="api/Scaleout.Streaming.TimeWindowing.WatermarkedTumblingWindowCollection-1.html">WatermarkedTumblingWindowCollection&lt;T&gt;</a></strong> class provides the following constructor:</p>
+<pre><code>public WatermarkedTumblingWindowCollection(
+    ICollection&lt;T&gt; source,
+    Func&lt;T, DateTime&gt; timestampSelector,
+    TimeSpan windowDuration,
+    DateTime startTime,
+    Func&lt;DateTime, DateTime&gt; watermarkGenerator)
+</code></pre>
+<p>The parameters to this constructor are similar to the parameters to
+the <code>ToTumblingWindows</code> method, except that the <code>startTime</code>
+parameter defines the eviction policy for the collection as well as
+the starting point for the windowing transform. Elements with
+timestamps prior to <code>startTime</code> will be removed from the source
+collection.</p>
+<p>Also, there is no <code>endTime</code> parameter in the wrapper's constructor
+like there is in the <code>ToTumblingWindows</code> method. When iterating
+through windows exposed by the wrapper, the end time is
+implicitly set to the last (most recent) element in the source
+collection.</p>
+<p>Once constructed, the wrapper's <code>Add()</code> method should be used to add
+elements to the source list. If an <code>Add()</code> causes <code>TimeWindows</code> to close,
+then those TimeWindows will be returned to the caller of the <code>Add()</code> method.</p>
+<p>Elements that reside exclusively in the closed <code>TimeWindow</code> will be evicted.</p>
+<h3 id="watermarked-session-window-collection">Watermarked Session Window Collection</h3>
+<p><img src="images/watermarkedsessionwindow.png" alt="WatermarkedSessionWindowCollection"></p>
+<p>The <strong><a class="xref" href="api/Scaleout.Streaming.TimeWindowing.WatermarkedSessionWindowCollection-1.html">WatermarkedSessionWindowCollection&lt;T&gt;</a></strong> class provides the following constructor:</p>
+<pre><code>public WatermarkedSessionWindowCollection(
+    ICollection&lt;T&gt; source,
+    Func&lt;T, DateTime&gt; timestampSelector,
+    TimeSpan idleThreshold,
+    Func&lt;DateTime, DateTime&gt; watermarkGenerator)
+</code></pre>
+<p>The parameters to this constructor are similar to the parameters to
+the <code>ToSessionWindows</code> method, except that that a callback must be
+supplied to generate the watermark when items are added.</p>
+<p>Once constructed, the wrapper's <code>Add()</code> method should be used to add
+elements to the source list. If an <code>Add()</code> causes <code>TimeWindows</code> to close,
+then those TimeWindows will be returned to the caller of the <code>Add()</code> method.</p>
+<p>Elements that reside exclusively in the closed <code>TimeWindow</code> will be evicted.</p>
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
-            </div>
-          </div>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright &copy; 2017-2026 ScaleOut Software, Inc.
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            Copyright &copy; 2017-2018 ScaleOut Software, Inc.
-            
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="styles/docfx.js"></script>
-    <script type="text/javascript" src="styles/main.js"></script>
+    </footer>
   </body>
 </html>

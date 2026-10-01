@@ -1,6 +1,5 @@
 {
-  "homepages": [],
-  "source_base_path": "D:/Users/markw/dev/src/TimeWindowingDotNet/docfx_project",
+  "source_base_path": "C:/Users/markw/dev/github/TimeWindowingDotNet/docfx_project",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -8,119 +7,177 @@
       "source_relative_path": "api/Scaleout.Streaming.TimeWindowing.ITimeWindow-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Scaleout.Streaming.TimeWindowing.ITimeWindow-1.html",
-          "hash": "zqTOVgpVNlLsZ9AULV9XOg=="
+          "relative_path": "api/Scaleout.Streaming.TimeWindowing.ITimeWindow-1.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Scaleout.Streaming.TimeWindowing.ITimeWindow<TElement>",
+      "Summary": "<p sourcefile=\"api/Scaleout.Streaming.TimeWindowing.ITimeWindow-1.yml\" sourcestartlinenumber=\"1\">Supports iteration over a collection of elements that fall within a time window.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions.html",
-          "hash": "BngONCt/1JSgfYqBJBlT0Q=="
+          "relative_path": "api/Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions",
+      "Summary": "<p sourcefile=\"api/Scaleout.Streaming.TimeWindowing.Linq.SessionWindowExtensions.yml\" sourcestartlinenumber=\"1\">Provides extension method for session windowing.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions.html",
-          "hash": "fGWcC+lhTy6l4zBjNbI02A=="
+          "relative_path": "api/Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions",
+      "Summary": "<p sourcefile=\"api/Scaleout.Streaming.TimeWindowing.Linq.SlidingWindowExtensions.yml\" sourcestartlinenumber=\"1\">Provides extension method for sliding window transformation of a collection.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions.html",
-          "hash": "D6LiTxyaY2eXsoU+5GYn4A=="
+          "relative_path": "api/Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions",
+      "Summary": "<p sourcefile=\"api/Scaleout.Streaming.TimeWindowing.Linq.TumblingWindowExtensions.yml\" sourcestartlinenumber=\"1\">Provides extension method for tumbling window transformation of a collection.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Scaleout.Streaming.TimeWindowing.Linq.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Scaleout.Streaming.TimeWindowing.Linq.html",
-          "hash": "pqYqUoA6Lsyt3sHV4bq62Q=="
+          "relative_path": "api/Scaleout.Streaming.TimeWindowing.Linq.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Scaleout.Streaming.TimeWindowing.Linq",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Scaleout.Streaming.TimeWindowing.SessionWindowCollection-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Scaleout.Streaming.TimeWindowing.SessionWindowCollection-1.html",
-          "hash": "7XVLKxkKFPk4gJkIko72ZQ=="
+          "relative_path": "api/Scaleout.Streaming.TimeWindowing.SessionWindowCollection-1.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Scaleout.Streaming.TimeWindowing.SessionWindowCollection<T>",
+      "Summary": "<p sourcefile=\"api/Scaleout.Streaming.TimeWindowing.SessionWindowCollection-1.yml\" sourcestartlinenumber=\"1\">Transforms a collection into an enumerable collection of session windows and manages\neviction of old items from the source collection.\nThis wrapper can be used to manage the retention policy of the underlying\ncollection. Objects added through this wrapper are inserted in chronological\norder and evicted according to the policy provided to the constructor.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Scaleout.Streaming.TimeWindowing.SlidingWindowCollection-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Scaleout.Streaming.TimeWindowing.SlidingWindowCollection-1.html",
-          "hash": "Uff+JXOno3y4uyFyHAhDbA=="
+          "relative_path": "api/Scaleout.Streaming.TimeWindowing.SlidingWindowCollection-1.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Scaleout.Streaming.TimeWindowing.SlidingWindowCollection<T>",
+      "Summary": "<p sourcefile=\"api/Scaleout.Streaming.TimeWindowing.SlidingWindowCollection-1.yml\" sourcestartlinenumber=\"1\">Transforms a collection into an enumerable collection of overlapping time windows and manages\neviction of old items from the source collection.\nThis wrapper can be used to manage the retention policy of the underlying collection.\nObjects added through this wrapper are inserted in chronological\norder and evicted according to the <code>startTime</code> policy provided to the constructor.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Scaleout.Streaming.TimeWindowing.TumblingWindowCollection-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Scaleout.Streaming.TimeWindowing.TumblingWindowCollection-1.html",
-          "hash": "t/4TWrwashauBiR/w+SgYw=="
+          "relative_path": "api/Scaleout.Streaming.TimeWindowing.TumblingWindowCollection-1.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Scaleout.Streaming.TimeWindowing.TumblingWindowCollection<T>",
+      "Summary": "<p sourcefile=\"api/Scaleout.Streaming.TimeWindowing.TumblingWindowCollection-1.yml\" sourcestartlinenumber=\"1\">Transforms a collection into an enumerable collection of fixed-time windows and manages\neviction of old items from the source collection.\nThis wrapper can be used to manage the retention policy of the underlying collection.\nObjects added through this wrapper are inserted in chronological\norder and evicted according to the <code>startTime</code> policy provided to the constructor.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Scaleout.Streaming.TimeWindowing.WatermarkedSessionWindowCollection-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Scaleout.Streaming.TimeWindowing.WatermarkedSessionWindowCollection-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Scaleout.Streaming.TimeWindowing.WatermarkedSessionWindowCollection<T>",
+      "Summary": "<p sourcefile=\"api/Scaleout.Streaming.TimeWindowing.WatermarkedSessionWindowCollection-1.yml\" sourcestartlinenumber=\"1\">Transforms a collection into an enumerable collection of session windows.\nThe collection also supports watermark-based closure of time windows\nand eviction of old elements from the underlying collection.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Scaleout.Streaming.TimeWindowing.WatermarkedSlidingWindowCollection-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Scaleout.Streaming.TimeWindowing.WatermarkedSlidingWindowCollection-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Scaleout.Streaming.TimeWindowing.WatermarkedSlidingWindowCollection<T>",
+      "Summary": "<p sourcefile=\"api/Scaleout.Streaming.TimeWindowing.WatermarkedSlidingWindowCollection-1.yml\" sourcestartlinenumber=\"1\">Iterable collection of time windows that are generated from an underlying\ncollection of elements.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Scaleout.Streaming.TimeWindowing.WatermarkedTumblingWindowCollection-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Scaleout.Streaming.TimeWindowing.WatermarkedTumblingWindowCollection-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Scaleout.Streaming.TimeWindowing.WatermarkedTumblingWindowCollection<T>",
+      "Summary": "<p sourcefile=\"api/Scaleout.Streaming.TimeWindowing.WatermarkedTumblingWindowCollection-1.yml\" sourcestartlinenumber=\"1\">A collection of tumbling time windows that are generated from a source\ncollection of elements. Each window has a fixed duration and does not\noverlap with other windows.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Scaleout.Streaming.TimeWindowing.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Scaleout.Streaming.TimeWindowing.html",
-          "hash": "njNzppv77PzKILSGLhfyNw=="
+          "relative_path": "api/Scaleout.Streaming.TimeWindowing.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Scaleout.Streaming.TimeWindowing",
+      "Summary": null
     },
     {
       "type": "Conceptual",
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
-          "relative_path": "api/index.html",
-          "hash": "QyPI+4QKXMgW749fi3eNnQ=="
+          "relative_path": "api/index.html"
         }
       },
-      "is_incremental": true,
       "version": ""
     },
     {
@@ -128,11 +185,12 @@
       "source_relative_path": "api/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "api/toc.html",
-          "hash": "CrgipwUOTqFpBdO1iHd/eQ=="
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -140,11 +198,9 @@
       "source_relative_path": "articles/intro.md",
       "output": {
         ".html": {
-          "relative_path": "articles/intro.html",
-          "hash": "PeYr0KE/a2m7OchUwPOIAA=="
+          "relative_path": "articles/intro.html"
         }
       },
-      "is_incremental": true,
       "version": ""
     },
     {
@@ -152,11 +208,12 @@
       "source_relative_path": "articles/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "articles/toc.html",
-          "hash": "xVlQaX7Tk85omoiWv3O+Ag=="
+          "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -167,7 +224,6 @@
           "relative_path": "images/favicon.ico"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -178,7 +234,16 @@
           "relative_path": "images/scaleout_logo.png"
         }
       },
-      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/scaleout_logo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/scaleout_logo.svg"
+        }
+      },
       "version": ""
     },
     {
@@ -189,7 +254,6 @@
           "relative_path": "images/session.jpg"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -200,7 +264,6 @@
           "relative_path": "images/sliding.jpg"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -211,7 +274,36 @@
           "relative_path": "images/tumbling.jpg"
         }
       },
-      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/watermarkedsessionwindow.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/watermarkedsessionwindow.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/watermarkedslidingwindow.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/watermarkedslidingwindow.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/watermarkedtumblingwindow.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/watermarkedtumblingwindow.png"
+        }
+      },
       "version": ""
     },
     {
@@ -219,11 +311,9 @@
       "source_relative_path": "index.md",
       "output": {
         ".html": {
-          "relative_path": "index.html",
-          "hash": "gI4Lb30JFRdCsSkj6E4kNQ=="
+          "relative_path": "index.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -231,51 +321,15 @@
       "source_relative_path": "toc.yml",
       "output": {
         ".html": {
-          "relative_path": "toc.html",
-          "hash": "1GPRCF8UiDh5g/ht5/FC/g=="
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
         }
       },
-      "is_incremental": false,
       "version": ""
     }
   ],
-  "incremental_info": [
-    {
-      "status": {
-        "can_incremental": true,
-        "incrementalPhase": "build"
-      },
-      "processors": {
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
-        "ResourceDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build"
-        },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build"
-        }
-      }
-    },
-    {
-      "status": {
-        "can_incremental": true,
-        "details": "Can support incremental post processing.",
-        "incrementalPhase": "postProcessing"
-      },
-      "processors": {}
-    }
-  ],
-  "version_info": {},
   "groups": [
     {
       "xrefmap": "xrefmap.yml"
