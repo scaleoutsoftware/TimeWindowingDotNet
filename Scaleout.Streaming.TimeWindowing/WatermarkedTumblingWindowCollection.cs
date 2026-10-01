@@ -7,6 +7,18 @@ using System.Threading.Tasks;
 
 namespace Scaleout.Streaming.TimeWindowing
 {
+    /// <summary>
+    /// A collection of tumbling time windows that are generated from a source
+    /// collection of elements. Each window has a fixed duration and does not
+    /// overlap with other windows.
+    /// </summary>
+    /// <remarks>
+    /// The underlying collection is expected to be ordered 
+    /// by timestamp, and the time windows are generated based on a tumbling window
+    /// algorithm. The collection also supports watermark-based closure of time windows
+    /// and eviction of old elements from the underlying collection.
+    /// </remarks>
+    /// <typeparam name="T">The type of elements in the collection.</typeparam>
     public class WatermarkedTumblingWindowCollection<T> : IEnumerable<ITimeWindow<T>>
     {
         // Tumbling windows are just a special case of sliding windows where the duration of each

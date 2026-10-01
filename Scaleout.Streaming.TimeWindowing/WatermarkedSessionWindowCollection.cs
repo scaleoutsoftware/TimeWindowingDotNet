@@ -9,6 +9,12 @@ using System.Threading.Tasks;
 
 namespace Scaleout.Streaming.TimeWindowing
 {
+    /// <summary>
+    /// Transforms a collection into an enumerable collection of session windows. 
+    /// The collection also supports watermark-based closure of time windows
+    /// and eviction of old elements from the underlying collection.
+    /// </summary>
+    /// <typeparam name="T">The type of elements in the collection.</typeparam>
     public class WatermarkedSessionWindowCollection<T> : IEnumerable<ITimeWindow<T>>
     {
         ICollection<T> _source;

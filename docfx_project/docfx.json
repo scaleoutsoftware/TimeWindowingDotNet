@@ -1,12 +1,13 @@
 {
+  "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
   "metadata": [
     {
       "src": [
         {
           "files": [
-            "**/**.csproj"
+            "*.csproj"
           ],
-		  "src": "../Framework45"
+          "src": "../Scaleout.Streaming.TimeWindowing"
         }
       ],
       "dest": "api",
@@ -37,32 +38,19 @@
         ]
       }
     ],
-    "overwrite": [
-      {
-        "files": [
-          "apidoc/**.md"
-        ],
-        "exclude": [
-          "obj/**",
-          "../docs/**"
-        ]
-      }
-    ],
     "dest": "../docs",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
-      "default"
+      "default",
+      "modern"
     ],
     "postProcessors": [],
-    "noLangKeyword": false,
-    "keepFileLink": false,
-    "cleanupCacheHistory": false,
     "disableGitFeatures": true,
-	"globalMetadata": {
+    "globalMetadata": {
       "_appTitle": "ScaleOut Time Windowing Library for .NET",
-      "_appLogoPath": "images/scaleout_logo.png",
-      "_appFooter": "Copyright &copy; 2017-2018 ScaleOut Software, Inc.",
+      "_appLogoPath": "images/scaleout_logo.svg",
+      "_appFooter": "Copyright &copy; 2017-2026 ScaleOut Software, Inc.",
       "_appFaviconPath": "images/favicon.ico"
 
     }

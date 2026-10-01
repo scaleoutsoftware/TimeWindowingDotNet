@@ -176,6 +176,7 @@ sorted.)
 </dl>
 
 <a name="WrapperClasses"></a>
+
 ## Wrapper Classes
 
 In addition to the three extension methods detailed above, the library
@@ -282,3 +283,107 @@ elements to the source collection instead of adding elements directly
 to the source collection. If the wrapper's `Add()` operation results
 in the creation of a new session window then it may evict elements in
 accordance to the wrapper's `boundedSessionCapacity` policy.
+
+## Watermarked Collections
+
+In addition to the basic wrapper classes described above, the library supplies a set of "watermarked" wrapper collection classes that perform more sophisticated eviction based on the timestamps of incoming events. These watermarked collections are intended for use in scenarios where the collection is long-lived and is being populated with events in real-time, and where the timestamps of those events may not be strictly ordered.
+
+These wrappers perform the following work on your behalf:
+
+* **Watermarking:** The collections maintain a watermark based on the timestamp 
+  from elements that are added to the collection via the `Add()` method. A callback function
+  is provided to the wrapper's constructor to generate a watermark from the timestamp of an incoming event.
+* **Window Closure:** When the watermark passes the inclusive end of a window,
+  that window is closed because no new events can be added to the window. Closed windows
+  are returned from the `Add()` method. 
+* **Eviction:** Elements that reside exclusively in closed windows are evicted from the source collection. Eviction is performed when new items are added through the wrapper's `Add()` method.
+* **Ordering:** When elements are added through a wrapper's `Add()`
+  method, the timestamp of the incoming event is checked against the collection's current watermark. If the event's 
+  timestamp is after the watermark, then a new watermark is generated from the incoming event and the event is inserted into the underlying collection in the correct chronological position.
+
+### Watermarked Sliding Window Collection
+
+![WatermarkedSlidingWindowCollection](images/watermarkedslidingwindow.png)
+
+The **[WatermarkedSlidingWindowCollection&lt;T&gt;](xref:Scaleout.Streaming.TimeWindowing.WatermarkedSlidingWindowCollection`1)** class provides the following constructor:
+
+    public WatermarkedSlidingWindowCollection(
+        ICollection<T> source,
+        Func<T, DateTime> timestampSelector,
+        TimeSpan windowDuration,
+        TimeSpan every,
+        DateTime startTime,
+        Func<DateTime, DateTime> watermarkGenerator)
+
+The parameters to this constructor are similar to the parameters to
+the `ToSlidingWindows` method, except that the `startTime`
+parameter defines the eviction policy for the collection as well as
+the starting point for the windowing transform--elements with
+timestamps prior to `startTime` will be removed from the source
+collection.
+
+Also, there is no `endTime` parameter in the wrapper's constructor
+like there is in the `ToSlidingWindows` method. When iterating
+through sliding windows exposed by the wrapper, the end time is
+implicitly set to the last (most recent) element in the source
+collection.
+
+Once constructed, the wrapper's `Add()` method should be used to add
+elements to the source list. If an `Add()` causes `TimeWindows` to close, 
+then those TimeWindows will be returned to the caller of the `Add()` method.
+
+Elements that reside exclusively in the closed `TimeWindow` will be evicted.
+
+### Watermarked Tumbling Window Collection
+
+![WatermarkedTumblingWindowCollection](images/watermarkedtumblingwindow.png)
+
+The **[WatermarkedTumblingWindowCollection&lt;T&gt;](xref:Scaleout.Streaming.TimeWindowing.WatermarkedTumblingWindowCollection`1)** class provides the following constructor:
+
+    public WatermarkedTumblingWindowCollection(
+        ICollection<T> source,
+        Func<T, DateTime> timestampSelector,
+        TimeSpan windowDuration,
+        DateTime startTime,
+        Func<DateTime, DateTime> watermarkGenerator)
+
+The parameters to this constructor are similar to the parameters to
+the `ToTumblingWindows` method, except that the `startTime`
+parameter defines the eviction policy for the collection as well as
+the starting point for the windowing transform. Elements with
+timestamps prior to `startTime` will be removed from the source
+collection.
+
+Also, there is no `endTime` parameter in the wrapper's constructor
+like there is in the `ToTumblingWindows` method. When iterating
+through windows exposed by the wrapper, the end time is
+implicitly set to the last (most recent) element in the source
+collection.
+
+Once constructed, the wrapper's `Add()` method should be used to add
+elements to the source list. If an `Add()` causes `TimeWindows` to close,
+then those TimeWindows will be returned to the caller of the `Add()` method.
+
+Elements that reside exclusively in the closed `TimeWindow` will be evicted.
+
+### Watermarked Session Window Collection
+
+![WatermarkedSessionWindowCollection](images/watermarkedsessionwindow.png)
+
+The **[WatermarkedSessionWindowCollection&lt;T&gt;](xref:Scaleout.Streaming.TimeWindowing.WatermarkedSessionWindowCollection`1)** class provides the following constructor:
+
+    public WatermarkedSessionWindowCollection(
+        ICollection<T> source,
+        Func<T, DateTime> timestampSelector,
+        TimeSpan idleThreshold,
+        Func<DateTime, DateTime> watermarkGenerator)
+
+The parameters to this constructor are similar to the parameters to
+the `ToSessionWindows` method, except that that a callback must be
+supplied to generate the watermark when items are added.
+
+Once constructed, the wrapper's `Add()` method should be used to add
+elements to the source list. If an `Add()` causes `TimeWindows` to close,
+then those TimeWindows will be returned to the caller of the `Add()` method.
+
+Elements that reside exclusively in the closed `TimeWindow` will be evicted.
